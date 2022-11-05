@@ -7,7 +7,7 @@
         Me.Close()
     End Sub
 
-    Private Sub Panel1_MouseClick(sender As Object, e As MouseEventArgs) Handles Panel1.MouseClick
+    Private Sub Panel1_MouseClick(sender As Object, e As MouseEventArgs)
         Me.Close()
     End Sub
 End Class

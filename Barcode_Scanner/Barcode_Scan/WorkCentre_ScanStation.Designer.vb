@@ -29,14 +29,14 @@ Partial Class WorkCentre_ScanStation
         Me.modelID = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.userID = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.Button8 = New System.Windows.Forms.Button()
+        Me.backBtn = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -124,35 +124,15 @@ Partial Class WorkCentre_ScanStation
         Me.Panel1.Size = New System.Drawing.Size(458, 57)
         Me.Panel1.TabIndex = 7
         '
-        'Label4
+        'Label8
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Bahnschrift Condensed", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(3, 9)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(74, 34)
-        Me.Label4.TabIndex = 3
-        Me.Label4.Text = "Top Up"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Bahnschrift Condensed", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(90, 2)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(26, 43)
-        Me.Label5.TabIndex = 3
-        Me.Label5.Text = "|"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Bahnschrift Condensed", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(277, 2)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(26, 43)
-        Me.Label6.TabIndex = 4
-        Me.Label6.Text = "|"
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Bahnschrift Condensed", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(297, 9)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(158, 34)
+        Me.Label8.TabIndex = 6
+        Me.Label8.Text = "Sample Part [0]"
         '
         'Label7
         '
@@ -164,15 +144,35 @@ Partial Class WorkCentre_ScanStation
         Me.Label7.TabIndex = 5
         Me.Label7.Text = "Part Station [0]"
         '
-        'Label8
+        'Label6
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Bahnschrift Condensed", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(297, 9)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(158, 34)
-        Me.Label8.TabIndex = 6
-        Me.Label8.Text = "Sample Part [0]"
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Bahnschrift Condensed", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(277, 2)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(26, 43)
+        Me.Label6.TabIndex = 4
+        Me.Label6.Text = "|"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Bahnschrift Condensed", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(90, 2)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(26, 43)
+        Me.Label5.TabIndex = 3
+        Me.Label5.Text = "|"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Bahnschrift Condensed", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(3, 9)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(74, 34)
+        Me.Label4.TabIndex = 3
+        Me.Label4.Text = "Top Up"
         '
         'userID
         '
@@ -192,16 +192,16 @@ Partial Class WorkCentre_ScanStation
         Me.Label11.TabIndex = 18
         Me.Label11.Text = "User Id : "
         '
-        'Button8
+        'backBtn
         '
-        Me.Button8.BackColor = System.Drawing.Color.LightCoral
-        Me.Button8.ForeColor = System.Drawing.Color.White
-        Me.Button8.Location = New System.Drawing.Point(309, 460)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(102, 53)
-        Me.Button8.TabIndex = 21
-        Me.Button8.Text = "Back"
-        Me.Button8.UseVisualStyleBackColor = False
+        Me.backBtn.BackColor = System.Drawing.Color.LightCoral
+        Me.backBtn.ForeColor = System.Drawing.Color.White
+        Me.backBtn.Location = New System.Drawing.Point(309, 484)
+        Me.backBtn.Name = "backBtn"
+        Me.backBtn.Size = New System.Drawing.Size(102, 53)
+        Me.backBtn.TabIndex = 21
+        Me.backBtn.Text = "Back"
+        Me.backBtn.UseVisualStyleBackColor = False
         '
         'Panel2
         '
@@ -255,7 +255,7 @@ Partial Class WorkCentre_ScanStation
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(458, 584)
-        Me.Controls.Add(Me.Button8)
+        Me.Controls.Add(Me.backBtn)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.userID)
         Me.Controls.Add(Me.Label11)
@@ -291,7 +291,7 @@ Partial Class WorkCentre_ScanStation
     Friend WithEvents Label8 As Label
     Friend WithEvents userID As Label
     Friend WithEvents Label11 As Label
-    Friend WithEvents Button8 As Button
+    Friend WithEvents backBtn As Button
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Button3 As Button
     Friend WithEvents Label9 As Label

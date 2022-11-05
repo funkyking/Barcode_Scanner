@@ -23,12 +23,13 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.userPass = New System.Windows.Forms.TextBox()
+        Me.userID = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -39,13 +40,12 @@ Partial Class Form1
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel4.SuspendLayout()
-        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -59,12 +59,29 @@ Partial Class Form1
         Me.Panel1.Size = New System.Drawing.Size(458, 584)
         Me.Panel1.TabIndex = 0
         '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.MediumSeaGreen
+        Me.Panel3.Controls.Add(Me.Label1)
+        Me.Panel3.Location = New System.Drawing.Point(0, 55)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(458, 58)
+        Me.Panel3.TabIndex = 2
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Bahnschrift Condensed", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(3, 5)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(73, 39)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Login"
+        '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.Snow
         Me.Panel2.Controls.Add(Me.LinkLabel1)
-        Me.Panel2.Controls.Add(Me.TextBox3)
-        Me.Panel2.Controls.Add(Me.TextBox2)
         Me.Panel2.Controls.Add(Me.Label5)
         Me.Panel2.Controls.Add(Me.Panel5)
         Me.Panel2.Controls.Add(Me.Panel6)
@@ -83,19 +100,19 @@ Partial Class Form1
         Me.LinkLabel1.TabStop = True
         Me.LinkLabel1.Text = "Forgot Password ?"
         '
-        'TextBox3
+        'userPass
         '
-        Me.TextBox3.Location = New System.Drawing.Point(91, 174)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(259, 26)
-        Me.TextBox3.TabIndex = 7
+        Me.userPass.Location = New System.Drawing.Point(44, 116)
+        Me.userPass.Name = "userPass"
+        Me.userPass.Size = New System.Drawing.Size(259, 26)
+        Me.userPass.TabIndex = 7
         '
-        'TextBox2
+        'userID
         '
-        Me.TextBox2.Location = New System.Drawing.Point(91, 99)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(259, 26)
-        Me.TextBox2.TabIndex = 6
+        Me.userID.Location = New System.Drawing.Point(43, 41)
+        Me.userID.Name = "userID"
+        Me.userID.Size = New System.Drawing.Size(259, 26)
+        Me.userID.TabIndex = 6
         '
         'Label5
         '
@@ -107,34 +124,27 @@ Partial Class Form1
         Me.Label5.TabIndex = 3
         Me.Label5.Text = "Or"
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Bahnschrift Condensed", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 5)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(73, 39)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Login"
-        '
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.Transparent
+        Me.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel5.Controls.Add(Me.Button3)
+        Me.Panel5.Controls.Add(Me.userPass)
         Me.Panel5.Controls.Add(Me.Label3)
+        Me.Panel5.Controls.Add(Me.userID)
         Me.Panel5.Controls.Add(Me.Label4)
-        Me.Panel5.Location = New System.Drawing.Point(47, 58)
+        Me.Panel5.Location = New System.Drawing.Point(59, 37)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(362, 192)
+        Me.Panel5.Size = New System.Drawing.Size(332, 218)
         Me.Panel5.TabIndex = 11
         '
         'Button3
         '
         Me.Button3.BackColor = System.Drawing.Color.LightSeaGreen
         Me.Button3.ForeColor = System.Drawing.Color.White
-        Me.Button3.Location = New System.Drawing.Point(218, 148)
+        Me.Button3.Location = New System.Drawing.Point(218, 158)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(85, 38)
+        Me.Button3.Size = New System.Drawing.Size(87, 54)
         Me.Button3.TabIndex = 10
         Me.Button3.Text = "Sign In"
         Me.Button3.UseVisualStyleBackColor = False
@@ -160,12 +170,13 @@ Partial Class Form1
         'Panel6
         '
         Me.Panel6.BackColor = System.Drawing.Color.Transparent
+        Me.Panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel6.Controls.Add(Me.Label6)
         Me.Panel6.Controls.Add(Me.TextBox1)
         Me.Panel6.Controls.Add(Me.Button2)
         Me.Panel6.Location = New System.Drawing.Point(70, 293)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(303, 110)
+        Me.Panel6.Size = New System.Drawing.Size(309, 129)
         Me.Panel6.TabIndex = 12
         '
         'Label6
@@ -191,7 +202,7 @@ Partial Class Form1
         Me.Button2.ForeColor = System.Drawing.Color.White
         Me.Button2.Location = New System.Drawing.Point(195, 70)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(85, 38)
+        Me.Button2.Size = New System.Drawing.Size(87, 54)
         Me.Button2.TabIndex = 9
         Me.Button2.Text = "Validate"
         Me.Button2.UseVisualStyleBackColor = False
@@ -211,20 +222,11 @@ Partial Class Form1
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Bahnschrift Condensed", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Turquoise
-        Me.Label2.Location = New System.Drawing.Point(119, 9)
+        Me.Label2.Location = New System.Drawing.Point(128, 9)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(201, 39)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Osas sus Amogus"
-        '
-        'Panel3
-        '
-        Me.Panel3.BackColor = System.Drawing.Color.MediumSeaGreen
-        Me.Panel3.Controls.Add(Me.Label1)
-        Me.Panel3.Location = New System.Drawing.Point(0, 55)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(458, 58)
-        Me.Panel3.TabIndex = 2
         '
         'Form1
         '
@@ -235,6 +237,8 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.Panel1.ResumeLayout(False)
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel5.ResumeLayout(False)
@@ -243,8 +247,6 @@ Partial Class Form1
         Me.Panel6.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -259,8 +261,8 @@ Partial Class Form1
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Panel4 As Panel
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents userPass As TextBox
+    Friend WithEvents userID As TextBox
     Friend WithEvents Button3 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents Panel5 As Panel

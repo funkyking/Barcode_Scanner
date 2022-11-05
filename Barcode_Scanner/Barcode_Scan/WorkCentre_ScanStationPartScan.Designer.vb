@@ -34,7 +34,7 @@ Partial Class WorkCentre_ScanStationPartScan
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Button8 = New System.Windows.Forms.Button()
+        Me.backBtn = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -174,16 +174,16 @@ Partial Class WorkCentre_ScanStationPartScan
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Osas sus Amogus"
         '
-        'Button8
+        'backBtn
         '
-        Me.Button8.BackColor = System.Drawing.Color.LightCoral
-        Me.Button8.ForeColor = System.Drawing.Color.White
-        Me.Button8.Location = New System.Drawing.Point(310, 460)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(102, 53)
-        Me.Button8.TabIndex = 25
-        Me.Button8.Text = "Back"
-        Me.Button8.UseVisualStyleBackColor = False
+        Me.backBtn.BackColor = System.Drawing.Color.LightCoral
+        Me.backBtn.ForeColor = System.Drawing.Color.White
+        Me.backBtn.Location = New System.Drawing.Point(310, 483)
+        Me.backBtn.Name = "backBtn"
+        Me.backBtn.Size = New System.Drawing.Size(102, 53)
+        Me.backBtn.TabIndex = 25
+        Me.backBtn.Text = "Back"
+        Me.backBtn.UseVisualStyleBackColor = False
         '
         'Panel2
         '
@@ -255,7 +255,7 @@ Partial Class WorkCentre_ScanStationPartScan
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(458, 584)
-        Me.Controls.Add(Me.Button8)
+        Me.Controls.Add(Me.backBtn)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.userID)
         Me.Controls.Add(Me.Label11)
@@ -289,7 +289,7 @@ Partial Class WorkCentre_ScanStationPartScan
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Label2 As Label
-    Friend WithEvents Button8 As Button
+    Friend WithEvents backBtn As Button
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Button3 As Button
     Friend WithEvents Label9 As Label

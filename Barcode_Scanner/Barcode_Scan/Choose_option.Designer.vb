@@ -31,7 +31,7 @@ Partial Class Choose_option
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.backBtn = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Button5 = New System.Windows.Forms.Button()
@@ -145,16 +145,16 @@ Partial Class Choose_option
         Me.Label8.TabIndex = 2
         Me.Label8.Text = "Preparation"
         '
-        'Button1
+        'backBtn
         '
-        Me.Button1.BackColor = System.Drawing.Color.LightCoral
-        Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(322, 486)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(102, 55)
-        Me.Button1.TabIndex = 16
-        Me.Button1.Text = "Back"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.backBtn.BackColor = System.Drawing.Color.LightCoral
+        Me.backBtn.ForeColor = System.Drawing.Color.White
+        Me.backBtn.Location = New System.Drawing.Point(316, 486)
+        Me.backBtn.Name = "backBtn"
+        Me.backBtn.Size = New System.Drawing.Size(102, 55)
+        Me.backBtn.TabIndex = 16
+        Me.backBtn.Text = "Back"
+        Me.backBtn.UseVisualStyleBackColor = False
         '
         'Button6
         '
@@ -325,7 +325,7 @@ Partial Class Choose_option
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.backBtn)
         Me.Controls.Add(Me.userID)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -358,7 +358,7 @@ Partial Class Choose_option
     Friend WithEvents Label8 As Label
     Friend WithEvents Button8 As Button
     Friend WithEvents Button7 As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents backBtn As Button
     Friend WithEvents Button6 As Button
     Friend WithEvents Label7 As Label
     Friend WithEvents Button5 As Button

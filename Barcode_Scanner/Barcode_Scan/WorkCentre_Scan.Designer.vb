@@ -37,7 +37,7 @@ Partial Class WorkCentre_Scan
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button8 = New System.Windows.Forms.Button()
+        Me.backBtn = New System.Windows.Forms.Button()
         Me.Panel4.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -191,23 +191,23 @@ Partial Class WorkCentre_Scan
         Me.TextBox1.Size = New System.Drawing.Size(352, 26)
         Me.TextBox1.TabIndex = 0
         '
-        'Button8
+        'backBtn
         '
-        Me.Button8.BackColor = System.Drawing.Color.LightCoral
-        Me.Button8.ForeColor = System.Drawing.Color.White
-        Me.Button8.Location = New System.Drawing.Point(310, 466)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(102, 53)
-        Me.Button8.TabIndex = 15
-        Me.Button8.Text = "Back"
-        Me.Button8.UseVisualStyleBackColor = False
+        Me.backBtn.BackColor = System.Drawing.Color.LightCoral
+        Me.backBtn.ForeColor = System.Drawing.Color.White
+        Me.backBtn.Location = New System.Drawing.Point(310, 488)
+        Me.backBtn.Name = "backBtn"
+        Me.backBtn.Size = New System.Drawing.Size(102, 53)
+        Me.backBtn.TabIndex = 15
+        Me.backBtn.Text = "Back"
+        Me.backBtn.UseVisualStyleBackColor = False
         '
         'WorkCentre_Scan
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(458, 584)
-        Me.Controls.Add(Me.Button8)
+        Me.Controls.Add(Me.backBtn)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.userID)
         Me.Controls.Add(Me.Label5)
@@ -244,6 +244,6 @@ Partial Class WorkCentre_Scan
     Friend WithEvents Label7 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Button8 As Button
+    Friend WithEvents backBtn As Button
     Friend WithEvents Button3 As Button
 End Class
