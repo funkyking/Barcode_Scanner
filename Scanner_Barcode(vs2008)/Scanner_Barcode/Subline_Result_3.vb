@@ -21,6 +21,6 @@
     End Property
 
     Private Sub Subline_Result_3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Click
-        Me.Close()
+        Me.Dispose()
     End Sub
 End Class

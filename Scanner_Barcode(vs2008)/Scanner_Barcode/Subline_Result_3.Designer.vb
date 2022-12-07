@@ -13,14 +13,12 @@ Partial Public Class Subline_Result_3
 
     'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
-    Private mainMenu1 As System.Windows.Forms.MainMenu
 
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.mainMenu1 = New System.Windows.Forms.MainMenu
         Me._top = New System.Windows.Forms.Label
         Me._bot = New System.Windows.Forms.Label
         Me.SuspendLayout()
@@ -45,8 +43,7 @@ Partial Public Class Subline_Result_3
         '
         'Subline_Result_3
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.LawnGreen
         Me.ClientSize = New System.Drawing.Size(480, 640)
@@ -54,12 +51,10 @@ Partial Public Class Subline_Result_3
         Me.Controls.Add(Me._bot)
         Me.Controls.Add(Me._top)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Location = New System.Drawing.Point(0, 0)
         Me.MaximizeBox = False
-        Me.Menu = Me.mainMenu1
         Me.Name = "Subline_Result_3"
         Me.Text = "Subline_Result_3"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        Me.TopMost = True
         Me.ResumeLayout(False)
 
     End Sub

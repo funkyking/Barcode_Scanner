@@ -13,15 +13,16 @@ Partial Public Class choose_option_4
 
     'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
-    Private mainMenu1 As System.Windows.Forms.MainMenu
 
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.mainMenu1 = New System.Windows.Forms.MainMenu
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(choose_option_4))
         Me.Panel1 = New System.Windows.Forms.Panel
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox
+        Me.logout_pbx = New System.Windows.Forms.PictureBox
         Me.Label1 = New System.Windows.Forms.Label
         Me.Panel3 = New System.Windows.Forms.Panel
         Me.Label4 = New System.Windows.Forms.Label
@@ -36,22 +37,43 @@ Partial Public Class choose_option_4
         Me.Panel2 = New System.Windows.Forms.Panel
         Me.username = New System.Windows.Forms.Label
         Me.Label8 = New System.Windows.Forms.Label
-        Me.logout_btn = New System.Windows.Forms.Button
-        Me.back_btn = New System.Windows.Forms.Button
-        Me.home_btn = New System.Windows.Forms.Button
+        Me.Panel4 = New System.Windows.Forms.Panel
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox
+        Me.back_pbx = New System.Windows.Forms.PictureBox
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        Me.Panel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Panel1.Controls.Add(Me.PictureBox1)
+        Me.Panel1.Controls.Add(Me.logout_pbx)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(480, 53)
+        Me.Panel1.Size = New System.Drawing.Size(478, 53)
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(3, 9)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(41, 36)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        '
+        'logout_pbx
+        '
+        Me.logout_pbx.BackColor = System.Drawing.Color.Transparent
+        Me.logout_pbx.Image = CType(resources.GetObject("logout_pbx.Image"), System.Drawing.Image)
+        Me.logout_pbx.Location = New System.Drawing.Point(431, 9)
+        Me.logout_pbx.Name = "logout_pbx"
+        Me.logout_pbx.Size = New System.Drawing.Size(44, 36)
+        Me.logout_pbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         '
         'Label1
         '
@@ -70,10 +92,9 @@ Partial Public Class choose_option_4
         Me.Panel3.Controls.Add(Me.prep_btn)
         Me.Panel3.Controls.Add(Me.sffx_chg_btn)
         Me.Panel3.Controls.Add(Me.mdl_chg_btn)
-        Me.Panel3.Controls.Add(Me.DataGrid1)
-        Me.Panel3.Location = New System.Drawing.Point(103, 169)
+        Me.Panel3.Location = New System.Drawing.Point(80, 76)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(256, 295)
+        Me.Panel3.Size = New System.Drawing.Size(245, 212)
         '
         'Label4
         '
@@ -88,7 +109,7 @@ Partial Public Class choose_option_4
         '
         Me.topup_btn.BackColor = System.Drawing.Color.LightSeaGreen
         Me.topup_btn.ForeColor = System.Drawing.Color.White
-        Me.topup_btn.Location = New System.Drawing.Point(139, 173)
+        Me.topup_btn.Location = New System.Drawing.Point(139, 139)
         Me.topup_btn.Name = "topup_btn"
         Me.topup_btn.Size = New System.Drawing.Size(98, 51)
         Me.topup_btn.TabIndex = 3
@@ -96,7 +117,7 @@ Partial Public Class choose_option_4
         '
         'prep_btn
         '
-        Me.prep_btn.Location = New System.Drawing.Point(139, 70)
+        Me.prep_btn.Location = New System.Drawing.Point(139, 50)
         Me.prep_btn.Name = "prep_btn"
         Me.prep_btn.Size = New System.Drawing.Size(98, 51)
         Me.prep_btn.TabIndex = 2
@@ -104,7 +125,7 @@ Partial Public Class choose_option_4
         '
         'sffx_chg_btn
         '
-        Me.sffx_chg_btn.Location = New System.Drawing.Point(18, 173)
+        Me.sffx_chg_btn.Location = New System.Drawing.Point(18, 139)
         Me.sffx_chg_btn.Name = "sffx_chg_btn"
         Me.sffx_chg_btn.Size = New System.Drawing.Size(98, 51)
         Me.sffx_chg_btn.TabIndex = 1
@@ -112,7 +133,7 @@ Partial Public Class choose_option_4
         '
         'mdl_chg_btn
         '
-        Me.mdl_chg_btn.Location = New System.Drawing.Point(18, 70)
+        Me.mdl_chg_btn.Location = New System.Drawing.Point(18, 50)
         Me.mdl_chg_btn.Name = "mdl_chg_btn"
         Me.mdl_chg_btn.Size = New System.Drawing.Size(98, 51)
         Me.mdl_chg_btn.TabIndex = 0
@@ -121,9 +142,9 @@ Partial Public Class choose_option_4
         'DataGrid1
         '
         Me.DataGrid1.BackgroundColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGrid1.Location = New System.Drawing.Point(0, 0)
+        Me.DataGrid1.Location = New System.Drawing.Point(70, 63)
         Me.DataGrid1.Name = "DataGrid1"
-        Me.DataGrid1.Size = New System.Drawing.Size(256, 295)
+        Me.DataGrid1.Size = New System.Drawing.Size(276, 245)
         Me.DataGrid1.TabIndex = 16
         '
         'sub_lbl
@@ -161,75 +182,68 @@ Partial Public Class choose_option_4
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 53)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(480, 57)
+        Me.Panel2.Size = New System.Drawing.Size(478, 57)
         '
         'username
         '
-        Me.username.Location = New System.Drawing.Point(382, 564)
+        Me.username.Location = New System.Drawing.Point(375, 113)
         Me.username.Name = "username"
         Me.username.Size = New System.Drawing.Size(92, 20)
         Me.username.Text = "[username]"
         '
         'Label8
         '
-        Me.Label8.Location = New System.Drawing.Point(315, 564)
+        Me.Label8.Location = New System.Drawing.Point(301, 113)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(68, 20)
         Me.Label8.Text = "User_ID :"
         '
-        'logout_btn
+        'Panel4
         '
-        Me.logout_btn.BackColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.logout_btn.ForeColor = System.Drawing.Color.DarkTurquoise
-        Me.logout_btn.Location = New System.Drawing.Point(419, 587)
-        Me.logout_btn.Name = "logout_btn"
-        Me.logout_btn.Size = New System.Drawing.Size(55, 41)
-        Me.logout_btn.TabIndex = 17
-        Me.logout_btn.Text = "log out"
+        Me.Panel4.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Panel4.Controls.Add(Me.PictureBox2)
+        Me.Panel4.Controls.Add(Me.back_pbx)
+        Me.Panel4.Controls.Add(Me.Panel3)
+        Me.Panel4.Controls.Add(Me.DataGrid1)
+        Me.Panel4.Location = New System.Drawing.Point(26, 136)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(423, 420)
         '
-        'back_btn
+        'PictureBox2
         '
-        Me.back_btn.BackColor = System.Drawing.Color.Firebrick
-        Me.back_btn.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.back_btn.Location = New System.Drawing.Point(405, 116)
-        Me.back_btn.Name = "back_btn"
-        Me.back_btn.Size = New System.Drawing.Size(72, 41)
-        Me.back_btn.TabIndex = 32
-        Me.back_btn.Text = "Back"
+        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
+        Me.PictureBox2.Location = New System.Drawing.Point(13, 12)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(46, 41)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         '
-        'home_btn
+        'back_pbx
         '
-        Me.home_btn.BackColor = System.Drawing.Color.DimGray
-        Me.home_btn.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.home_btn.Location = New System.Drawing.Point(3, 116)
-        Me.home_btn.Name = "home_btn"
-        Me.home_btn.Size = New System.Drawing.Size(72, 41)
-        Me.home_btn.TabIndex = 33
-        Me.home_btn.Text = "Home"
+        Me.back_pbx.BackColor = System.Drawing.Color.Transparent
+        Me.back_pbx.Image = CType(resources.GetObject("back_pbx.Image"), System.Drawing.Image)
+        Me.back_pbx.Location = New System.Drawing.Point(183, 330)
+        Me.back_pbx.Name = "back_pbx"
+        Me.back_pbx.Size = New System.Drawing.Size(38, 39)
+        Me.back_pbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         '
         'choose_option_4
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.ClientSize = New System.Drawing.Size(480, 640)
-        Me.Controls.Add(Me.back_btn)
-        Me.Controls.Add(Me.home_btn)
-        Me.Controls.Add(Me.logout_btn)
-        Me.Controls.Add(Me.username)
-        Me.Controls.Add(Me.Label8)
+        Me.ClientSize = New System.Drawing.Size(478, 615)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.Panel3)
-        Me.Location = New System.Drawing.Point(0, 0)
-        Me.Menu = Me.mainMenu1
+        Me.Controls.Add(Me.username)
+        Me.Controls.Add(Me.Panel4)
+        Me.Controls.Add(Me.Label8)
         Me.Name = "choose_option_4"
         Me.Text = "choose_option_4"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
+        Me.Panel4.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -248,7 +262,9 @@ Partial Public Class choose_option_4
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents DataGrid1 As System.Windows.Forms.DataGrid
-    Friend WithEvents logout_btn As System.Windows.Forms.Button
-    Friend WithEvents back_btn As System.Windows.Forms.Button
-    Friend WithEvents home_btn As System.Windows.Forms.Button
+    Friend WithEvents Panel4 As System.Windows.Forms.Panel
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents logout_pbx As System.Windows.Forms.PictureBox
+    Friend WithEvents back_pbx As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
 End Class

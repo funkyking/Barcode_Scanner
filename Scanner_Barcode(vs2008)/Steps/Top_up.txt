@@ -1,0 +1,29 @@
+Result is to get the MasterStation Code (E1,E2,E3,E4)
+
+Template scan  = "Subline 2,Test1"
+
++
+Line code = Subline 2
+line ID = a0efe197-e2d5-40f4-93e0-51b15d30312d
++
+
+-
+Model Code = Test1
+Model ID = de479b44-9b63-41da-ac46-96b023469785
+Master Model ID = cbe1ab90-ac22-4203-b795-2f478a143686
+-
+
+-
+Part No - K1KY03BA0799 //This the one they scan
+Part ID - e6f35430-cbe6-4b17-bad4-01def45d2865
+Assembly Ref - Diod
+-
+
+MasterStationID - dd0fce1f-d3fd-43dd-96e2-840d9a7d8e23 (E1) 
+
+Steps
+1 - access dbo.Part. Using PartNo to get the part ID.Then, copy the *[part id]
+2 - access dbo.MasterBom. Check if MasterStationID, LineID with *[partid] all match. copy **[MasterStationID and LineID]
+3 - access dbo.MasterStation. Check if MasterStationCode matches with **[MasterStationID and LineID]. Copy ***[MasterStationCode]
+3 - with ***[MasterStationCode]. Display result of MasterStationCode(E1,E2...)
+4 - next form gets the Part_No and MasterStationCode

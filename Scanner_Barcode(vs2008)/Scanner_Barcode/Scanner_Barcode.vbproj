@@ -11,9 +11,9 @@
     <RootNamespace>Scanner_Barcode</RootNamespace>
     <AssemblyName>Scanner_Barcode</AssemblyName>
     <ProjectTypeGuids>{68B1623D-7FB9-47D8-8664-7ECEA3297D4F};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
-    <PlatformFamilyName>PocketPC</PlatformFamilyName>
-    <PlatformID>4118C335-430C-497f-BE48-11C3316B135E</PlatformID>
-    <OSVersion>5.01</OSVersion>
+    <PlatformFamilyName>WindowsCE</PlatformFamilyName>
+    <PlatformID>445d530d-10d0-4ec5-b948-e9a78483463a</PlatformID>
+    <OSVersion>7.00</OSVersion>
     <MyType>WindowsForms</MyType>
     <DeployDirSuffix>Scanner_Barcode</DeployDirSuffix>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
@@ -21,7 +21,7 @@
     <OptionCompare>Binary</OptionCompare>
     <OptionStrict>Off</OptionStrict>
     <OptionInfer>On</OptionInfer>
-    <NativePlatformName>Windows Mobile 5.0 Pocket PC SDK</NativePlatformName>
+    <NativePlatformName>Toradex_CE700</NativePlatformName>
     <FormFactorID>
     </FormFactorID>
   </PropertyGroup>
@@ -57,6 +57,7 @@
     <Reference Include="Microsoft.WindowsCE.Forms" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=3.0.3600.0, Culture=neutral, PublicKeyToken=3be235df1c8d2ad3, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
@@ -89,6 +90,12 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="db_tables.Designer.vb">
+      <DependentUpon>db_tables.vb</DependentUpon>
+    </Compile>
+    <Compile Include="db_tables.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Identify_Model_2.Designer.vb">
       <DependentUpon>Identify_Model_2.vb</DependentUpon>
     </Compile>
@@ -101,6 +108,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Settings.Designer.vb">
+      <DependentUpon>Settings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SQL_Command.vb" />
     <Compile Include="Subline_Result_3.Designer.vb">
       <DependentUpon>Subline_Result_3.vb</DependentUpon>
     </Compile>
@@ -139,6 +153,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="db_tables.resx">
+      <DependentUpon>db_tables.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Identify_Model_2.resx">
       <DependentUpon>Identify_Model_2.vb</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +164,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings.resx">
+      <DependentUpon>Settings.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Subline_Result_3.resx">
       <DependentUpon>Subline_Result_3.vb</DependentUpon>
@@ -163,6 +183,9 @@
     <EmbeddedResource Include="WorkCentre_Topup_Scan_Station_6.resx">
       <DependentUpon>WorkCentre_Topup_Scan_Station_6.vb</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="My Project\DataSources\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.VisualBasic.targets" />
   <ProjectExtensions>

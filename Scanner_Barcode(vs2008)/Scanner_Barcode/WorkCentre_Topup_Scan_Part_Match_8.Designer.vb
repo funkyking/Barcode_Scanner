@@ -13,14 +13,12 @@ Partial Public Class WorkCentre_Topup_Scan_Part_Match_8
 
     'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
-    Private mainMenu1 As System.Windows.Forms.MainMenu
 
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.mainMenu1 = New System.Windows.Forms.MainMenu
         Me.stn_val = New System.Windows.Forms.Label
         Me.Station = New System.Windows.Forms.Label
         Me.SuspendLayout()
@@ -31,7 +29,8 @@ Partial Public Class WorkCentre_Topup_Scan_Part_Match_8
         Me.stn_val.Location = New System.Drawing.Point(56, 320)
         Me.stn_val.Name = "stn_val"
         Me.stn_val.Size = New System.Drawing.Size(337, 113)
-        Me.stn_val.Text = "    [0]"
+        Me.stn_val.Text = "[]"
+        Me.stn_val.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Station
         '
@@ -40,21 +39,18 @@ Partial Public Class WorkCentre_Topup_Scan_Part_Match_8
         Me.Station.Name = "Station"
         Me.Station.Size = New System.Drawing.Size(455, 113)
         Me.Station.Text = "Part Match !"
+        Me.Station.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'WorkCentre_Topup_Scan_Part_Match_8
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.LawnGreen
-        Me.ClientSize = New System.Drawing.Size(480, 640)
+        Me.ClientSize = New System.Drawing.Size(478, 615)
         Me.Controls.Add(Me.stn_val)
         Me.Controls.Add(Me.Station)
-        Me.Location = New System.Drawing.Point(0, 0)
-        Me.Menu = Me.mainMenu1
         Me.Name = "WorkCentre_Topup_Scan_Part_Match_8"
         Me.Text = "WorkCentre_Topup_Scan_Part_Match_8"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
 
     End Sub

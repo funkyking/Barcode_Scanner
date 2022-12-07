@@ -1,9 +1,6 @@
 ﻿Public Class WorkCentre_Topup_Scan_Sample_7
 
-    'home_btn = returns to identify model page
-    'back_btn = returns to previous form
-    'logout_btn = logout (returns to login page)
-    'cont_btn = opens next form
+   
 
     Dim part_name_cache As String
     'passing username credentials
@@ -39,10 +36,10 @@
     'Passing part detail
     Friend Property _part() As String
         Get
-            Return station_lbl.Text
+            Return part_lbl.Text
         End Get
         Set(ByVal value As String)
-            station_lbl.Text = value
+            part_lbl.Text = value
         End Set
     End Property
 
@@ -65,74 +62,78 @@
         End Set
     End Property
 
-    'home_btn event
-    Private Sub homebtn_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles home_btn.Click
-        Dim Home As New Identify_Model_2
-        Home.Show()
-        Me.Close()
+    'load
+    Private Sub WorkCentre_Topup_Scan_Sample_7_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        part_name.Text = String.Format("({0})", GetPartName(PartID))
     End Sub
 
-    'back_btn event
-    Private Sub back_btn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles back_btn.Click
-        Dim back As New WorkCentre_Topup_Scan_Station_6
-        back.Show()
-        Me.Close()
-    End Sub
+    'Trigger scan enter key pressed
+    Private Sub scn_part_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles scn_part.KeyDown
 
-    'cont_btn event (displays result)
-    Private Sub cont_btn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cont_btn.Click
+        If e.KeyCode = Keys.Enter Then
 
-        Dim Res As Boolean
-        Dim userInput As String = ""
-        userInput = scn_part.Text
+            Dim Res As Boolean
+            Dim userInput As String = ""
+            userInput = scn_part.Text
 
-        'This is a temporary database to store the sublines (test)
-        Dim station_1 As String() = {"Wood", "Glue", "Nail"}
-        Dim station_2 As String() = {"Led", "LED", "BULB", "Bulb"}
-        Dim station_3 As String() = {"Take", "Have", "Give"}
-        Dim station_4 As String() = {"Brown", "Green", "Blue"}
-
-
-        If (userInput IsNot "") Then
-
-            If (station_1.Contains(userInput) Or station_2.Contains(userInput) Or station_3.Contains(userInput) Or station_4.Contains(userInput)) Then
-                Res = True
+            Res = checkPartandStation(userInput)
+            If (Res = True) Then
                 Dim passed As New Subline_Result_3
                 passed._top_lbl = "Part Match"
-                passed._bot_lbl = " "
+                passed._bot_lbl = "!"
                 passed.Show()
 
             Else
                 Dim failed As New Subline_Result_3
                 failed.BackColor = Color.Red
                 failed._top_lbl = "Part Does"
-                failed._bot_lbl = "Not Match"
+                failed._bot_lbl = "Not Match !"
                 failed.Show()
             End If
-
-        End If
-
-
-        Dim result As New WorkCentre_Topup_Scan_Part_Match_8
-        result.Show()
-    End Sub
-
-    'logout_btn event
-    Private Sub logout_btn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles logout_btn.Click
-        Dim logout As New Form1 'Return to Login Screen (Logout)
-        logout.Show()
-        Me.Close()
-    End Sub
-
-    Private Sub WorkCentre_Topup_Scan_Sample_7_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
-        If (part_name.Text IsNot "") Then
-            If e.KeyCode = Keys.Enter Then
-                Call cont_btn_Click(sender, e)
-            End If
         End If
     End Sub
 
-    Private Sub WorkCentre_Topup_Scan_Sample_7_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        part_name.Text = part_name_cache
+    'Back
+    Private Sub back_pbx_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles back_pbx.Click
+        Try
+            Dim back As New WorkCentre_Topup_Scan_Station_6
+            back.username.Text = username.Text
+            back._subline = _subline
+            back._model = mdl_lbl.Text
+            back._part = _part
+            back._part_station = _station
+            back.Show()
+            Me.Close()
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    'Rescan
+    Private Sub rescan_pbx_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rescan_pbx.Click
+        Try
+            scn_part.Text = ""
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    'logout
+    Private Sub logout_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles logout_pbx.Click
+        Try
+            Dim logout As New Form1 'Return to Login Screen (Logout)
+            logout.Show()
+            Me.Close()
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    'home
+    Private Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.Click
+        Try
+            Dim Home As New Identify_Model_2
+            Home.user = username.Text
+            Home.Show()
+            Me.Close()
+        Catch ex As Exception
+        End Try
     End Sub
 End Class

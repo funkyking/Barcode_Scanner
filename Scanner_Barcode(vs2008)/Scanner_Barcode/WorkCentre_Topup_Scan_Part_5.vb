@@ -1,12 +1,5 @@
 ﻿Public Class WorkCentre_Topup_Scan_Part_5
-    'This one gets the part station ID'
 
-    'home_btn = returns to identify model page
-    'back_btn = returns to previous form
-    'logout_btn = logout (returns to login page)
-    'cont_btn = opens next form
-
-    Public temp As String 'temporary string to send value to next form
     Public part_name_temp As String 'This one is cached and moved up until last station
 
     'Passing username credentials
@@ -41,90 +34,92 @@
 
     'Cont_btn event
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cont_btn.Click
-        'Copy user input
-        Dim userInput As String = part_ID.Text
-        part_name_temp = part_ID.Text
-
-        'To display either fail or pass
-        Dim Pass As New Boolean
-
-        'This is a temporary database to store the sublines (test)
-        Dim E1 As String() = {"Wood", "Glue", "Nail"}
-        Dim E2 As String() = {"Led", "LED", "BULB", "Bulb"}
-        Dim E3 As String() = {"Take", "Have", "Give"}
-        Dim E4 As String() = {"Brown", "Green", "Blue"}
-
-        Dim mdl_sub_ID As String = ""
-        If (E1.Contains(userInput)) Then
-            mdl_sub_ID = String.Format("E1")
-            Pass = True
-        ElseIf (E2.Contains(userInput)) Then
-            mdl_sub_ID = String.Format("E2")
-            Pass = True
-        ElseIf (E3.Contains(userInput)) Then
-            mdl_sub_ID = String.Format("E3")
-            Pass = True
-        ElseIf (E4.Contains(userInput)) Then
-            mdl_sub_ID = String.Format("E4")
-            Pass = True
-        End If
-        temp = mdl_sub_ID 'passing the value to main, use for next form
-
-        'Once we found the data in database, a form is created to display the result if passed or failed
-        If (Pass = True) Then
-            Dim passed As New Subline_Result_3
-            passed.BackColor = Color.LawnGreen
-            passed._top_lbl = "Part Station"
-            passed._bot_lbl = String.Format("{0}", mdl_sub_ID)
-            passed.Show()
+        If (PrtNo_txtbox.Text IsNot Nothing) Then
 
             'Creates new form
             Dim form As New WorkCentre_Topup_Scan_Station_6
             form.user = username.Text 'pass username label
-            form._part = part_ID.Text 'pass part ID label
+            form._part = PrtNo_txtbox.Text 'pass part ID label
             form._subline = sub_lbl.Text 'pass subline label
             form._model = mdl_lbl.Text 'pass model label
-            form._part_station = temp 'pass part station label
+            form._part_station = MasterStationCode 'pass part station label
             form.part_name_cache = part_name_temp 'sends the name of the part
             form.Show()
             Me.Close()
-        Else
-            Dim failed As New Subline_Result_3
-            failed.BackColor = Color.Red
-            failed._top_lbl = "Part"
-            failed._bot_lbl = "Not Found"
-            failed.Show()
+
         End If
     End Sub
 
-    'back_btn event
-    Private Sub backbtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles back_btn.Click
-        Dim back As New choose_option_4
-        back.Show()
-        Me.Close()
+    'Trigger scan if enter key is pressed
+    Private Sub part_ID_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles PrtNo_txtbox.KeyDown
+        Try
+            If e.KeyCode = Keys.Enter Then
+                Dim temp As String
+                Dim res As Boolean
+
+                PartNo = PrtNo_txtbox.Text
+                If (PartNo IsNot Nothing) Then
+                    temp = GetPartID(PartNo)
+                    temp = GetMasterStationID(PartID, LineID, ModelID)
+                    temp = GetMasterStationCode(MasterStationId, LineID)
+                    res = CheckMasterStationCode(temp)
+                    If (res = True) Then
+                        Dim passed As New Subline_Result_3
+                        passed.BackColor = Color.LawnGreen
+                        passed._top_lbl = "Part Station"
+                        passed._bot_lbl = String.Format("{0}", temp)
+                        passed.Show()
+                        Button2_Click(sender, New EventArgs())
+                    Else
+                        Dim failed As New Subline_Result_3
+                        failed.BackColor = Color.Red
+                        failed._top_lbl = "Part"
+                        failed._bot_lbl = "Not Found"
+                        failed.Show()
+                    End If
+                End If
+            End If
+
+        Catch ex As Exception
+        End Try
     End Sub
 
-    'home_btn event
-    Private Sub homebtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles home_btn.Click
-        Dim Home As New Identify_Model_2
-        Home.Show()
-        Me.Close()
-    End Sub
-
-    'logout_btn event
-    Private Sub logout_btn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles logout_btn.Click
+    'log out
+    Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
         Dim logout As New Form1 'Return to Login Screen (Logout)
         logout.Show()
         Me.Close()
     End Sub
 
-    'auto hit enter
-    Private Sub WorkCentre_Topup_Scan_Part_5_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
-        If (part_ID.Text IsNot "") Then
-            If e.KeyCode = Keys.Enter Then
-                Call Button2_Click(sender, e)
-            End If
-        End If
+    'back
+    Private Sub back_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles back_pbx.Click
+        Try
+            Dim back As New choose_option_4
+            back._subline = _subline
+            back._model = _model
+            back.username.Text = username.Text
+            back.Show()
+            Me.Close()
+        Catch ex As Exception
+        End Try
+    End Sub
 
+    'home
+    Private Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.Click
+        Try
+            Dim Home As New Identify_Model_2
+            Home.user = username.Text
+            Home.Show()
+            Me.Close()
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    'rescan
+    Private Sub rescan_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rescan_pbx.Click
+        Try
+            PrtNo_txtbox.Text = ""
+        Catch ex As Exception
+        End Try
     End Sub
 End Class

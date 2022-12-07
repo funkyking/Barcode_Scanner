@@ -1,10 +1,11 @@
-﻿Public Class Identify_Model_2
+﻿Imports System.Data.SqlClient
+Imports System.Data
 
-    'model_image = picturebox
-    'cont_btn = continue button
-    'rescan_btn = rescan button
-    'model_ID = subline & model textbox (your input textbox)
-    'logout_btn = logout (returns to login page)
+Public Class Identify_Model_2
+
+    Dim conn As SqlConnection
+    Dim cmd As SqlCommand
+    Dim dr As SqlDataReader
 
 
     'Passing username credentials
@@ -17,80 +18,92 @@
         End Set
     End Property
 
-    'logout button event
-    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Dim logout As New Form1 'Return to Login Screen (Logout)
-        logout.Show()
-        Me.Close()
-    End Sub
-
     'Continue button event
     Private Sub Cont_btn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cont_btn.Click
-        If (mdl_sub_ID.Text IsNot Nothing) Then
-            Dim form As New choose_option_4
-            form._model = model_ID.Text 'Passing model to form
+        Try
+            If (model_ID.Text IsNot Nothing) Then
 
-            Dim line As String = String.Format("Subline {0}", Mid(mdl_sub_ID.Text, 1, 1))
-            form._subline = line 'Passing the subline detail
+                Dim userInput As String = model_ID.Text
+                Dim form As New choose_option_4
+                form._model = userInput.Split(",")(1) 'Name of the Model
 
-            form.user = username.Text 'sending username value to next form
-            form.Show()
+                Dim line As String = userInput.Substring(0, userInput.IndexOf(","))
+                form._subline = line 'Passing the subline detail
+
+                form.user = username.Text 'sending username value to next form
+                form.Show()
+                Me.Hide()
+            Else
+                MessageBox.Show("Invalid Model")
+            End If
+
+        Catch ex As Exception
+
+        End Try
+        
+    End Sub
+
+    'Once user scan it triggers this (same as scan)
+    Private Sub model_ID_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles model_ID.KeyDown
+        Try
+            Dim res As Boolean 'Check if input matches database
+
+            If e.KeyCode = Keys.Enter Then
+                Dim userInput As String = model_ID.Text
+
+                'Given Variable
+                Dim _LineCode As String = userInput.Substring(0, userInput.IndexOf(",")) 'Subline (num)
+                Dim _ModelCode As String = userInput.Split(",")(1) 'Name of the Model
+
+                'Finding Variables
+                Dim _LineID As String = "" 'Id of the Subline
+                Dim _ModelID As String = "" 'Id of the Model
+
+                _LineID = GetLineID(_LineCode)
+                _ModelID = GetModelId(_ModelCode)
+                res = Model_and_Line_Check(_ModelID, _LineID)
+
+                If (res = True) Then
+                    Dim passed As New Subline_Result_3
+                    passed.BackColor = Color.LawnGreen
+                    passed._top_lbl = "Station && Model" 'top Label
+                    passed._bot_lbl = "Found" 'bottom label
+                    passed.Show()
+                    Cont_btn_Click(sender, New EventArgs())
+                Else
+                    Dim failed As New Subline_Result_3
+                    failed._top_lbl = "Station && Model"
+                    failed.BackColor = Color.Red
+                    failed._bot_lbl = "Not Found"
+                    failed.Show()
+                End If
+            End If
+        Catch ex As Exception
+            'MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    'Log out
+    Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles logout_pbx.Click
+        Try
+            Dim logout As New Form1 'Return to Login Screen (Logout)
+            logout.Show()
             Me.Close()
-        Else
-            MessageBox.Show("Invalid Model")
-        End If
-        
+        Catch ex As Exception
+        End Try
     End Sub
 
-    'Scan button event
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles scan_btn.Click
-        'Copy user input
-        Dim userInput As String = model_ID.Text
-
-        'To display either fail or pass
-        Dim Pass As New Boolean
-
-        'This is a temporary database to store the sublines (test)
-        Dim subline_1 As String() = {"Table", "Chair"}
-        Dim subline_2 As String() = {"Led", "LED", "BULB", "Bulb"}
-        Dim subline_3 As String() = {"Take", "Have", "Give"}
-        Dim subline_4 As String() = {"Brown", "Green", "Blue"}
-
-        If (subline_1.Contains(userInput)) Then
-            mdl_sub_ID.Text = String.Format("1 ,{0} ", userInput)
-            Pass = True
-        ElseIf (subline_2.Contains(userInput)) Then
-            mdl_sub_ID.Text = String.Format("2 , {0} ", userInput)
-            Pass = True
-        ElseIf (subline_3.Contains(userInput)) Then
-            mdl_sub_ID.Text = String.Format("3 , {0} ", userInput)
-            Pass = True
-        ElseIf (subline_4.Contains(userInput)) Then
-            mdl_sub_ID.Text = String.Format("4 , {0} ", userInput)
-            Pass = True
-        End If
-
-        'Once we found the data in database, a form is created to display the result if passed or failed
-        If (Pass = True) Then
-            Dim passed As New Subline_Result_3
-            passed.BackColor = Color.LawnGreen
-            Dim res As String = Mid(mdl_sub_ID.Text, 1, 1) 'Displays only the front 1 character which is (1 or 2 or .....)
-            passed._top_lbl = "Station && Model" 'top Label
-            passed._bot_lbl = res 'bottom label
-            passed.Show()
-        Else
-            Dim failed As New Subline_Result_3
-            failed._top_lbl = "Station && Model"
-            failed.BackColor = Color.Red
-            failed._bot_lbl = "Not Found"
-            failed.Show()
-        End If
-        
+    'Rescan
+    Private Sub rescan_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rescan_pbx.Click
+        Try
+            model_ID.Text = ""
+        Catch ex As Exception
+        End Try
     End Sub
 
-    'Rescan button event
-    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rescan_btn.Click
-        model_ID.Text = ""
-        model_img = Nothing
+    'settings
+    Private Sub settings_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles settings_pbx.Click
+        Settings.Show()
     End Sub
+
 End Class

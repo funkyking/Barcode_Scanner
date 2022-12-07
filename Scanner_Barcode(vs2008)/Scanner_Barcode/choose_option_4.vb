@@ -1,9 +1,5 @@
 ﻿Public Class choose_option_4
 
-    'home_btn = returns to identify model page
-    'back_btn = returns to previous form
-    'topup_btn = opens topup form
-    'logout_btn = logout (returns to login page)
 
     'Passing username credentials
     Friend Property user() As String
@@ -45,24 +41,37 @@
         Me.Close()
     End Sub
 
-    'home_btn event
-    Private Sub homebtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles home_btn.Click
-        Dim Home As New Identify_Model_2
-        Home.Show()
-        Me.Close()
-    End Sub
-
-    'logout_btn event
-    Private Sub logout_btn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles logout_btn.Click
+    'logout
+    Private Sub logout_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles logout_pbx.Click
         Dim logout As New Form1 'Return to Login Screen (Logout)
         logout.Show()
         Me.Close()
     End Sub
 
-    'back_btn_event
-    Private Sub back_btn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles back_btn.Click
-        Dim back As New Identify_Model_2
-        back.Show()
-        Me.Close()
+    'settings
+    Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
+        Settings.Show()
+    End Sub
+
+    'back
+    Private Sub back_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles back_pbx.Click
+        Try
+            Dim back As New Identify_Model_2
+            back.username.Text = username.Text
+            back.Show()
+            Me.Close()
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    'home
+    Private Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.Click
+        Try
+            Dim Home As New Identify_Model_2
+            Home.user = username.Text
+            Home.Show()
+            Me.Close()
+        Catch ex As Exception
+        End Try
     End Sub
 End Class

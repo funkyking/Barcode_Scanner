@@ -70,90 +70,86 @@
 
     'cont_btn event
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cont_btn.Click
+        Try
+            If (scn_stn.Text IsNot Nothing) Then
 
-        'Copy user input
-        Dim userInput As String = scn_stn.Text
-
-        'To display either fail or pass
-        Dim Pass As New Boolean
-
-        'This is a temporary database to store the sublines (test)
-        Dim station_1 As String() = {"stn_1"}
-        Dim station_2 As String() = {"stn_2"}
-        Dim station_3 As String() = {"stn_3"}
-        Dim station_4 As String() = {"stn_4"}
-
-        Dim mdl_sub_ID As String = ""
-        If (station_1.Contains(userInput)) Then
-            mdl_sub_ID = String.Format("Match !")
-            Pass = True
-        ElseIf (station_2.Contains(userInput)) Then
-            mdl_sub_ID = String.Format("Match !")
-            Pass = True
-        ElseIf (station_3.Contains(userInput)) Then
-            mdl_sub_ID = String.Format("Match !")
-            Pass = True
-        ElseIf (station_4.Contains(userInput)) Then
-            mdl_sub_ID = String.Format("Match !")
-            Pass = True
-        End If
-
-        'Once we found the data in database, a form is created to display the result if passed or failed
-        If (Pass = True) Then
-            Dim passed As New Subline_Result_3
-            passed.BackColor = Color.LawnGreen
-            passed._top_lbl = "Station"
-            passed._bot_lbl = mdl_sub_ID
-            passed.Show()
-
-            If (passed Is DBNull.Value) Then
-                'Creates new form
                 Dim form As New WorkCentre_Topup_Scan_Sample_7 'Loads part sample scan (Final)
-                form.user = username.Text 'passing username
-                form._part = part_Id_lbl.Text 'pass part ID label
-                form._subline = sub_lbl.Text 'pass subline label
-                form._model = mdl_lbl.Text 'pass model label
-                form._station = part_station_lbl.Text 'pass station label
+                form.user = user 'passing username
+                form._part = _part 'pass part ID label
+                form._subline = _subline 'pass subline label
+                form._model = _model 'pass model label
+                form._station = _part_station 'pass station label
                 form._part_name_cache = part_name_cache 'pass the name of the part
                 form.Show()
                 Me.Close()
             End If
-        Else
-            Dim failed As New Subline_Result_3
-            failed.BackColor = Color.Red
-            failed._top_lbl = "Station"
-            failed._bot_lbl = "Not Match !"
-            failed.Show()
-        End If
+        Catch ex As Exception
+        End Try
     End Sub
-
-    'home_btn event
-    Private Sub homebtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles home_btn.Click
-        Dim Home As New Identify_Model_2
-        Home.Show()
-        Me.Close()
-    End Sub
-
-    'back_btn event
-    Private Sub back_btn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles back_btn.Click
-        Dim back As New WorkCentre_Topup_Scan_Part_5
-        back.Show()
-        Me.Close()
-    End Sub
-
-    'logout_btn event
-    Private Sub logout_btn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles logout_btn.Click
-        Dim logout As New Form1 'Return to Login Screen (Logout)
-        logout.Show()
-        Me.Close()
-    End Sub
-
     'This calls the enter key to auto execute and open next form
-    Private Sub WorkCentre_Topup_Scan_Station_6_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
-        If (scn_stn.Text IsNot "") Then
+    Private Sub scn_stn_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles scn_stn.KeyDown
+        Try
             If e.KeyCode = Keys.Enter Then
-                Call Button2_Click(sender, e)
+                Dim pass As Boolean
+
+                pass = CheckStation(scn_stn.Text)
+                If (Pass = True) Then
+                    Dim passed As New Subline_Result_3
+                    passed.BackColor = Color.LawnGreen
+                    passed._top_lbl = "Station"
+                    passed._bot_lbl = "Match !"
+                    passed.Show()
+                    Button2_Click(sender, New EventArgs())
+                Else
+                    Dim failed As New Subline_Result_3
+                    failed.BackColor = Color.Red
+                    failed._top_lbl = "Station"
+                    failed._bot_lbl = "Not Match !"
+                    failed.Show()
+                End If
             End If
-        End If
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    'logout
+    Private Sub logout_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles logout_pbx.Click
+        Try
+            Dim logout As New Form1 'Return to Login Screen (Logout)
+            logout.Show()
+            Me.Close()
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    'back
+    Private Sub back_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles back_pbx.Click
+        Try
+            Dim back As New WorkCentre_Topup_Scan_Part_5
+            back.mdl_lbl.Text = mdl_lbl.Text
+            back.sub_lbl.Text = sub_lbl.Text
+            back.username.Text = username.Text
+            back.Show()
+            Me.Close()
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    'rescan
+    Private Sub rescan_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rescan_pbx.Click
+        Try
+            scn_stn.Text = ""
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.Click
+        Try
+            Dim Home As New Identify_Model_2
+            Home.user = username.Text
+            Home.Show()
+            Me.Close()
+        Catch ex As Exception
+        End Try
     End Sub
 End Class
