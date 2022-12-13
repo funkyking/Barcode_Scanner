@@ -31,7 +31,6 @@ Partial Public Class WorkCentre_Topup_Scan_Sample_7
         Me.mdl_lbl = New System.Windows.Forms.Label
         Me.sub_lbl = New System.Windows.Forms.Label
         Me.Panel1 = New System.Windows.Forms.Panel
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.logout_pbx = New System.Windows.Forms.PictureBox
         Me.Label1 = New System.Windows.Forms.Label
         Me.Label5 = New System.Windows.Forms.Label
@@ -44,10 +43,17 @@ Partial Public Class WorkCentre_Topup_Scan_Sample_7
         Me.back_pbx = New System.Windows.Forms.PictureBox
         Me.rescan_pbx = New System.Windows.Forms.PictureBox
         Me.PictureBox2 = New System.Windows.Forms.PictureBox
+        Me.dropdown_pnl = New System.Windows.Forms.Panel
+        Me.exit_btn = New System.Windows.Forms.Button
+        Me.info_btn = New System.Windows.Forms.Button
+        Me.stg_btn = New System.Windows.Forms.Button
+        Me.home_btn = New System.Windows.Forms.Button
+        Me.dropdown_pbx = New System.Windows.Forms.PictureBox
         Me.Panel4.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        Me.dropdown_pnl.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel4
@@ -146,22 +152,13 @@ Partial Public Class WorkCentre_Topup_Scan_Sample_7
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.HotTrack
-        Me.Panel1.Controls.Add(Me.PictureBox1)
+        Me.Panel1.Controls.Add(Me.PictureBox2)
         Me.Panel1.Controls.Add(Me.logout_pbx)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(478, 53)
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(9, 7)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(41, 36)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         '
         'logout_pbx
         '
@@ -260,10 +257,71 @@ Partial Public Class WorkCentre_Topup_Scan_Sample_7
         '
         Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(9, 173)
+        Me.PictureBox2.Location = New System.Drawing.Point(3, 7)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(46, 41)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        '
+        'dropdown_pnl
+        '
+        Me.dropdown_pnl.BackColor = System.Drawing.Color.Transparent
+        Me.dropdown_pnl.Controls.Add(Me.exit_btn)
+        Me.dropdown_pnl.Controls.Add(Me.info_btn)
+        Me.dropdown_pnl.Controls.Add(Me.stg_btn)
+        Me.dropdown_pnl.Controls.Add(Me.home_btn)
+        Me.dropdown_pnl.Controls.Add(Me.dropdown_pbx)
+        Me.dropdown_pnl.Location = New System.Drawing.Point(11, 183)
+        Me.dropdown_pnl.Name = "dropdown_pnl"
+        Me.dropdown_pnl.Size = New System.Drawing.Size(76, 181)
+        '
+        'exit_btn
+        '
+        Me.exit_btn.BackColor = System.Drawing.Color.Transparent
+        Me.exit_btn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.exit_btn.Location = New System.Drawing.Point(0, 144)
+        Me.exit_btn.Name = "exit_btn"
+        Me.exit_btn.Size = New System.Drawing.Size(76, 36)
+        Me.exit_btn.TabIndex = 6
+        Me.exit_btn.Text = "Exit"
+        '
+        'info_btn
+        '
+        Me.info_btn.BackColor = System.Drawing.Color.Transparent
+        Me.info_btn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.info_btn.Location = New System.Drawing.Point(0, 108)
+        Me.info_btn.Name = "info_btn"
+        Me.info_btn.Size = New System.Drawing.Size(76, 36)
+        Me.info_btn.TabIndex = 4
+        Me.info_btn.Text = "Info"
+        '
+        'stg_btn
+        '
+        Me.stg_btn.BackColor = System.Drawing.Color.Transparent
+        Me.stg_btn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.stg_btn.Location = New System.Drawing.Point(0, 72)
+        Me.stg_btn.Name = "stg_btn"
+        Me.stg_btn.Size = New System.Drawing.Size(76, 36)
+        Me.stg_btn.TabIndex = 3
+        Me.stg_btn.Text = "Settings"
+        '
+        'home_btn
+        '
+        Me.home_btn.BackColor = System.Drawing.Color.Transparent
+        Me.home_btn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.home_btn.Location = New System.Drawing.Point(0, 36)
+        Me.home_btn.Name = "home_btn"
+        Me.home_btn.Size = New System.Drawing.Size(76, 36)
+        Me.home_btn.TabIndex = 1
+        Me.home_btn.Text = "Home"
+        '
+        'dropdown_pbx
+        '
+        Me.dropdown_pbx.BackColor = System.Drawing.Color.Transparent
+        Me.dropdown_pbx.Dock = System.Windows.Forms.DockStyle.Top
+        Me.dropdown_pbx.Image = CType(resources.GetObject("dropdown_pbx.Image"), System.Drawing.Image)
+        Me.dropdown_pbx.Location = New System.Drawing.Point(0, 0)
+        Me.dropdown_pbx.Name = "dropdown_pbx"
+        Me.dropdown_pbx.Size = New System.Drawing.Size(76, 36)
         '
         'WorkCentre_Topup_Scan_Sample_7
         '
@@ -271,7 +329,7 @@ Partial Public Class WorkCentre_Topup_Scan_Sample_7
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(478, 615)
-        Me.Controls.Add(Me.PictureBox2)
+        Me.Controls.Add(Me.dropdown_pnl)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Label3)
@@ -285,6 +343,7 @@ Partial Public Class WorkCentre_Topup_Scan_Sample_7
         Me.Panel2.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
+        Me.dropdown_pnl.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -310,6 +369,11 @@ Partial Public Class WorkCentre_Topup_Scan_Sample_7
     Friend WithEvents rescan_pbx As System.Windows.Forms.PictureBox
     Friend WithEvents back_pbx As System.Windows.Forms.PictureBox
     Friend WithEvents logout_pbx As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents dropdown_pnl As System.Windows.Forms.Panel
+    Friend WithEvents exit_btn As System.Windows.Forms.Button
+    Friend WithEvents info_btn As System.Windows.Forms.Button
+    Friend WithEvents stg_btn As System.Windows.Forms.Button
+    Friend WithEvents home_btn As System.Windows.Forms.Button
+    Friend WithEvents dropdown_pbx As System.Windows.Forms.PictureBox
 End Class

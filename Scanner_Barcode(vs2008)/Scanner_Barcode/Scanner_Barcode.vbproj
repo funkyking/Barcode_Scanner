@@ -127,12 +127,6 @@
     <Compile Include="WorkCentre_Topup_Scan_Part_5.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WorkCentre_Topup_Scan_Part_Match_8.Designer.vb">
-      <DependentUpon>WorkCentre_Topup_Scan_Part_Match_8.vb</DependentUpon>
-    </Compile>
-    <Compile Include="WorkCentre_Topup_Scan_Part_Match_8.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="WorkCentre_Topup_Scan_Sample_7.Designer.vb">
       <DependentUpon>WorkCentre_Topup_Scan_Sample_7.vb</DependentUpon>
     </Compile>
@@ -173,9 +167,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WorkCentre_Topup_Scan_Part_5.resx">
       <DependentUpon>WorkCentre_Topup_Scan_Part_5.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WorkCentre_Topup_Scan_Part_Match_8.resx">
-      <DependentUpon>WorkCentre_Topup_Scan_Part_Match_8.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WorkCentre_Topup_Scan_Sample_7.resx">
       <DependentUpon>WorkCentre_Topup_Scan_Sample_7.vb</DependentUpon>

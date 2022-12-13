@@ -43,26 +43,25 @@ Public Class Settings
             Using conn = New SqlConnection(conn_str)
                 conn.Open()
 
-                Dim query As String = "Select name FROM sys.tables"
-                Dim da As New SqlDataAdapter(query, conn)
-                Using ds = New DataSet()
-                    da.Fill(ds)
-                    With tableList_cmbx
-                        .DataSource = ds.Tables(0)
-                        .DisplayMember = "name"
-                        .ValueMember = "name"
-                    End With
-                End Using
+                If (conn.State = ConnectionState.Open) Then
+                    Dim query As String = "Select name FROM sys.tables"
+                    Dim da As New SqlDataAdapter(query, conn)
+                    Using ds = New DataSet()
+                        da.Fill(ds)
+                        With tableList_cmbx
+                            .DataSource = ds.Tables(0)
+                            .DisplayMember = "name"
+                            .ValueMember = "name"
+                        End With
+                    End Using
+                Else
+                    MsgBox("Database Not found / Inactive")
+                End If
             End Using
             DatabaseName = String.Format("Connected to = [{0}]", conn_str)
             Form1.Label9.Text = DatabaseName
         Catch ex As Exception
         End Try
-    End Sub
-
-    'home
-    Private Sub home_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles home_pbx.Click
-        Me.Hide()
     End Sub
 
     'load tables
@@ -81,4 +80,8 @@ Public Class Settings
         End Try
     End Sub
 
+    'home
+    Private Sub home_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles home_pbx.Click
+        Me.Close()
+    End Sub
 End Class

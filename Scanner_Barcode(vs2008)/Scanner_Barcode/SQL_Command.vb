@@ -2,6 +2,8 @@
 Imports System.Data
 
 Module SQL_Command
+
+#Region "Db for ID's"
     ' Storing the Details of parts and stations
     Public PartID As String
     Public PartNo As String
@@ -16,6 +18,9 @@ Module SQL_Command
     Public res As Boolean
     Public conn_str As String = "null"
 
+#End Region
+
+#Region "Commands"
 
     Public Function OpenDB() As Boolean
         Try
@@ -36,7 +41,9 @@ Module SQL_Command
         Return temp
     End Function
 
-    'Functions that retrieve data from sql database
+#End Region
+
+#Region "Identify Model"
 
     'Function to return ModelID given ModelCode/ModeName
     Public Function GetModelId(Optional ByVal ValueFromFunc As String = Nothing) As String
@@ -115,10 +122,14 @@ Module SQL_Command
                 res = False
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            'MessageBox.Show(ex.Message)
         End Try
         Return res
     End Function
+
+#End Region
+
+#Region "Topup"
 
     'STEP 1'
     'This is at Topup Part'
@@ -244,6 +255,9 @@ Module SQL_Command
         Return returnValue
     End Function
 
+#End Region
+
+#Region "Scan Station"
 
     'STEP 2'
     'Scan Station (userInput = MasterStationID)(After Top_up) returns boolean
@@ -273,6 +287,9 @@ Module SQL_Command
         Return returnValue
     End Function
 
+#End Region
+
+#Region "Scan Part"
 
     'STEP 3'
     'Get part name or AssemblyRef
@@ -303,29 +320,36 @@ Module SQL_Command
             End Using
         Catch ex As Exception
         End Try
-        MasterStationId = returnValue
         Return returnValue
     End Function
 
     'Scan Part
-    Public Function checkPartandStation(ByVal userInput) As Boolean 'Input should be PartID
+    Public Function checkPartandStation(Optional ByRef userInput As String = Nothing) As Boolean
+        Dim res As Boolean
         Dim returnValue As Boolean
 
-        Using conn = New SqlConnection(conn_str)
-            conn.Open()
-
-            Dim query As String = "Select * From dbo.MasterBOM where PartID=@PartID and MasterStationId=@MasterStationId"
-            Dim cmd As New SqlCommand(query, conn)
-            cmd.Parameters.AddWithValue("@PartID", userInput)
-            cmd.Parameters.AddWithValue("@MasterStationId", MasterStationId)
-            Dim dr As SqlDataReader
-            dr = cmd.ExecuteReader()
-            If dr.Read = True Then
-                returnValue = True
-            Else
-                returnValue = False
-            End If
-        End Using
+        Try
+            Using conn = New SqlConnection(conn_str)
+                conn.Open()
+                Dim query As String = "Select * From dbo.MasterBOM where PartID=@PartID and MasterStationId=@MasterStationId"
+                cmd = New SqlCommand(query, conn)
+                cmd.Parameters.AddWithValue("@PartID", userInput)
+                cmd.Parameters.AddWithValue("@MasterStationId", MasterStationId)
+                Dim dr As SqlDataReader
+                dr = cmd.ExecuteReader()
+                If (dr.Read = True) Then
+                    res = True
+                    returnValue = res
+                Else
+                    res = False
+                    returnValue = res
+                End If
+            End Using
+        Catch ex As Exception
+        End Try
         Return returnValue
     End Function
+
+#End Region
+
 End Module

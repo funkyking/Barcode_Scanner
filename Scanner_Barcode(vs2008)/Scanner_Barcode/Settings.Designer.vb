@@ -34,11 +34,11 @@ Partial Public Class Settings
         Me.tableList_cmbx = New System.Windows.Forms.ComboBox
         Me.Label4 = New System.Windows.Forms.Label
         Me.loadTables_btn = New System.Windows.Forms.Button
-        Me.home_pbx = New System.Windows.Forms.PictureBox
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
         Me.Panel3 = New System.Windows.Forms.Panel
         Me.Button1 = New System.Windows.Forms.Button
         Me.Label6 = New System.Windows.Forms.Label
+        Me.home_pbx = New System.Windows.Forms.PictureBox
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -63,9 +63,9 @@ Partial Public Class Settings
         Me.Panel1.Controls.Add(Me.conn_Btn)
         Me.Panel1.Controls.Add(Me.db_add_tbx)
         Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Location = New System.Drawing.Point(14, 59)
+        Me.Panel1.Location = New System.Drawing.Point(14, 53)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(181, 267)
+        Me.Panel1.Size = New System.Drawing.Size(181, 245)
         '
         'Button2
         '
@@ -135,9 +135,9 @@ Partial Public Class Settings
         Me.Panel2.Controls.Add(Me.tableList_cmbx)
         Me.Panel2.Controls.Add(Me.Label4)
         Me.Panel2.Controls.Add(Me.loadTables_btn)
-        Me.Panel2.Location = New System.Drawing.Point(14, 372)
+        Me.Panel2.Location = New System.Drawing.Point(14, 316)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(181, 227)
+        Me.Panel2.Size = New System.Drawing.Size(181, 119)
         '
         'Label5
         '
@@ -173,21 +173,12 @@ Partial Public Class Settings
         Me.loadTables_btn.TabIndex = 0
         Me.loadTables_btn.Text = "Load"
         '
-        'home_pbx
-        '
-        Me.home_pbx.BackColor = System.Drawing.Color.Transparent
-        Me.home_pbx.Image = CType(resources.GetObject("home_pbx.Image"), System.Drawing.Image)
-        Me.home_pbx.Location = New System.Drawing.Point(3, 16)
-        Me.home_pbx.Name = "home_pbx"
-        Me.home_pbx.Size = New System.Drawing.Size(44, 37)
-        Me.home_pbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        '
         'DataGrid1
         '
         Me.DataGrid1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.DataGrid1.Location = New System.Drawing.Point(201, 59)
+        Me.DataGrid1.Location = New System.Drawing.Point(201, 53)
         Me.DataGrid1.Name = "DataGrid1"
-        Me.DataGrid1.Size = New System.Drawing.Size(248, 540)
+        Me.DataGrid1.Size = New System.Drawing.Size(248, 452)
         Me.DataGrid1.TabIndex = 5
         '
         'Panel3
@@ -195,9 +186,9 @@ Partial Public Class Settings
         Me.Panel3.BackColor = System.Drawing.Color.WhiteSmoke
         Me.Panel3.Controls.Add(Me.Button1)
         Me.Panel3.Controls.Add(Me.Label6)
-        Me.Panel3.Location = New System.Drawing.Point(14, 630)
+        Me.Panel3.Location = New System.Drawing.Point(14, 441)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(163, 238)
+        Me.Panel3.Size = New System.Drawing.Size(181, 142)
         '
         'Button1
         '
@@ -216,15 +207,24 @@ Partial Public Class Settings
         Me.Label6.Size = New System.Drawing.Size(78, 20)
         Me.Label6.Text = "Misc"
         '
+        'home_pbx
+        '
+        Me.home_pbx.BackColor = System.Drawing.Color.Transparent
+        Me.home_pbx.Image = CType(resources.GetObject("home_pbx.Image"), System.Drawing.Image)
+        Me.home_pbx.Location = New System.Drawing.Point(14, 10)
+        Me.home_pbx.Name = "home_pbx"
+        Me.home_pbx.Size = New System.Drawing.Size(44, 37)
+        Me.home_pbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        '
         'Settings
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(478, 615)
+        Me.Controls.Add(Me.home_pbx)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.DataGrid1)
-        Me.Controls.Add(Me.home_pbx)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "Settings"
@@ -247,11 +247,11 @@ Partial Public Class Settings
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents loadTables_btn As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents home_pbx As System.Windows.Forms.PictureBox
     Friend WithEvents tableList_cmbx As System.Windows.Forms.ComboBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents DataGrid1 As System.Windows.Forms.DataGrid
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents home_pbx As System.Windows.Forms.PictureBox
 End Class

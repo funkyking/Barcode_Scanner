@@ -1,8 +1,10 @@
 ﻿Public Class WorkCentre_Topup_Scan_Sample_7
 
-   
+
+#Region "Data Passing"
 
     Dim part_name_cache As String
+
     'passing username credentials
     Friend Property user() As String
         Get
@@ -62,25 +64,22 @@
         End Set
     End Property
 
-    'load
-    Private Sub WorkCentre_Topup_Scan_Sample_7_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        part_name.Text = String.Format("({0})", GetPartName(PartID))
-    End Sub
+#End Region
+
+#Region "Main"
 
     'Trigger scan enter key pressed
     Private Sub scn_part_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles scn_part.KeyDown
 
         If e.KeyCode = Keys.Enter Then
 
-            Dim Res As Boolean
-            Dim userInput As String = ""
-            userInput = scn_part.Text
+            Dim pass As Boolean
 
-            Res = checkPartandStation(userInput)
-            If (Res = True) Then
+            pass = checkPartandStation(scn_part.Text)
+            If (pass = True) Then
                 Dim passed As New Subline_Result_3
-                passed._top_lbl = "Part Match"
-                passed._bot_lbl = "!"
+                passed._top_lbl = "Part"
+                passed._bot_lbl = "Match !"
                 passed.Show()
 
             Else
@@ -91,6 +90,19 @@
                 failed.Show()
             End If
         End If
+    End Sub
+
+#End Region
+
+#Region "Misc"
+
+    'load
+    Private Sub WorkCentre_Topup_Scan_Sample_7_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Try
+            part_name.Text = String.Format("({0})", GetPartName(PartID))
+            dropdown_pnl.Size = New Size(76, 36)
+        Catch ex As Exception
+        End Try
     End Sub
 
     'Back
@@ -136,4 +148,56 @@
         Catch ex As Exception
         End Try
     End Sub
+
+#End Region
+
+#Region "DropDownMenu"
+    'dropdown menu
+    Private Sub dropdown_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dropdown_pbx.Click
+        Try
+            If (dropdown_pnl.Size = New Size(76, 36)) Then
+                dropdown_pnl.Size = New Size(76, 181)
+            Else
+                dropdown_pnl.Size = New Size(76, 36)
+            End If
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    'settings
+    Private Sub stg_btn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles stg_btn.Click
+        Try
+            dropdown_pbx_Click(sender, New EventArgs())
+            Dim obj As New Settings
+            obj.Show()
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    'exit
+    Private Sub exit_btn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles exit_btn.Click
+        Try
+            Me.Close()
+            Me.Dispose()
+            Form1.Dispose()
+            GC.Collect()
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    'home
+    Private Sub home_btn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles home_btn.Click
+        Try
+            Try
+                Dim Home As New Identify_Model_2
+                Home.user = username.Text
+                Home.Show()
+                Me.Close()
+            Catch ex As Exception
+            End Try
+        Catch ex As Exception
+        End Try
+    End Sub
+#End Region
+
 End Class

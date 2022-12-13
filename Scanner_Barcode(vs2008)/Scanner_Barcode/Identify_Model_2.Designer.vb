@@ -21,7 +21,6 @@ Partial Public Class Identify_Model_2
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Identify_Model_2))
         Me.Panel1 = New System.Windows.Forms.Panel
-        Me.settings_pbx = New System.Windows.Forms.PictureBox
         Me.Label1 = New System.Windows.Forms.Label
         Me.logout_pbx = New System.Windows.Forms.PictureBox
         Me.username = New System.Windows.Forms.Label
@@ -31,34 +30,31 @@ Partial Public Class Identify_Model_2
         Me.model_ID = New System.Windows.Forms.TextBox
         Me.Cont_btn = New System.Windows.Forms.Button
         Me.Panel3 = New System.Windows.Forms.Panel
-        Me.back_pbx = New System.Windows.Forms.PictureBox
         Me.rescan_pbx = New System.Windows.Forms.PictureBox
         Me.Label8 = New System.Windows.Forms.Label
         Me.Label5 = New System.Windows.Forms.Label
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
+        Me.dropdown_pnl = New System.Windows.Forms.Panel
+        Me.exit_btn = New System.Windows.Forms.Button
+        Me.info_btn = New System.Windows.Forms.Button
+        Me.stg_btn = New System.Windows.Forms.Button
+        Me.home_btn = New System.Windows.Forms.Button
+        Me.dropdown_pbx = New System.Windows.Forms.PictureBox
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        Me.dropdown_pnl.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.HotTrack
-        Me.Panel1.Controls.Add(Me.settings_pbx)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.logout_pbx)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(478, 53)
-        '
-        'settings_pbx
-        '
-        Me.settings_pbx.Image = CType(resources.GetObject("settings_pbx.Image"), System.Drawing.Image)
-        Me.settings_pbx.Location = New System.Drawing.Point(3, 11)
-        Me.settings_pbx.Name = "settings_pbx"
-        Me.settings_pbx.Size = New System.Drawing.Size(41, 36)
-        Me.settings_pbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         '
         'Label1
         '
@@ -132,7 +128,6 @@ Partial Public Class Identify_Model_2
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.Panel3.Controls.Add(Me.back_pbx)
         Me.Panel3.Controls.Add(Me.rescan_pbx)
         Me.Panel3.Controls.Add(Me.Label8)
         Me.Panel3.Controls.Add(Me.model_ID)
@@ -140,14 +135,6 @@ Partial Public Class Identify_Model_2
         Me.Panel3.Location = New System.Drawing.Point(44, 230)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(386, 209)
-        '
-        'back_pbx
-        '
-        Me.back_pbx.Image = CType(resources.GetObject("back_pbx.Image"), System.Drawing.Image)
-        Me.back_pbx.Location = New System.Drawing.Point(181, 149)
-        Me.back_pbx.Name = "back_pbx"
-        Me.back_pbx.Size = New System.Drawing.Size(38, 39)
-        Me.back_pbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         '
         'rescan_pbx
         '
@@ -180,12 +167,74 @@ Partial Public Class Identify_Model_2
         Me.DataGrid1.Size = New System.Drawing.Size(409, 239)
         Me.DataGrid1.TabIndex = 11
         '
+        'dropdown_pnl
+        '
+        Me.dropdown_pnl.BackColor = System.Drawing.Color.Transparent
+        Me.dropdown_pnl.Controls.Add(Me.exit_btn)
+        Me.dropdown_pnl.Controls.Add(Me.info_btn)
+        Me.dropdown_pnl.Controls.Add(Me.stg_btn)
+        Me.dropdown_pnl.Controls.Add(Me.home_btn)
+        Me.dropdown_pnl.Controls.Add(Me.dropdown_pbx)
+        Me.dropdown_pnl.Location = New System.Drawing.Point(13, 125)
+        Me.dropdown_pnl.Name = "dropdown_pnl"
+        Me.dropdown_pnl.Size = New System.Drawing.Size(76, 181)
+        '
+        'exit_btn
+        '
+        Me.exit_btn.BackColor = System.Drawing.Color.Transparent
+        Me.exit_btn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.exit_btn.Location = New System.Drawing.Point(0, 144)
+        Me.exit_btn.Name = "exit_btn"
+        Me.exit_btn.Size = New System.Drawing.Size(76, 36)
+        Me.exit_btn.TabIndex = 6
+        Me.exit_btn.Text = "Exit"
+        '
+        'info_btn
+        '
+        Me.info_btn.BackColor = System.Drawing.Color.Transparent
+        Me.info_btn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.info_btn.Location = New System.Drawing.Point(0, 108)
+        Me.info_btn.Name = "info_btn"
+        Me.info_btn.Size = New System.Drawing.Size(76, 36)
+        Me.info_btn.TabIndex = 4
+        Me.info_btn.Text = "Info"
+        '
+        'stg_btn
+        '
+        Me.stg_btn.BackColor = System.Drawing.Color.Transparent
+        Me.stg_btn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.stg_btn.Location = New System.Drawing.Point(0, 72)
+        Me.stg_btn.Name = "stg_btn"
+        Me.stg_btn.Size = New System.Drawing.Size(76, 36)
+        Me.stg_btn.TabIndex = 3
+        Me.stg_btn.Text = "Settings"
+        '
+        'home_btn
+        '
+        Me.home_btn.BackColor = System.Drawing.Color.Transparent
+        Me.home_btn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.home_btn.Location = New System.Drawing.Point(0, 36)
+        Me.home_btn.Name = "home_btn"
+        Me.home_btn.Size = New System.Drawing.Size(76, 36)
+        Me.home_btn.TabIndex = 1
+        Me.home_btn.Text = "Home"
+        '
+        'dropdown_pbx
+        '
+        Me.dropdown_pbx.BackColor = System.Drawing.Color.Transparent
+        Me.dropdown_pbx.Dock = System.Windows.Forms.DockStyle.Top
+        Me.dropdown_pbx.Image = CType(resources.GetObject("dropdown_pbx.Image"), System.Drawing.Image)
+        Me.dropdown_pbx.Location = New System.Drawing.Point(0, 0)
+        Me.dropdown_pbx.Name = "dropdown_pbx"
+        Me.dropdown_pbx.Size = New System.Drawing.Size(76, 36)
+        '
         'Identify_Model_2
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(478, 615)
+        Me.Controls.Add(Me.dropdown_pnl)
         Me.Controls.Add(Me.username)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Cont_btn)
@@ -198,6 +247,7 @@ Partial Public Class Identify_Model_2
         Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
+        Me.dropdown_pnl.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -213,10 +263,14 @@ Partial Public Class Identify_Model_2
     Friend WithEvents username As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents logout_pbx As System.Windows.Forms.PictureBox
-    Friend WithEvents settings_pbx As System.Windows.Forms.PictureBox
     Friend WithEvents rescan_pbx As System.Windows.Forms.PictureBox
     Friend WithEvents DataGrid1 As System.Windows.Forms.DataGrid
-    Friend WithEvents back_pbx As System.Windows.Forms.PictureBox
+    Friend WithEvents dropdown_pnl As System.Windows.Forms.Panel
+    Friend WithEvents exit_btn As System.Windows.Forms.Button
+    Friend WithEvents info_btn As System.Windows.Forms.Button
+    Friend WithEvents stg_btn As System.Windows.Forms.Button
+    Friend WithEvents home_btn As System.Windows.Forms.Button
+    Friend WithEvents dropdown_pbx As System.Windows.Forms.PictureBox
 
 
 End Class

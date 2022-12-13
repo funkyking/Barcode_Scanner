@@ -21,10 +21,15 @@ Partial Public Class Form1
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.Panel1 = New System.Windows.Forms.Panel
-        Me.settings_pbx = New System.Windows.Forms.PictureBox
         Me.Label1 = New System.Windows.Forms.Label
+        Me.dropdown_pbx = New System.Windows.Forms.PictureBox
         Me.Panel2 = New System.Windows.Forms.Panel
         Me.Label2 = New System.Windows.Forms.Label
+        Me.dropdown_pnl = New System.Windows.Forms.Panel
+        Me.exit_btn = New System.Windows.Forms.Button
+        Me.info_btn = New System.Windows.Forms.Button
+        Me.stg_btn = New System.Windows.Forms.Button
+        Me.home_btn = New System.Windows.Forms.Button
         Me.login_btn = New System.Windows.Forms.Button
         Me.Label6 = New System.Windows.Forms.Label
         Me.Label5 = New System.Windows.Forms.Label
@@ -44,25 +49,17 @@ Partial Public Class Form1
         Me.Label9 = New System.Windows.Forms.Label
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        Me.dropdown_pnl.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.Panel1.Controls.Add(Me.settings_pbx)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(478, 53)
-        '
-        'settings_pbx
-        '
-        Me.settings_pbx.Image = CType(resources.GetObject("settings_pbx.Image"), System.Drawing.Image)
-        Me.settings_pbx.Location = New System.Drawing.Point(3, 9)
-        Me.settings_pbx.Name = "settings_pbx"
-        Me.settings_pbx.Size = New System.Drawing.Size(41, 36)
-        Me.settings_pbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         '
         'Label1
         '
@@ -73,6 +70,15 @@ Partial Public Class Form1
         Me.Label1.Size = New System.Drawing.Size(238, 34)
         Me.Label1.Text = "Barcode Scanner"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'dropdown_pbx
+        '
+        Me.dropdown_pbx.BackColor = System.Drawing.Color.Transparent
+        Me.dropdown_pbx.Dock = System.Windows.Forms.DockStyle.Top
+        Me.dropdown_pbx.Image = CType(resources.GetObject("dropdown_pbx.Image"), System.Drawing.Image)
+        Me.dropdown_pbx.Location = New System.Drawing.Point(0, 0)
+        Me.dropdown_pbx.Name = "dropdown_pbx"
+        Me.dropdown_pbx.Size = New System.Drawing.Size(76, 36)
         '
         'Panel2
         '
@@ -90,6 +96,58 @@ Partial Public Class Form1
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(100, 26)
         Me.Label2.Text = "Login"
+        '
+        'dropdown_pnl
+        '
+        Me.dropdown_pnl.BackColor = System.Drawing.Color.Transparent
+        Me.dropdown_pnl.Controls.Add(Me.exit_btn)
+        Me.dropdown_pnl.Controls.Add(Me.info_btn)
+        Me.dropdown_pnl.Controls.Add(Me.stg_btn)
+        Me.dropdown_pnl.Controls.Add(Me.home_btn)
+        Me.dropdown_pnl.Controls.Add(Me.dropdown_pbx)
+        Me.dropdown_pnl.Location = New System.Drawing.Point(12, 112)
+        Me.dropdown_pnl.Name = "dropdown_pnl"
+        Me.dropdown_pnl.Size = New System.Drawing.Size(76, 181)
+        '
+        'exit_btn
+        '
+        Me.exit_btn.BackColor = System.Drawing.Color.Transparent
+        Me.exit_btn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.exit_btn.Location = New System.Drawing.Point(0, 144)
+        Me.exit_btn.Name = "exit_btn"
+        Me.exit_btn.Size = New System.Drawing.Size(76, 36)
+        Me.exit_btn.TabIndex = 6
+        Me.exit_btn.Text = "Exit"
+        '
+        'info_btn
+        '
+        Me.info_btn.BackColor = System.Drawing.Color.Transparent
+        Me.info_btn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.info_btn.Location = New System.Drawing.Point(0, 108)
+        Me.info_btn.Name = "info_btn"
+        Me.info_btn.Size = New System.Drawing.Size(76, 36)
+        Me.info_btn.TabIndex = 4
+        Me.info_btn.Text = "Info"
+        '
+        'stg_btn
+        '
+        Me.stg_btn.BackColor = System.Drawing.Color.Transparent
+        Me.stg_btn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.stg_btn.Location = New System.Drawing.Point(0, 72)
+        Me.stg_btn.Name = "stg_btn"
+        Me.stg_btn.Size = New System.Drawing.Size(76, 36)
+        Me.stg_btn.TabIndex = 3
+        Me.stg_btn.Text = "Settings"
+        '
+        'home_btn
+        '
+        Me.home_btn.BackColor = System.Drawing.Color.Transparent
+        Me.home_btn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.home_btn.Location = New System.Drawing.Point(0, 36)
+        Me.home_btn.Name = "home_btn"
+        Me.home_btn.Size = New System.Drawing.Size(76, 36)
+        Me.home_btn.TabIndex = 1
+        Me.home_btn.Text = "Home"
         '
         'login_btn
         '
@@ -219,9 +277,9 @@ Partial Public Class Form1
         'Label9
         '
         Me.Label9.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Regular)
-        Me.Label9.Location = New System.Drawing.Point(37, 121)
+        Me.Label9.Location = New System.Drawing.Point(123, 126)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(397, 36)
+        Me.Label9.Size = New System.Drawing.Size(238, 36)
         Me.Label9.Text = "Label9"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
@@ -231,6 +289,7 @@ Partial Public Class Form1
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(478, 615)
+        Me.Controls.Add(Me.dropdown_pnl)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.user_found_lbl)
         Me.Controls.Add(Me.TextBox3)
@@ -254,6 +313,7 @@ Partial Public Class Form1
         Me.Text = "Form1"
         Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
+        Me.dropdown_pnl.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -276,8 +336,13 @@ Partial Public Class Form1
     Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
     Friend WithEvents DataGrid1 As System.Windows.Forms.DataGrid
     Friend WithEvents DataGrid2 As System.Windows.Forms.DataGrid
-    Friend WithEvents settings_pbx As System.Windows.Forms.PictureBox
+    Friend WithEvents dropdown_pbx As System.Windows.Forms.PictureBox
     Friend WithEvents user_found_lbl As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents dropdown_pnl As System.Windows.Forms.Panel
+    Friend WithEvents home_btn As System.Windows.Forms.Button
+    Friend WithEvents info_btn As System.Windows.Forms.Button
+    Friend WithEvents stg_btn As System.Windows.Forms.Button
+    Friend WithEvents exit_btn As System.Windows.Forms.Button
 
 End Class
