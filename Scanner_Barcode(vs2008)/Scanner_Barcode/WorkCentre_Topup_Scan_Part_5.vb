@@ -1,72 +1,43 @@
 ﻿Public Class WorkCentre_Topup_Scan_Part_5
 
-    Public part_name_temp As String 'This one is cached and moved up until last station
 
-#Region "Data Passing"
-
-    'Passing username credentials
-    Friend Property user() As String
-        Get
-            Return username.Text
-        End Get
-        Set(ByVal value As String)
-            username.Text = value
-        End Set
-    End Property
-
-    'Passing Model ID
-    Friend Property _model() As String
-        Get
-            Return mdl_lbl.Text
-        End Get
-        Set(ByVal value As String)
-            mdl_lbl.Text = value
-        End Set
-    End Property
-
-    'Passing Subline detail
-    Friend Property _subline() As String
-        Get
-            Return sub_lbl.Text
-        End Get
-        Set(ByVal value As String)
-            sub_lbl.Text = value
-        End Set
-    End Property
-#End Region
 
 #Region "Main"
     'Cont_btn event
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cont_btn.Click
-        If (PrtNo_txtbox.Text IsNot Nothing) Then
-
-            'Creates new form
-            Dim form As New WorkCentre_Topup_Scan_Station_6
-            form.user = username.Text 'pass username label
-            form._part = PrtNo_txtbox.Text 'pass part ID label
-            form._subline = sub_lbl.Text 'pass subline label
-            form._model = mdl_lbl.Text 'pass model label
-            form._part_station = MasterStationCode 'pass part station label
-            form.part_name_cache = part_name_temp 'sends the name of the part
-            form.Show()
+        Try
+            Dim Station As New WorkCentre_Topup_Scan_Station_6
+            Station.mdl_lbl.Text = ModelCode
+            Station.sub_lbl.Text = LineCode
+            Station.part_lbl.Text = PartNo
+            Station.prtStn_lbl.Text = MasterStationCode
+            Station.Show()
             Me.Close()
-
-        End If
+        Catch ex As Exception
+        End Try
     End Sub
 
     'Trigger scan if enter key is pressed
-    Private Sub part_ID_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles PrtNo_txtbox.KeyDown
+    Private Sub part_ID_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles userInput.KeyDown
         Try
             If e.KeyCode = Keys.Enter Then
                 Dim temp As String
                 Dim res As Boolean
 
-                PartNo = PrtNo_txtbox.Text
+
+                Dim _PartNo As String = userInput.Text.Substring(0, userInput.Text.IndexOf(",")) 'PartNo/Part's Name
+                Dim _ActualQty As String = userInput.Text.Split(",")(1) 'Quantity Given
+
+
+                PartNo = _PartNo
+                ActualQty = _ActualQty
                 If (PartNo IsNot Nothing) Then
                     temp = GetPartID(PartNo)
                     temp = GetMasterStationID(PartID, LineID, ModelID)
                     temp = GetMasterStationCode(MasterStationId, LineID)
                     res = CheckMasterStationCode(temp)
+
+
                     If (res = True) Then
                         Dim passed As New Subline_Result_3
                         passed.BackColor = Color.LawnGreen
@@ -95,7 +66,10 @@
     'load
     Private Sub WorkCentre_Topup_Scan_Part_5_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
-            dropdown_pnl.Size = New Size(76, 36)
+            mdl_lbl.Text = ModelCode
+            sub_lbl.Text = LineCode
+            userInput.Focus()
+            dropdown_pnl.Size = New Size(34, 32)
         Catch ex As Exception
         End Try
     End Sub
@@ -110,10 +84,8 @@
     'back
     Private Sub back_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles back_pbx.Click
         Try
-            Dim back As New choose_option_4
-            back._subline = _subline
-            back._model = _model
-            back.username.Text = username.Text
+            Dim back As New Identify_Model_2
+            back.username.Text = UserID
             back.Show()
             Me.Close()
         Catch ex As Exception
@@ -124,7 +96,7 @@
     Private Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.Click
         Try
             Dim Home As New Identify_Model_2
-            Home.user = username.Text
+            Home.username.Text = UserID
             Home.Show()
             Me.Close()
         Catch ex As Exception
@@ -134,7 +106,7 @@
     'rescan
     Private Sub rescan_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rescan_pbx.Click
         Try
-            PrtNo_txtbox.Text = ""
+            userInput.Text = ""
         Catch ex As Exception
         End Try
     End Sub
@@ -145,10 +117,10 @@
     'dropdown menu
     Private Sub dropdown_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dropdown_pbx.Click
         Try
-            If (dropdown_pnl.Size = New Size(76, 36)) Then
+            If (dropdown_pnl.Size = New Size(34, 32)) Then
                 dropdown_pnl.Size = New Size(76, 181)
             Else
-                dropdown_pnl.Size = New Size(76, 36)
+                dropdown_pnl.Size = New Size(34, 32)
             End If
         Catch ex As Exception
         End Try
@@ -169,8 +141,8 @@
         Try
             Me.Close()
             Me.Dispose()
-            Form1.Dispose()
             GC.Collect()
+            Application.Exit()
         Catch ex As Exception
         End Try
     End Sub
@@ -180,7 +152,7 @@
         Try
             Try
                 Dim Home As New Identify_Model_2
-                Home.user = username.Text
+                Home.username.Text = UserID
                 Home.Show()
                 Me.Close()
             Catch ex As Exception

@@ -35,11 +35,10 @@ Partial Public Class Form1
         Me.Label5 = New System.Windows.Forms.Label
         Me.Label4 = New System.Windows.Forms.Label
         Me.Label3 = New System.Windows.Forms.Label
-        Me.userPass = New System.Windows.Forms.TextBox
-        Me.userID = New System.Windows.Forms.TextBox
+        Me.pass_txtbx = New System.Windows.Forms.TextBox
+        Me.user_txtbx = New System.Windows.Forms.TextBox
         Me.Label7 = New System.Windows.Forms.Label
-        Me.TextBox3 = New System.Windows.Forms.TextBox
-        Me.qr_login = New System.Windows.Forms.Button
+        Me.qr_txtbx = New System.Windows.Forms.TextBox
         Me.Label8 = New System.Windows.Forms.Label
         Me.Label10 = New System.Windows.Forms.Label
         Me.forgot_password_link = New System.Windows.Forms.LinkLabel
@@ -47,6 +46,7 @@ Partial Public Class Form1
         Me.DataGrid2 = New System.Windows.Forms.DataGrid
         Me.user_found_lbl = New System.Windows.Forms.Label
         Me.Label9 = New System.Windows.Forms.Label
+        Me.pass_found_lbl = New System.Windows.Forms.Label
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.dropdown_pnl.SuspendLayout()
@@ -78,7 +78,7 @@ Partial Public Class Form1
         Me.dropdown_pbx.Image = CType(resources.GetObject("dropdown_pbx.Image"), System.Drawing.Image)
         Me.dropdown_pbx.Location = New System.Drawing.Point(0, 0)
         Me.dropdown_pbx.Name = "dropdown_pbx"
-        Me.dropdown_pbx.Size = New System.Drawing.Size(76, 36)
+        Me.dropdown_pbx.Size = New System.Drawing.Size(82, 36)
         '
         'Panel2
         '
@@ -107,7 +107,7 @@ Partial Public Class Form1
         Me.dropdown_pnl.Controls.Add(Me.dropdown_pbx)
         Me.dropdown_pnl.Location = New System.Drawing.Point(12, 112)
         Me.dropdown_pnl.Name = "dropdown_pnl"
-        Me.dropdown_pnl.Size = New System.Drawing.Size(76, 181)
+        Me.dropdown_pnl.Size = New System.Drawing.Size(82, 181)
         '
         'exit_btn
         '
@@ -115,7 +115,7 @@ Partial Public Class Form1
         Me.exit_btn.Dock = System.Windows.Forms.DockStyle.Top
         Me.exit_btn.Location = New System.Drawing.Point(0, 144)
         Me.exit_btn.Name = "exit_btn"
-        Me.exit_btn.Size = New System.Drawing.Size(76, 36)
+        Me.exit_btn.Size = New System.Drawing.Size(82, 36)
         Me.exit_btn.TabIndex = 6
         Me.exit_btn.Text = "Exit"
         '
@@ -125,7 +125,7 @@ Partial Public Class Form1
         Me.info_btn.Dock = System.Windows.Forms.DockStyle.Top
         Me.info_btn.Location = New System.Drawing.Point(0, 108)
         Me.info_btn.Name = "info_btn"
-        Me.info_btn.Size = New System.Drawing.Size(76, 36)
+        Me.info_btn.Size = New System.Drawing.Size(82, 36)
         Me.info_btn.TabIndex = 4
         Me.info_btn.Text = "Info"
         '
@@ -135,7 +135,7 @@ Partial Public Class Form1
         Me.stg_btn.Dock = System.Windows.Forms.DockStyle.Top
         Me.stg_btn.Location = New System.Drawing.Point(0, 72)
         Me.stg_btn.Name = "stg_btn"
-        Me.stg_btn.Size = New System.Drawing.Size(76, 36)
+        Me.stg_btn.Size = New System.Drawing.Size(82, 36)
         Me.stg_btn.TabIndex = 3
         Me.stg_btn.Text = "Settings"
         '
@@ -145,7 +145,7 @@ Partial Public Class Form1
         Me.home_btn.Dock = System.Windows.Forms.DockStyle.Top
         Me.home_btn.Location = New System.Drawing.Point(0, 36)
         Me.home_btn.Name = "home_btn"
-        Me.home_btn.Size = New System.Drawing.Size(76, 36)
+        Me.home_btn.Size = New System.Drawing.Size(82, 36)
         Me.home_btn.TabIndex = 1
         Me.home_btn.Text = "Home"
         '
@@ -189,19 +189,19 @@ Partial Public Class Form1
         Me.Label3.Size = New System.Drawing.Size(121, 26)
         Me.Label3.Text = "User Id"
         '
-        'userPass
+        'pass_txtbx
         '
-        Me.userPass.Location = New System.Drawing.Point(177, 226)
-        Me.userPass.Name = "userPass"
-        Me.userPass.Size = New System.Drawing.Size(208, 23)
-        Me.userPass.TabIndex = 1
+        Me.pass_txtbx.Location = New System.Drawing.Point(177, 226)
+        Me.pass_txtbx.Name = "pass_txtbx"
+        Me.pass_txtbx.Size = New System.Drawing.Size(208, 23)
+        Me.pass_txtbx.TabIndex = 1
         '
-        'userID
+        'user_txtbx
         '
-        Me.userID.Location = New System.Drawing.Point(177, 197)
-        Me.userID.Name = "userID"
-        Me.userID.Size = New System.Drawing.Size(208, 23)
-        Me.userID.TabIndex = 0
+        Me.user_txtbx.Location = New System.Drawing.Point(177, 197)
+        Me.user_txtbx.Name = "user_txtbx"
+        Me.user_txtbx.Size = New System.Drawing.Size(208, 23)
+        Me.user_txtbx.TabIndex = 0
         '
         'Label7
         '
@@ -210,41 +210,34 @@ Partial Public Class Form1
         Me.Label7.Size = New System.Drawing.Size(21, 20)
         Me.Label7.Text = "Or"
         '
-        'TextBox3
+        'qr_txtbx
         '
-        Me.TextBox3.Location = New System.Drawing.Point(134, 406)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(208, 23)
-        Me.TextBox3.TabIndex = 11
-        '
-        'qr_login
-        '
-        Me.qr_login.Location = New System.Drawing.Point(335, 435)
-        Me.qr_login.Name = "qr_login"
-        Me.qr_login.Size = New System.Drawing.Size(71, 38)
-        Me.qr_login.TabIndex = 11
-        Me.qr_login.Text = "Validate"
+        Me.qr_txtbx.Location = New System.Drawing.Point(139, 431)
+        Me.qr_txtbx.Name = "qr_txtbx"
+        Me.qr_txtbx.Size = New System.Drawing.Size(208, 23)
+        Me.qr_txtbx.TabIndex = 11
         '
         'Label8
         '
+        Me.Label8.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular)
         Me.Label8.ForeColor = System.Drawing.SystemColors.InactiveCaption
-        Me.Label8.Location = New System.Drawing.Point(195, 432)
+        Me.Label8.Location = New System.Drawing.Point(185, 457)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(90, 20)
+        Me.Label8.Size = New System.Drawing.Size(112, 20)
         Me.Label8.Text = "Scan Qr Code"
         '
         'Label10
         '
         Me.Label10.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
         Me.Label10.ForeColor = System.Drawing.Color.Black
-        Me.Label10.Location = New System.Drawing.Point(50, 364)
+        Me.Label10.Location = New System.Drawing.Point(58, 368)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(128, 26)
-        Me.Label10.Text = "UserID (QR) "
+        Me.Label10.Size = New System.Drawing.Size(153, 35)
+        Me.Label10.Text = "QR Login"
         '
         'forgot_password_link
         '
-        Me.forgot_password_link.Location = New System.Drawing.Point(21, 527)
+        Me.forgot_password_link.Location = New System.Drawing.Point(12, 560)
         Me.forgot_password_link.Name = "forgot_password_link"
         Me.forgot_password_link.Size = New System.Drawing.Size(114, 20)
         Me.forgot_password_link.TabIndex = 13
@@ -261,17 +254,17 @@ Partial Public Class Form1
         'DataGrid2
         '
         Me.DataGrid2.BackgroundColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGrid2.Location = New System.Drawing.Point(37, 339)
+        Me.DataGrid2.Location = New System.Drawing.Point(37, 351)
         Me.DataGrid2.Name = "DataGrid2"
-        Me.DataGrid2.Size = New System.Drawing.Size(397, 153)
+        Me.DataGrid2.Size = New System.Drawing.Size(397, 177)
         Me.DataGrid2.TabIndex = 20
         '
         'user_found_lbl
         '
         Me.user_found_lbl.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.user_found_lbl.Location = New System.Drawing.Point(195, 255)
+        Me.user_found_lbl.Location = New System.Drawing.Point(391, 200)
         Me.user_found_lbl.Name = "user_found_lbl"
-        Me.user_found_lbl.Size = New System.Drawing.Size(120, 20)
+        Me.user_found_lbl.Size = New System.Drawing.Size(22, 20)
         Me.user_found_lbl.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Label9
@@ -283,17 +276,25 @@ Partial Public Class Form1
         Me.Label9.Text = "Label9"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
+        'pass_found_lbl
+        '
+        Me.pass_found_lbl.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.pass_found_lbl.Location = New System.Drawing.Point(391, 229)
+        Me.pass_found_lbl.Name = "pass_found_lbl"
+        Me.pass_found_lbl.Size = New System.Drawing.Size(22, 20)
+        Me.pass_found_lbl.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
         'Form1
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(478, 615)
+        Me.Controls.Add(Me.pass_found_lbl)
         Me.Controls.Add(Me.dropdown_pnl)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.user_found_lbl)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.qr_login)
+        Me.Controls.Add(Me.qr_txtbx)
         Me.Controls.Add(Me.login_btn)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label6)
@@ -303,14 +304,14 @@ Partial Public Class Form1
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.userPass)
-        Me.Controls.Add(Me.userID)
+        Me.Controls.Add(Me.pass_txtbx)
+        Me.Controls.Add(Me.user_txtbx)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.DataGrid2)
         Me.Controls.Add(Me.DataGrid1)
+        Me.Controls.Add(Me.DataGrid2)
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Text = "Login"
         Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.dropdown_pnl.ResumeLayout(False)
@@ -322,18 +323,17 @@ Partial Public Class Form1
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents userPass As System.Windows.Forms.TextBox
-    Friend WithEvents userID As System.Windows.Forms.TextBox
+    Friend WithEvents pass_txtbx As System.Windows.Forms.TextBox
+    Friend WithEvents user_txtbx As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents login_btn As System.Windows.Forms.Button
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents qr_login As System.Windows.Forms.Button
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents forgot_password_link As System.Windows.Forms.LinkLabel
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents qr_txtbx As System.Windows.Forms.TextBox
     Friend WithEvents DataGrid1 As System.Windows.Forms.DataGrid
     Friend WithEvents DataGrid2 As System.Windows.Forms.DataGrid
     Friend WithEvents dropdown_pbx As System.Windows.Forms.PictureBox
@@ -344,5 +344,6 @@ Partial Public Class Form1
     Friend WithEvents info_btn As System.Windows.Forms.Button
     Friend WithEvents stg_btn As System.Windows.Forms.Button
     Friend WithEvents exit_btn As System.Windows.Forms.Button
+    Friend WithEvents pass_found_lbl As System.Windows.Forms.Label
 
 End Class

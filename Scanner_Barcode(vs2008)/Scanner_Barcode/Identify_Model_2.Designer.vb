@@ -38,7 +38,6 @@ Partial Public Class Identify_Model_2
         Me.exit_btn = New System.Windows.Forms.Button
         Me.info_btn = New System.Windows.Forms.Button
         Me.stg_btn = New System.Windows.Forms.Button
-        Me.home_btn = New System.Windows.Forms.Button
         Me.dropdown_pbx = New System.Windows.Forms.PictureBox
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -67,6 +66,7 @@ Partial Public Class Identify_Model_2
         '
         'logout_pbx
         '
+        Me.logout_pbx.BackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.logout_pbx.Image = CType(resources.GetObject("logout_pbx.Image"), System.Drawing.Image)
         Me.logout_pbx.Location = New System.Drawing.Point(431, 11)
         Me.logout_pbx.Name = "logout_pbx"
@@ -75,10 +75,11 @@ Partial Public Class Identify_Model_2
         '
         'username
         '
+        Me.username.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular)
         Me.username.ForeColor = System.Drawing.Color.Black
-        Me.username.Location = New System.Drawing.Point(386, 113)
+        Me.username.Location = New System.Drawing.Point(365, 113)
         Me.username.Name = "username"
-        Me.username.Size = New System.Drawing.Size(89, 20)
+        Me.username.Size = New System.Drawing.Size(110, 20)
         Me.username.Text = "[username]"
         '
         'Panel2
@@ -100,10 +101,10 @@ Partial Public Class Identify_Model_2
         '
         'Label3
         '
-        Me.Label3.Font = New System.Drawing.Font("Tahoma", 11.0!, System.Drawing.FontStyle.Regular)
+        Me.Label3.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
         Me.Label3.Location = New System.Drawing.Point(3, 9)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(135, 23)
+        Me.Label3.Size = New System.Drawing.Size(196, 30)
         Me.Label3.Text = "Scan Line && Model"
         '
         'model_ID
@@ -146,17 +147,20 @@ Partial Public Class Identify_Model_2
         '
         'Label8
         '
+        Me.Label8.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular)
         Me.Label8.ForeColor = System.Drawing.SystemColors.InactiveCaption
-        Me.Label8.Location = New System.Drawing.Point(112, 114)
+        Me.Label8.Location = New System.Drawing.Point(122, 114)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(173, 20)
+        Me.Label8.Size = New System.Drawing.Size(148, 46)
         Me.Label8.Text = "Scan the Barcode on Model"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Label5
         '
-        Me.Label5.Location = New System.Drawing.Point(323, 113)
+        Me.Label5.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular)
+        Me.Label5.Location = New System.Drawing.Point(283, 113)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(68, 20)
+        Me.Label5.Size = New System.Drawing.Size(76, 20)
         Me.Label5.Text = "User_ID :"
         '
         'DataGrid1
@@ -164,7 +168,7 @@ Partial Public Class Identify_Model_2
         Me.DataGrid1.BackgroundColor = System.Drawing.Color.WhiteSmoke
         Me.DataGrid1.Location = New System.Drawing.Point(31, 214)
         Me.DataGrid1.Name = "DataGrid1"
-        Me.DataGrid1.Size = New System.Drawing.Size(409, 239)
+        Me.DataGrid1.Size = New System.Drawing.Size(409, 237)
         Me.DataGrid1.TabIndex = 11
         '
         'dropdown_pnl
@@ -173,17 +177,16 @@ Partial Public Class Identify_Model_2
         Me.dropdown_pnl.Controls.Add(Me.exit_btn)
         Me.dropdown_pnl.Controls.Add(Me.info_btn)
         Me.dropdown_pnl.Controls.Add(Me.stg_btn)
-        Me.dropdown_pnl.Controls.Add(Me.home_btn)
         Me.dropdown_pnl.Controls.Add(Me.dropdown_pbx)
         Me.dropdown_pnl.Location = New System.Drawing.Point(13, 125)
         Me.dropdown_pnl.Name = "dropdown_pnl"
-        Me.dropdown_pnl.Size = New System.Drawing.Size(76, 181)
+        Me.dropdown_pnl.Size = New System.Drawing.Size(76, 144)
         '
         'exit_btn
         '
         Me.exit_btn.BackColor = System.Drawing.Color.Transparent
         Me.exit_btn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.exit_btn.Location = New System.Drawing.Point(0, 144)
+        Me.exit_btn.Location = New System.Drawing.Point(0, 108)
         Me.exit_btn.Name = "exit_btn"
         Me.exit_btn.Size = New System.Drawing.Size(76, 36)
         Me.exit_btn.TabIndex = 6
@@ -193,7 +196,7 @@ Partial Public Class Identify_Model_2
         '
         Me.info_btn.BackColor = System.Drawing.Color.Transparent
         Me.info_btn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.info_btn.Location = New System.Drawing.Point(0, 108)
+        Me.info_btn.Location = New System.Drawing.Point(0, 72)
         Me.info_btn.Name = "info_btn"
         Me.info_btn.Size = New System.Drawing.Size(76, 36)
         Me.info_btn.TabIndex = 4
@@ -203,21 +206,11 @@ Partial Public Class Identify_Model_2
         '
         Me.stg_btn.BackColor = System.Drawing.Color.Transparent
         Me.stg_btn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.stg_btn.Location = New System.Drawing.Point(0, 72)
+        Me.stg_btn.Location = New System.Drawing.Point(0, 36)
         Me.stg_btn.Name = "stg_btn"
         Me.stg_btn.Size = New System.Drawing.Size(76, 36)
         Me.stg_btn.TabIndex = 3
         Me.stg_btn.Text = "Settings"
-        '
-        'home_btn
-        '
-        Me.home_btn.BackColor = System.Drawing.Color.Transparent
-        Me.home_btn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.home_btn.Location = New System.Drawing.Point(0, 36)
-        Me.home_btn.Name = "home_btn"
-        Me.home_btn.Size = New System.Drawing.Size(76, 36)
-        Me.home_btn.TabIndex = 1
-        Me.home_btn.Text = "Home"
         '
         'dropdown_pbx
         '
@@ -243,7 +236,7 @@ Partial Public Class Identify_Model_2
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.DataGrid1)
         Me.Name = "Identify_Model_2"
-        Me.Text = "Identify_Model_2"
+        Me.Text = "Scan Line & Model"
         Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
@@ -269,7 +262,6 @@ Partial Public Class Identify_Model_2
     Friend WithEvents exit_btn As System.Windows.Forms.Button
     Friend WithEvents info_btn As System.Windows.Forms.Button
     Friend WithEvents stg_btn As System.Windows.Forms.Button
-    Friend WithEvents home_btn As System.Windows.Forms.Button
     Friend WithEvents dropdown_pbx As System.Windows.Forms.PictureBox
 
 
