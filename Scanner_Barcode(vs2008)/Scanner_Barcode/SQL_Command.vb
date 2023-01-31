@@ -35,6 +35,10 @@ Module SQL_Command
         Return temp
     End Function
 
+    'Clears RunningId
+    Public Sub rm_RunningId()
+        RunningId = Nothing
+    End Sub
 #End Region
 
 #Region "Load"
@@ -370,6 +374,30 @@ Module SQL_Command
         Return returnValue
     End Function
 
+    'Checks if the Item has been Scanned before. If true User is unable to Proceed.
+    Public Function CheckRunningId() As Boolean
+        Dim Res As Boolean = False
+        Try
+            Using conn = New SqlConnection(conn_str)
+                conn.Open()
+                Dim query As String = "Select * From dbo.ProductionStation where RunningId=@RunningId and PartID=@PartID" 'Qty=@Qty
+                cmd = New SqlCommand(query, conn)
+                cmd.Parameters.AddWithValue("@RunningId", RunningId)
+                cmd.Parameters.AddWithValue("@PartID", PartID)
+                'cmd.Parameters.AddWithValue("@Qty", ScannedPartQty)
+                Dim dr As SqlDataReader
+                dr = cmd.ExecuteReader()
+                If (dr.Read = False) Then
+                    Res = True
+                Else
+                    Res = False
+                End If
+            End Using
+        Catch ex As Exception
+        End Try
+        Return Res
+    End Function
+
 #End Region
 
 #Region "Third Scan / Scan Station "
@@ -441,13 +469,15 @@ Module SQL_Command
 #Region "Last Scan"
 
     'Generate a UUID for the current top up Session
-    Public Sub GetFinalProductionId()
+    Public Function GetFinalProductionId() As String
+        Dim temp As String = ""
         Try
             Dim myuuid As Guid = Guid.NewGuid()
-            FinalTopUpId = myuuid.ToString.ToUpper()
+            temp = myuuid.ToString.ToUpper()
         Catch ex As Exception
         End Try
-    End Sub
+        Return temp
+    End Function
 
     'This will insert the data after finishing the topup process into the dbo.ProductionStation table
     Public Function UpdateProductionStation() As Boolean
@@ -459,13 +489,13 @@ Module SQL_Command
                 'Current Time
                 Dim temp_time As String = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
                 Dim _status As String = "1"
-                Dim query As String = "Insert into dbo.ProductionStation (ProductionStationId, ScheduleID, MasterBOMId, ProductionId, PartID, Qty, TDate, Status) values(@ProductionStationId, @ScheduleID, @MasterBOMId, @ProductionId, @PartID, @Qty, @TDate, @Status)"
-                Dim Qty As Int32 = Convert.ToInt32(ActualQty)
+                Dim query As String = "Insert into dbo.ProductionStation (ProductionStationId, ScheduleID, MasterBOMId, ProductionId, PartID, Qty, TDate, Status, RunningId) values(@ProductionStationId, @ScheduleID, @MasterBOMId, @ProductionId, @PartID, @Qty, @TDate, @Status, @RunningId)"
+                Dim Qty As Int32 = Convert.ToInt32(ScannedPartQty)
 
                 'Data insert based on where the values are stored.
                 'Some names might not match the datatable
                 cmd = New SqlCommand(query, conn)
-                cmd.Parameters.AddWithValue("@ProductionStationId", ModelID)
+                cmd.Parameters.AddWithValue("@ProductionStationId", ProductionStationId)
                 cmd.Parameters.AddWithValue("@ScheduleID", ScheduleID)
                 cmd.Parameters.AddWithValue("@MasterBOMId", MasterBOMId)
                 cmd.Parameters.AddWithValue("@ProductionId", ProductionId)
@@ -473,6 +503,7 @@ Module SQL_Command
                 cmd.Parameters.AddWithValue("@Qty", Qty)
                 cmd.Parameters.AddWithValue("@TDate", temp_time)
                 cmd.Parameters.AddWithValue("@Status", _status)
+                cmd.Parameters.AddWithValue("@RunningId", RunningId)
 
                 'Execute the Insert data
                 Dim i As Integer = cmd.ExecuteNonQuery()

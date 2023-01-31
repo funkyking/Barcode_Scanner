@@ -19,9 +19,10 @@
     Public MasterBOMId As String
     Public ModelQty As String 'This is during part Scan
     Public ProductionStatus As String = "Started" 'Only Started Status is able to Continue
-    Public ActualQty As String = "0"
+    Public ScannedPartQty As String = "0"
     Public AssemblyRef As String
-    Public FinalTopUpId As String
+    Public ProductionStationId As String 'Final UUID Output After Scan
+    Public RunningId As String
 
 
 

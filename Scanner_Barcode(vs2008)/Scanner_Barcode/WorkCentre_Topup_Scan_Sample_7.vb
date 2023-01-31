@@ -6,6 +6,7 @@
     'If the Scan Works, This will take them back to Model Scanning
     Private Sub Repeat()
         Try
+            rm_RunningId() 'Clears RunningID Cache
             Dim rpt As New Identify_Model_2
             rpt.username.Text = UserID
             rpt.Show()
@@ -22,6 +23,9 @@
 
             Dim pass As Boolean
 
+            'Gets the UUID(Unique Identifier) for the current Session
+            ProductionStationId = GetFinalProductionId()
+
             'Check if part with other details match in dbo.MasterBOM database table
             'input is MasterBOMId
             pass = checkPartandStation(userInput.Text)
@@ -29,12 +33,7 @@
             'Tries to update in the ProductionStation database table
             'if it cant a false boolean is returned
             pass = UpdateProductionStation()
-
-            'Gets the UUID(Unique Identifier) for the current Session
-            GetFinalProductionId()
-            MessageBox.Show(FinalTopUpId)
-
-
+            
             If (pass = True) Then
                 Dim passed As New Subline_Result_3
                 passed._top_lbl = "Part Topup"

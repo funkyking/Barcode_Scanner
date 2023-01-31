@@ -24,18 +24,24 @@
                 Dim temp As String
                 Dim res As Boolean
 
+                'Previously Used ","(Comma) but follow client format is " "(space)
+                'Dim _PartNo As String = userInput.Text.Substring(0, userInput.Text.IndexOf(" ")) 'PartNo/Part's Name
+                'Dim _ScannedPartQty As String = userInput.Text.Split(" ")(1) 'Quantity Given
+                'PartNo = _PartNo
+                'ScannedPartQty = _ScannedPartQty
 
-                Dim _PartNo As String = userInput.Text.Substring(0, userInput.Text.IndexOf(",")) 'PartNo/Part's Name
-                Dim _ActualQty As String = userInput.Text.Split(",")(1) 'Quantity Given
+                Dim strarr As String() = userInput.Text.Split(" ")
+                RunningId = strarr(0)
+                PartNo = strarr(1)
+                ScannedPartQty = strarr(2)
 
-
-                PartNo = _PartNo
-                ActualQty = _ActualQty
+                
                 If (PartNo IsNot Nothing) Then
                     temp = GetPartID(PartNo)
                     temp = GetMasterStationID(PartID, LineID, ModelID)
                     temp = GetMasterStationCode(MasterStationId, LineID)
                     res = CheckMasterStationCode(temp)
+                    res = CheckRunningId()
 
 
                     If (res = True) Then
@@ -48,8 +54,8 @@
                     Else
                         Dim failed As New Subline_Result_3
                         failed.BackColor = Color.Red
-                        failed._top_lbl = "Part"
-                        failed._bot_lbl = "Not Found"
+                        failed._top_lbl = "TopUp Schedule"
+                        failed._bot_lbl = "Invalid or Completed"
                         failed.Show()
                     End If
                 End If
@@ -77,6 +83,7 @@
     'log out
     Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
         Dim logout As New Form1 'Return to Login Screen (Logout)
+        rm_RunningId() 'Clears RunningID Cache
         logout.Show()
         Me.Close()
     End Sub
@@ -84,6 +91,7 @@
     'back
     Private Sub back_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles back_pbx.Click
         Try
+            rm_RunningId() 'Clears RunningID Cache
             Dim back As New Identify_Model_2
             back.username.Text = UserID
             back.Show()
@@ -95,6 +103,7 @@
     'home
     Private Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.Click
         Try
+            rm_RunningId() 'Clears RunningID Cache
             Dim Home As New Identify_Model_2
             Home.username.Text = UserID
             Home.Show()
@@ -106,6 +115,7 @@
     'rescan
     Private Sub rescan_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rescan_pbx.Click
         Try
+            rm_RunningId() 'Clears RunningID Cache
             userInput.Text = ""
         Catch ex As Exception
         End Try
