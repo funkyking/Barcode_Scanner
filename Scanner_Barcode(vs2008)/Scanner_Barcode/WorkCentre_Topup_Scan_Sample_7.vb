@@ -71,6 +71,7 @@
     'Back
     Private Sub back_pbx_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles back_pbx.Click
         Try
+            rm_RunningId() 'Clears RunningID Cach
             Dim back As New WorkCentre_Topup_Scan_Station_6
             back.mdl_lbl.Text = ModelCode
             back.username.Text = UserID
@@ -94,6 +95,7 @@
     'logout
     Private Sub logout_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles logout_pbx.Click
         Try
+            rm_RunningId() 'Clears RunningID Cach
             Dim logout As New Form1 'Return to Login Screen (Logout)
             logout.Show()
             Me.Close()
@@ -104,6 +106,7 @@
     'home
     Private Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.Click
         Try
+            rm_RunningId() 'Clears RunningID Cach
             Dim Home As New Identify_Model_2
             Home.username.Text = UserID
             Home.Show()
