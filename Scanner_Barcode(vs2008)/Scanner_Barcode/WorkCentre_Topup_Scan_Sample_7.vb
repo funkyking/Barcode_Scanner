@@ -30,6 +30,10 @@
             'if it cant a false boolean is returned
             pass = UpdateProductionStation()
 
+            'Gets the UUID(Unique Identifier) for the current Session
+            GetFinalProductionId()
+            MessageBox.Show(FinalTopUpId)
+
 
             If (pass = True) Then
                 Dim passed As New Subline_Result_3

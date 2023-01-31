@@ -21,6 +21,7 @@
     Public ProductionStatus As String = "Started" 'Only Started Status is able to Continue
     Public ActualQty As String = "0"
     Public AssemblyRef As String
+    Public FinalTopUpId As String
 
 
 

@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Data
+Imports System.IO
 
 Public Class Settings
 
@@ -83,5 +84,13 @@ Public Class Settings
     'home
     Private Sub home_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles home_pbx.Click
         Me.Close()
+    End Sub
+
+    'Loads Up Important Data (eg. Database)
+    Private Sub Settings_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Try
+            'ComboBox1.Items.Clear()
+        Catch ex As Exception
+        End Try
     End Sub
 End Class

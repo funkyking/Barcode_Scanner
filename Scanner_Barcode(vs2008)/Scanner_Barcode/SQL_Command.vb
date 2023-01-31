@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Data
+Imports System.Diagnostics
 
 Module SQL_Command
 
@@ -439,6 +440,15 @@ Module SQL_Command
 
 #Region "Last Scan"
 
+    'Generate a UUID for the current top up Session
+    Public Sub GetFinalProductionId()
+        Try
+            Dim myuuid As Guid = Guid.NewGuid()
+            FinalTopUpId = myuuid.ToString.ToUpper()
+        Catch ex As Exception
+        End Try
+    End Sub
+
     'This will insert the data after finishing the topup process into the dbo.ProductionStation table
     Public Function UpdateProductionStation() As Boolean
         Dim res As Boolean = False
@@ -479,6 +489,11 @@ Module SQL_Command
         Return res
     End Function
 
+
+
+#End Region
+
+#Region " Testing Area "
     'testing
     Public Sub testing()
         Using conn = New SqlConnection(conn_str)
