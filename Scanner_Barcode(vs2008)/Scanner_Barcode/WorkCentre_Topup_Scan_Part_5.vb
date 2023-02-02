@@ -23,6 +23,7 @@
             If e.KeyCode = Keys.Enter Then
                 Dim temp As String
                 Dim res As Boolean
+                Dim runid_res As Boolean = False
 
                 'Previously Used ","(Comma) but follow client format is " "(space)
                 'Dim _PartNo As String = userInput.Text.Substring(0, userInput.Text.IndexOf(" ")) 'PartNo/Part's Name
@@ -41,10 +42,15 @@
                     temp = GetMasterStationID(PartID, LineID, ModelID)
                     temp = GetMasterStationCode(MasterStationId, LineID)
                     res = CheckMasterStationCode(temp)
-                    res = CheckRunningId()
-                    res = UpdateProductionStation()
-                    ProductionStationId = GetFinalProductionId()
 
+                    runid_res = CheckRunningId()
+                    If runid_res = True Then
+                        res = UpdateProductionStation()
+                    Else
+                        res = False
+                    End If
+
+                    ProductionStationId = GetFinalProductionId()
                     If (res = True) Then
                         Dim passed As New Subline_Result_3
                         passed.BackColor = Color.LawnGreen
@@ -58,6 +64,7 @@
                         failed._top_lbl = "TopUp Schedule"
                         failed._bot_lbl = "Invalid or Completed"
                         failed.Show()
+                        rm_RunningId()
                     End If
                 End If
             End If

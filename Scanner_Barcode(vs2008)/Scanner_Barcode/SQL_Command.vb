@@ -377,21 +377,21 @@ Module SQL_Command
 
     'Checks if the Item has been Scanned before. If true User is unable to Proceed.
     Public Function CheckRunningId() As Boolean
-        Dim Res As Boolean = False
+        Dim Res As Boolean
         Try
             Using conn = New SqlConnection(conn_str)
                 conn.Open()
-                Dim query As String = "Select * From dbo.ProductionStation where RunningId=@RunningId and PartID=@PartID" 'Qty=@Qty
+                Dim query As String = "Select * From dbo.ProductionStation where RunningId=@RunningId and and PartID=@PartID" 'Qty=@Qty
                 cmd = New SqlCommand(query, conn)
                 cmd.Parameters.AddWithValue("@RunningId", RunningId)
                 cmd.Parameters.AddWithValue("@PartID", PartID)
                 'cmd.Parameters.AddWithValue("@Qty", ScannedPartQty)
                 Dim dr As SqlDataReader
                 dr = cmd.ExecuteReader()
-                If (dr.Read = False) Then
-                    Res = True
-                Else
+                If (dr.Read = True) Then
                     Res = False
+                Else
+                    Res = True
                 End If
             End Using
         Catch ex As Exception

@@ -24,7 +24,7 @@
             If e.KeyCode = Keys.Enter Then
                 Dim pass As Boolean
 
-                pass = getMasterBOMId(userInput.Text) 'CheckStation()
+                pass = getMasterBOMId(userInput.Text)
                 If (pass = True) Then
                     'Dim passed As New Subline_Result_3
                     'passed.BackColor = Color.LawnGreen

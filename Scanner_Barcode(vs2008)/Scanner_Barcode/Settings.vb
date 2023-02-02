@@ -66,7 +66,7 @@ Public Class Settings
     End Sub
 
     'load tables
-    Private Sub loadTables_btn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub loadTables_btn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles loadTables_btn.Click
         Try
             Using conn = New SqlConnection(conn_str)
                 conn.Open()
