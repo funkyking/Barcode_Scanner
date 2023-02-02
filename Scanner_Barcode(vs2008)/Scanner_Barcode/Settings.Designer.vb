@@ -22,6 +22,12 @@ Partial Public Class Settings
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Settings))
         Me.Label1 = New System.Windows.Forms.Label
         Me.Panel1 = New System.Windows.Forms.Panel
+        Me.Button1 = New System.Windows.Forms.Button
+        Me.Label5 = New System.Windows.Forms.Label
+        Me.tableList_cmbx = New System.Windows.Forms.ComboBox
+        Me.Label6 = New System.Windows.Forms.Label
+        Me.Label4 = New System.Windows.Forms.Label
+        Me.loadTables_btn = New System.Windows.Forms.Button
         Me.Button2 = New System.Windows.Forms.Button
         Me.Label3 = New System.Windows.Forms.Label
         Me.Add_Btn = New System.Windows.Forms.Button
@@ -29,19 +35,9 @@ Partial Public Class Settings
         Me.ComboBox1 = New System.Windows.Forms.ComboBox
         Me.conn_Btn = New System.Windows.Forms.Button
         Me.db_add_tbx = New System.Windows.Forms.TextBox
-        Me.Panel2 = New System.Windows.Forms.Panel
-        Me.Label5 = New System.Windows.Forms.Label
-        Me.tableList_cmbx = New System.Windows.Forms.ComboBox
-        Me.Label4 = New System.Windows.Forms.Label
-        Me.loadTables_btn = New System.Windows.Forms.Button
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
-        Me.Panel3 = New System.Windows.Forms.Panel
-        Me.Button1 = New System.Windows.Forms.Button
-        Me.Label6 = New System.Windows.Forms.Label
         Me.home_pbx = New System.Windows.Forms.PictureBox
         Me.Panel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
-        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -54,7 +50,14 @@ Partial Public Class Settings
         '
         'Panel1
         '
+        Me.Panel1.AutoScroll = True
         Me.Panel1.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Controls.Add(Me.Label5)
+        Me.Panel1.Controls.Add(Me.tableList_cmbx)
+        Me.Panel1.Controls.Add(Me.Label6)
+        Me.Panel1.Controls.Add(Me.Label4)
+        Me.Panel1.Controls.Add(Me.loadTables_btn)
         Me.Panel1.Controls.Add(Me.Button2)
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.Add_Btn)
@@ -65,7 +68,58 @@ Partial Public Class Settings
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Location = New System.Drawing.Point(14, 53)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(181, 245)
+        Me.Panel1.Size = New System.Drawing.Size(181, 536)
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.Button1.Location = New System.Drawing.Point(12, 363)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(65, 31)
+        Me.Button1.TabIndex = 17
+        Me.Button1.Text = "Log File"
+        '
+        'Label5
+        '
+        Me.Label5.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular)
+        Me.Label5.Location = New System.Drawing.Point(12, 279)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(137, 19)
+        Me.Label5.Text = "Table"
+        '
+        'tableList_cmbx
+        '
+        Me.tableList_cmbx.Items.Add("Data Source=192.168.8.126,1433;Password=saadmin;User ID=sa;Initial Catalog=PCC")
+        Me.tableList_cmbx.Items.Add("Data Source=DESKTOP-P9BJNAI;Password=saadmin;User ID=sa;Initial Catalog=PCC")
+        Me.tableList_cmbx.Location = New System.Drawing.Point(12, 301)
+        Me.tableList_cmbx.Name = "tableList_cmbx"
+        Me.tableList_cmbx.Size = New System.Drawing.Size(90, 23)
+        Me.tableList_cmbx.TabIndex = 18
+        '
+        'Label6
+        '
+        Me.Label6.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Underline)
+        Me.Label6.Location = New System.Drawing.Point(12, 340)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(91, 20)
+        Me.Label6.Text = "Misc"
+        '
+        'Label4
+        '
+        Me.Label4.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Underline)
+        Me.Label4.Location = New System.Drawing.Point(12, 249)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(104, 20)
+        Me.Label4.Text = "Data Tables"
+        '
+        'loadTables_btn
+        '
+        Me.loadTables_btn.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Regular)
+        Me.loadTables_btn.Location = New System.Drawing.Point(108, 301)
+        Me.loadTables_btn.Name = "loadTables_btn"
+        Me.loadTables_btn.Size = New System.Drawing.Size(44, 21)
+        Me.loadTables_btn.TabIndex = 16
+        Me.loadTables_btn.Text = "Load"
         '
         'Button2
         '
@@ -89,16 +143,16 @@ Partial Public Class Settings
         'Add_Btn
         '
         Me.Add_Btn.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Regular)
-        Me.Add_Btn.Location = New System.Drawing.Point(15, 212)
+        Me.Add_Btn.Location = New System.Drawing.Point(97, 188)
         Me.Add_Btn.Name = "Add_Btn"
-        Me.Add_Btn.Size = New System.Drawing.Size(56, 23)
+        Me.Add_Btn.Size = New System.Drawing.Size(52, 23)
         Me.Add_Btn.TabIndex = 6
         Me.Add_Btn.Text = "Add"
         '
         'Label2
         '
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular)
-        Me.Label2.Location = New System.Drawing.Point(15, 161)
+        Me.Label2.Location = New System.Drawing.Point(15, 137)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(137, 19)
         Me.Label2.Text = "New Database"
@@ -106,6 +160,7 @@ Partial Public Class Settings
         'ComboBox1
         '
         Me.ComboBox1.Items.Add("Data Source=192.168.8.126,1433;Password=saadmin;User ID=sa;Initial Catalog=PCC")
+        Me.ComboBox1.Items.Add("Data Source=DESKTOP-P9BJNAI;Password=saadmin;User ID=sa;Initial Catalog=PCC")
         Me.ComboBox1.Items.Add("Data Source=DESKTOP-P9BJNAI;Password=saadmin;User ID=sa;Initial Catalog=PCC")
         Me.ComboBox1.Location = New System.Drawing.Point(15, 67)
         Me.ComboBox1.Name = "ComboBox1"
@@ -123,93 +178,22 @@ Partial Public Class Settings
         '
         'db_add_tbx
         '
-        Me.db_add_tbx.Location = New System.Drawing.Point(15, 183)
+        Me.db_add_tbx.Location = New System.Drawing.Point(15, 159)
         Me.db_add_tbx.Name = "db_add_tbx"
         Me.db_add_tbx.Size = New System.Drawing.Size(134, 23)
         Me.db_add_tbx.TabIndex = 1
-        '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.Panel2.Controls.Add(Me.Label5)
-        Me.Panel2.Controls.Add(Me.tableList_cmbx)
-        Me.Panel2.Controls.Add(Me.Label4)
-        Me.Panel2.Controls.Add(Me.loadTables_btn)
-        Me.Panel2.Location = New System.Drawing.Point(14, 316)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(181, 119)
-        '
-        'Label5
-        '
-        Me.Label5.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular)
-        Me.Label5.Location = New System.Drawing.Point(12, 53)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(137, 19)
-        Me.Label5.Text = "Table"
-        '
-        'tableList_cmbx
-        '
-        Me.tableList_cmbx.Items.Add("Data Source=192.168.8.126,1433;Password=saadmin;User ID=sa;Initial Catalog=PCC")
-        Me.tableList_cmbx.Items.Add("Data Source=DESKTOP-P9BJNAI;Password=saadmin;User ID=sa;Initial Catalog=PCC")
-        Me.tableList_cmbx.Location = New System.Drawing.Point(12, 75)
-        Me.tableList_cmbx.Name = "tableList_cmbx"
-        Me.tableList_cmbx.Size = New System.Drawing.Size(90, 23)
-        Me.tableList_cmbx.TabIndex = 13
-        '
-        'Label4
-        '
-        Me.Label4.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Underline)
-        Me.Label4.Location = New System.Drawing.Point(12, 12)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(104, 20)
-        Me.Label4.Text = "Data Tables"
-        '
-        'loadTables_btn
-        '
-        Me.loadTables_btn.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Regular)
-        Me.loadTables_btn.Location = New System.Drawing.Point(108, 75)
-        Me.loadTables_btn.Name = "loadTables_btn"
-        Me.loadTables_btn.Size = New System.Drawing.Size(44, 21)
-        Me.loadTables_btn.TabIndex = 0
-        Me.loadTables_btn.Text = "Load"
         '
         'DataGrid1
         '
         Me.DataGrid1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.DataGrid1.Location = New System.Drawing.Point(201, 53)
         Me.DataGrid1.Name = "DataGrid1"
-        Me.DataGrid1.Size = New System.Drawing.Size(248, 452)
+        Me.DataGrid1.Size = New System.Drawing.Size(260, 536)
         Me.DataGrid1.TabIndex = 5
-        '
-        'Panel3
-        '
-        Me.Panel3.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.Panel3.Controls.Add(Me.Button1)
-        Me.Panel3.Controls.Add(Me.Label6)
-        Me.Panel3.Location = New System.Drawing.Point(14, 441)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(181, 142)
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.Button1.Location = New System.Drawing.Point(12, 48)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(140, 40)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Log File"
-        '
-        'Label6
-        '
-        Me.Label6.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Underline)
-        Me.Label6.Location = New System.Drawing.Point(12, 14)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(78, 20)
-        Me.Label6.Text = "Misc"
         '
         'home_pbx
         '
-        Me.home_pbx.BackColor = System.Drawing.Color.Transparent
+        Me.home_pbx.BackColor = System.Drawing.Color.WhiteSmoke
         Me.home_pbx.Image = CType(resources.GetObject("home_pbx.Image"), System.Drawing.Image)
         Me.home_pbx.Location = New System.Drawing.Point(14, 10)
         Me.home_pbx.Name = "home_pbx"
@@ -223,15 +207,11 @@ Partial Public Class Settings
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(478, 615)
         Me.Controls.Add(Me.home_pbx)
-        Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.DataGrid1)
-        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "Settings"
         Me.Text = "Settings"
         Me.Panel1.ResumeLayout(False)
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -243,15 +223,13 @@ Partial Public Class Settings
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents DataGrid1 As System.Windows.Forms.DataGrid
+    Friend WithEvents home_pbx As System.Windows.Forms.PictureBox
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents loadTables_btn As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents tableList_cmbx As System.Windows.Forms.ComboBox
-    Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents DataGrid1 As System.Windows.Forms.DataGrid
-    Friend WithEvents Panel3 As System.Windows.Forms.Panel
-    Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents home_pbx As System.Windows.Forms.PictureBox
 End Class

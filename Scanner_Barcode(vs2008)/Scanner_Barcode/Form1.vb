@@ -189,7 +189,7 @@ Public Class Form1
     Private Sub settings_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dropdown_pbx.Click
         Try
             If (dropdown_pnl.Size = New Size(34, 32)) Then
-                dropdown_pnl.Size = New Size(76, 181)
+                dropdown_pnl.Size = New Size(91, 181)
             Else
                 dropdown_pnl.Size = New Size(34, 32)
             End If

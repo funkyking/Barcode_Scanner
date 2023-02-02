@@ -12,10 +12,11 @@ Public Class Identify_Model_2
     'Continue button event
     Private Sub Cont_btn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cont_btn.Click
         Try
-            Dim Part As New WorkCentre_Topup_Scan_Part_5
+            'Scan Station
+            Dim Part As New WorkCentre_Topup_Scan_Station_6
             Part.username.Text = UserID
             Part.mdl_lbl.Text = ModelCode
-            Part.sub_lbl.Text = LineCode
+            'Part.sub_lbl.Text = LineCode
             Part.Show()
             Me.Close()
         Catch ex As Exception
@@ -100,7 +101,7 @@ Public Class Identify_Model_2
     Private Sub dropdown_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dropdown_pbx.Click
         Try
             If (dropdown_pnl.Size = New Size(34, 32)) Then
-                dropdown_pnl.Size = New Size(76, 144)
+                dropdown_pnl.Size = New Size(91, 144)
             Else
                 dropdown_pnl.Size = New Size(34, 32)
             End If
@@ -142,4 +143,7 @@ Public Class Identify_Model_2
     End Sub
 #End Region
 
+    Private Sub model_ID_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles model_ID.TextChanged
+
+    End Sub
 End Class

@@ -75,9 +75,9 @@
             Dim back As New WorkCentre_Topup_Scan_Station_6
             back.mdl_lbl.Text = ModelCode
             back.username.Text = UserID
-            back.sub_lbl.Text = LineCode
-            back.part_lbl.Text = PartNo
-            back.prtStn_lbl.Text = MasterStationCode
+            'back.sub_lbl.Text = LineCode
+            'back.part_lbl.Text = PartNo
+            'back.prtStn_lbl.Text = MasterStationCode
             back.Show()
             Me.Close()
         Catch ex As Exception

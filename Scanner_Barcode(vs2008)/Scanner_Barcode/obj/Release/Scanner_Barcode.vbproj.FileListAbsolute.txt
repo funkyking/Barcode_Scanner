@@ -111,7 +111,6 @@ C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\bin\
 C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\bin\Release\System.Data.SqlClient.dll
 C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\ResolveAssemblyReference.cache
 C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.Form1.resources
-C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.frm.resources
 C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.Identify_Model_2.resources
 C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.Resources.resources
 C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.Settings.resources

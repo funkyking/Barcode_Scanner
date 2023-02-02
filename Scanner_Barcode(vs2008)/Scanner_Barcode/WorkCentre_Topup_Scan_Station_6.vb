@@ -5,12 +5,13 @@
     'cont_btn event
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cont_btn.Click
         Try
-            Dim Resc_Part As New WorkCentre_Topup_Scan_Sample_7
-            Resc_Part.mdl_lbl.Text = ModelCode
-            Resc_Part.username.Text = UserID
-            Resc_Part.sub_lbl.Text = LineCode
-            Resc_Part.part_lbl.Text = PartNo
-            Resc_Part.prtStn_lbl.Text = MasterStationCode
+            'Scan Part
+            Dim Resc_Part As New WorkCentre_Topup_Scan_Part_5
+            'Resc_Part.mdl_lbl.Text = ModelCode
+            'Resc_Part.username.Text = UserID
+            'Resc_Part.sub_lbl.Text = LineCode
+            'Resc_Part.part_lbl.Text = PartNo
+            'Resc_Part.prtStn_lbl.Text = MasterStationCode
             Resc_Part.Show()
             Me.Close()
         Catch ex As Exception
@@ -23,13 +24,13 @@
             If e.KeyCode = Keys.Enter Then
                 Dim pass As Boolean
 
-                pass = CheckStation(userInput.Text)
+                pass = getMasterBOMId(userInput.Text) 'CheckStation()
                 If (pass = True) Then
-                    Dim passed As New Subline_Result_3
-                    passed.BackColor = Color.LawnGreen
-                    passed._top_lbl = "Station"
-                    passed._bot_lbl = "Match !"
-                    passed.Show()
+                    'Dim passed As New Subline_Result_3
+                    'passed.BackColor = Color.LawnGreen
+                    'passed._top_lbl = "Station"
+                    'passed._bot_lbl = "Match !"
+                    'passed.Show()
                     Button2_Click(sender, New EventArgs())
                 Else
                     Dim failed As New Subline_Result_3
@@ -50,15 +51,17 @@
     'load
     Private Sub WorkCentre_Topup_Scan_Station_6_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
-            'Loading Labels
-            mdl_lbl.Text = ModelCode 'ModelCode/ModelName
-            sub_lbl.Text = LineCode 'LineCode/LineName
-            prtStn_lbl.Text = MasterStationCode
-            part_lbl.Text = PartNo
+            ''Loading Labels
+            'mdl_lbl.Text = ModelCode 'ModelCode/ModelName
+            'sub_lbl.Text = LineCode 'LineCode/LineName
+            'prtStn_lbl.Text = MasterStationCode
+            'part_lbl.Text = PartNo
 
             userInput.Focus()
             'Dropdown panel size
             dropdown_pnl.Size = New Size(34, 32)
+
+            Me.AutoScaleMode = Windows.Forms.AutoScaleMode.None
         Catch ex As Exception
         End Try
     End Sub
@@ -77,11 +80,9 @@
     'back
     Private Sub back_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles back_pbx.Click
         Try
-            rm_RunningId() 'Clears RunningID Cach
-            Dim back As New WorkCentre_Topup_Scan_Part_5
+            'rm_RunningId() 'Clears RunningID Cach
+            Dim back As New Identify_Model_2
             back.username.Text = UserID
-            back.mdl_lbl.Text = ModelCode
-            back.sub_lbl.Text = LineCode
             back.Show()
             Me.Close()
         Catch ex As Exception
@@ -117,7 +118,7 @@
     Private Sub dropdown_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dropdown_pbx.Click
         Try
             If (dropdown_pnl.Size = New Size(34, 32)) Then
-                dropdown_pnl.Size = New Size(76, 181)
+                dropdown_pnl.Size = New Size(91, 181)
             Else
                 dropdown_pnl.Size = New Size(34, 32)
             End If

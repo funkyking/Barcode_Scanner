@@ -127,7 +127,8 @@ Module SQL_Command
 
 #End Region
 
-
+    'Fast Scan= ModelScan(First Scan)-> StationScan(Third Scan)-> ScanPart(Second Scan)
+    'Slow Scan= ModelScan(First Scan)-> ScanPart(Second Scan)-> StationScan(Third Scan)-> RescanPart(Fourth Scan)-> LastScan(Rescan Part)
 
 #Region "First Scan / Scan Subline & Model "
 
@@ -429,6 +430,29 @@ Module SQL_Command
         Catch ex As Exception
         End Try
         Return res
+    End Function
+
+    'Only Check if Station Matches MasterBOMId
+    Public Function getMasterBOMId(ByVal userInput As String) As Boolean
+        Dim result As Boolean = False
+        Try
+            Using conn = New SqlConnection(conn_str)
+                conn.Open()
+                Dim query As String = "Select * From dbo.MasterBOM where MasterBOMId=@MasterBOMId and LineID=@LineID"
+                cmd = New SqlCommand(query, conn)
+                cmd.Parameters.AddWithValue("@MasterBOMId", userInput)
+                cmd.Parameters.AddWithValue("@LineID", LineID)
+                Dim dr As SqlDataReader
+                dr = cmd.ExecuteReader()
+                If (dr.Read = True) Then
+                    result = True
+                    MasterBOMId = userInput
+                End If
+                conn.Close()
+            End Using
+        Catch ex As Exception
+        End Try
+        Return result
     End Function
 
 #End Region

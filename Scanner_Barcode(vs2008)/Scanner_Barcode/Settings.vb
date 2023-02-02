@@ -66,7 +66,7 @@ Public Class Settings
     End Sub
 
     'load tables
-    Private Sub loadTables_btn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles loadTables_btn.Click
+    Private Sub loadTables_btn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Try
             Using conn = New SqlConnection(conn_str)
                 conn.Open()
@@ -89,7 +89,16 @@ Public Class Settings
     'Loads Up Important Data (eg. Database)
     Private Sub Settings_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
-            'ComboBox1.Items.Clear()
+            logTable = createLogBook()
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    'Display The finished Scanned Topup Sessions
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Try
+            logTable = updateLogBook(logTable)
+            DataGrid1.DataSource = logTable
         Catch ex As Exception
         End Try
     End Sub

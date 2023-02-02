@@ -151,7 +151,7 @@ Partial Public Class WorkCentre_Topup_Scan_Sample_7
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Panel1.BackColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.Panel1.Controls.Add(Me.PictureBox2)
         Me.Panel1.Controls.Add(Me.logout_pbx)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -162,7 +162,7 @@ Partial Public Class WorkCentre_Topup_Scan_Sample_7
         '
         'PictureBox2
         '
-        Me.PictureBox2.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.PictureBox2.BackColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
         Me.PictureBox2.Location = New System.Drawing.Point(3, 7)
         Me.PictureBox2.Name = "PictureBox2"
@@ -171,7 +171,7 @@ Partial Public Class WorkCentre_Topup_Scan_Sample_7
         '
         'logout_pbx
         '
-        Me.logout_pbx.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.logout_pbx.BackColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.logout_pbx.Image = CType(resources.GetObject("logout_pbx.Image"), System.Drawing.Image)
         Me.logout_pbx.Location = New System.Drawing.Point(431, 7)
         Me.logout_pbx.Name = "logout_pbx"
@@ -180,6 +180,7 @@ Partial Public Class WorkCentre_Topup_Scan_Sample_7
         '
         'Label1
         '
+        Me.Label1.BackColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 20.0!, System.Drawing.FontStyle.Regular)
         Me.Label1.ForeColor = System.Drawing.Color.Aquamarine
         Me.Label1.Location = New System.Drawing.Point(121, 9)
@@ -318,7 +319,7 @@ Partial Public Class WorkCentre_Topup_Scan_Sample_7
         '
         'dropdown_pbx
         '
-        Me.dropdown_pbx.BackColor = System.Drawing.Color.Transparent
+        Me.dropdown_pbx.BackColor = System.Drawing.Color.WhiteSmoke
         Me.dropdown_pbx.Dock = System.Windows.Forms.DockStyle.Top
         Me.dropdown_pbx.Image = CType(resources.GetObject("dropdown_pbx.Image"), System.Drawing.Image)
         Me.dropdown_pbx.Location = New System.Drawing.Point(0, 0)

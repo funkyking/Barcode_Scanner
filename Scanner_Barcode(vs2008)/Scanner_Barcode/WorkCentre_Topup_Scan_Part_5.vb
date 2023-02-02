@@ -8,9 +8,9 @@
         Try
             Dim Station As New WorkCentre_Topup_Scan_Station_6
             Station.mdl_lbl.Text = ModelCode
-            Station.sub_lbl.Text = LineCode
-            Station.part_lbl.Text = PartNo
-            Station.prtStn_lbl.Text = MasterStationCode
+            'Station.sub_lbl.Text = LineCode
+            'Station.part_lbl.Text = PartNo
+            'Station.prtStn_lbl.Text = MasterStationCode
             Station.Show()
             Me.Close()
         Catch ex As Exception
@@ -42,15 +42,16 @@
                     temp = GetMasterStationCode(MasterStationId, LineID)
                     res = CheckMasterStationCode(temp)
                     res = CheckRunningId()
-
+                    res = UpdateProductionStation()
+                    ProductionStationId = GetFinalProductionId()
 
                     If (res = True) Then
                         Dim passed As New Subline_Result_3
                         passed.BackColor = Color.LawnGreen
-                        passed._top_lbl = "Part Station"
-                        passed._bot_lbl = String.Format("{0}", temp)
+                        passed._top_lbl = "Top Up"
+                        passed._bot_lbl = "Successful" 'String.Format("{0}", temp)
                         passed.Show()
-                        Button2_Click(sender, New EventArgs())
+                        'Button2_Click(sender, New EventArgs())
                     Else
                         Dim failed As New Subline_Result_3
                         failed.BackColor = Color.Red
@@ -92,7 +93,7 @@
     Private Sub back_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles back_pbx.Click
         Try
             rm_RunningId() 'Clears RunningID Cache
-            Dim back As New Identify_Model_2
+            Dim back As New WorkCentre_Topup_Scan_Station_6
             back.username.Text = UserID
             back.Show()
             Me.Close()
@@ -128,7 +129,7 @@
     Private Sub dropdown_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dropdown_pbx.Click
         Try
             If (dropdown_pnl.Size = New Size(34, 32)) Then
-                dropdown_pnl.Size = New Size(76, 181)
+                dropdown_pnl.Size = New Size(91, 181)
             Else
                 dropdown_pnl.Size = New Size(34, 32)
             End If
