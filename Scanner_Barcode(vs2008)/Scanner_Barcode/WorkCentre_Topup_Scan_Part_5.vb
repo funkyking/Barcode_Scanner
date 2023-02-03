@@ -52,19 +52,24 @@
 
                     ProductionStationId = GetFinalProductionId()
                     If (res = True) Then
-                        Dim passed As New Subline_Result_3
-                        passed.BackColor = Color.LawnGreen
-                        passed._top_lbl = "Top Up"
-                        passed._bot_lbl = "Successful" 'String.Format("{0}", temp)
-                        passed.Show()
+                        'Dim passed As New Subline_Result_3
+                        'passed.BackColor = Color.LawnGreen
+                        'passed._top_lbl = "Top Up"
+                        'passed._bot_lbl = "Successful" 'String.Format("{0}", temp)
+                        'passed.Show()
                         'Button2_Click(sender, New EventArgs())
+                        Label2.Visible = True
+                        Label2.Text = "✓ TopUp Success"
+                        userInput.Text = ""
                     Else
                         Dim failed As New Subline_Result_3
                         failed.BackColor = Color.Red
                         failed._top_lbl = "TopUp Schedule"
                         failed._bot_lbl = "Invalid or Completed"
                         failed.Show()
-                        rm_RunningId()
+                        Label2.Text = "X Topup Failed"
+                        userInput.Text = ""
+                        'rm_RunningId()
                     End If
                 End If
             End If
@@ -83,9 +88,15 @@
             mdl_lbl.Text = ModelCode
             sub_lbl.Text = LineCode
             userInput.Focus()
+            Label2.Visible = False
             dropdown_pnl.Size = New Size(34, 32)
         Catch ex As Exception
         End Try
+    End Sub
+
+    'Textbox Focus
+    Private Sub userInput_GotFocus(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles userInput.GotFocus
+        Label2.Visible = False
     End Sub
 
     'log out
@@ -180,5 +191,5 @@
     End Sub
 #End Region
 
-    
+
 End Class

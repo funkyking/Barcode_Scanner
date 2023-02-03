@@ -30,8 +30,8 @@ Partial Public Class Identify_Model_2
         Me.model_ID = New System.Windows.Forms.TextBox
         Me.Cont_btn = New System.Windows.Forms.Button
         Me.Panel3 = New System.Windows.Forms.Panel
-        Me.rescan_pbx = New System.Windows.Forms.PictureBox
         Me.Label8 = New System.Windows.Forms.Label
+        Me.rescan_pbx = New System.Windows.Forms.PictureBox
         Me.Label5 = New System.Windows.Forms.Label
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
         Me.dropdown_pnl = New System.Windows.Forms.Panel
@@ -47,7 +47,7 @@ Partial Public Class Identify_Model_2
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.SystemColors.InactiveCaptionText
+        Me.Panel1.BackColor = System.Drawing.SystemColors.ControlText
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.logout_pbx)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
@@ -57,6 +57,7 @@ Partial Public Class Identify_Model_2
         '
         'Label1
         '
+        Me.Label1.BackColor = System.Drawing.SystemColors.ControlText
         Me.Label1.Font = New System.Drawing.Font("Arial", 26.0!, System.Drawing.FontStyle.Regular)
         Me.Label1.ForeColor = System.Drawing.Color.DarkTurquoise
         Me.Label1.Location = New System.Drawing.Point(97, 13)
@@ -66,7 +67,7 @@ Partial Public Class Identify_Model_2
         '
         'logout_pbx
         '
-        Me.logout_pbx.BackColor = System.Drawing.SystemColors.InactiveCaptionText
+        Me.logout_pbx.BackColor = System.Drawing.SystemColors.ControlText
         Me.logout_pbx.Image = CType(resources.GetObject("logout_pbx.Image"), System.Drawing.Image)
         Me.logout_pbx.Location = New System.Drawing.Point(425, 13)
         Me.logout_pbx.Name = "logout_pbx"
@@ -110,11 +111,11 @@ Partial Public Class Identify_Model_2
         'model_ID
         '
         Me.model_ID.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.model_ID.Font = New System.Drawing.Font("Tahoma", 18.0!, System.Drawing.FontStyle.Regular)
-        Me.model_ID.Location = New System.Drawing.Point(28, 111)
+        Me.model_ID.Font = New System.Drawing.Font("Tahoma", 13.0!, System.Drawing.FontStyle.Regular)
+        Me.model_ID.Location = New System.Drawing.Point(5, 111)
         Me.model_ID.Multiline = True
         Me.model_ID.Name = "model_ID"
-        Me.model_ID.Size = New System.Drawing.Size(351, 63)
+        Me.model_ID.Size = New System.Drawing.Size(409, 48)
         Me.model_ID.TabIndex = 0
         '
         'Cont_btn
@@ -130,33 +131,34 @@ Partial Public Class Identify_Model_2
         '
         'Panel3
         '
-        Me.Panel3.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Panel3.BackColor = System.Drawing.Color.White
         Me.Panel3.Controls.Add(Me.Label8)
         Me.Panel3.Controls.Add(Me.Label3)
         Me.Panel3.Controls.Add(Me.rescan_pbx)
         Me.Panel3.Controls.Add(Me.model_ID)
-        Me.Panel3.Location = New System.Drawing.Point(39, 200)
+        Me.Panel3.Location = New System.Drawing.Point(29, 208)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(399, 265)
+        Me.Panel3.Size = New System.Drawing.Size(419, 280)
+        '
+        'Label8
+        '
+        Me.Label8.BackColor = System.Drawing.Color.White
+        Me.Label8.Font = New System.Drawing.Font("Tahoma", 18.0!, System.Drawing.FontStyle.Regular)
+        Me.Label8.ForeColor = System.Drawing.SystemColors.InactiveCaption
+        Me.Label8.Location = New System.Drawing.Point(76, 162)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(255, 71)
+        Me.Label8.Text = "Scan the Barcode on Model"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'rescan_pbx
         '
         Me.rescan_pbx.BackColor = System.Drawing.SystemColors.Window
         Me.rescan_pbx.Image = CType(resources.GetObject("rescan_pbx.Image"), System.Drawing.Image)
-        Me.rescan_pbx.Location = New System.Drawing.Point(320, 123)
+        Me.rescan_pbx.Location = New System.Drawing.Point(357, 119)
         Me.rescan_pbx.Name = "rescan_pbx"
-        Me.rescan_pbx.Size = New System.Drawing.Size(59, 42)
+        Me.rescan_pbx.Size = New System.Drawing.Size(53, 33)
         Me.rescan_pbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        '
-        'Label8
-        '
-        Me.Label8.Font = New System.Drawing.Font("Tahoma", 18.0!, System.Drawing.FontStyle.Regular)
-        Me.Label8.ForeColor = System.Drawing.SystemColors.InactiveCaption
-        Me.Label8.Location = New System.Drawing.Point(66, 177)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(255, 71)
-        Me.Label8.Text = "Scan the Barcode on Model"
-        Me.Label8.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Label5
         '
@@ -168,15 +170,17 @@ Partial Public Class Identify_Model_2
         '
         'DataGrid1
         '
-        Me.DataGrid1.BackgroundColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGrid1.Location = New System.Drawing.Point(26, 184)
+        Me.DataGrid1.BackColor = System.Drawing.Color.White
+        Me.DataGrid1.BackgroundColor = System.Drawing.Color.White
+        Me.DataGrid1.Location = New System.Drawing.Point(12, 192)
         Me.DataGrid1.Name = "DataGrid1"
-        Me.DataGrid1.Size = New System.Drawing.Size(427, 294)
+        Me.DataGrid1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.DataGrid1.Size = New System.Drawing.Size(453, 310)
         Me.DataGrid1.TabIndex = 11
         '
         'dropdown_pnl
         '
-        Me.dropdown_pnl.BackColor = System.Drawing.Color.Transparent
+        Me.dropdown_pnl.BackColor = System.Drawing.Color.White
         Me.dropdown_pnl.Controls.Add(Me.exit_btn)
         Me.dropdown_pnl.Controls.Add(Me.info_btn)
         Me.dropdown_pnl.Controls.Add(Me.stg_btn)
@@ -220,7 +224,7 @@ Partial Public Class Identify_Model_2
         '
         'dropdown_pbx
         '
-        Me.dropdown_pbx.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.dropdown_pbx.BackColor = System.Drawing.Color.White
         Me.dropdown_pbx.Dock = System.Windows.Forms.DockStyle.Top
         Me.dropdown_pbx.Image = CType(resources.GetObject("dropdown_pbx.Image"), System.Drawing.Image)
         Me.dropdown_pbx.Location = New System.Drawing.Point(0, 0)
@@ -231,9 +235,8 @@ Partial Public Class Identify_Model_2
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.AutoScroll = True
-        Me.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(478, 615)
-        Me.ControlBox = False
         Me.Controls.Add(Me.dropdown_pnl)
         Me.Controls.Add(Me.username)
         Me.Controls.Add(Me.Label5)
@@ -242,6 +245,7 @@ Partial Public Class Identify_Model_2
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.DataGrid1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Identify_Model_2"
         Me.Text = "Scan Line & Model"
         Me.Panel1.ResumeLayout(False)

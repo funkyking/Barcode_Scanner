@@ -70,12 +70,7 @@ Public Class Identify_Model_2
                     failed.BackColor = Color.Red
                     failed._bot_lbl = "Not Active/Not Found"
                     failed.Show()
-                    ModelID = Nothing
-                    LineID = Nothing
-                    LineCode = Nothing
-                    ModelCode = Nothing
-                    ScheduleID = Nothing
-                    ProductionId = Nothing
+                    model_ID.Text = ""
                 End If
             End If
         Catch ex As Exception

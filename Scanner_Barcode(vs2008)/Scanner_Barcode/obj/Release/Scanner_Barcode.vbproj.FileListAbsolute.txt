@@ -87,23 +87,6 @@ C:\Users\Admin\Desktop\Template-Matching---OpenCv\Barcode Scanner\Scanner_Barcod
 C:\Users\Admin\Desktop\Template-Matching---OpenCv\Barcode Scanner\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.exe
 C:\Users\Admin\Desktop\Template-Matching---OpenCv\Barcode Scanner\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.xml
 C:\Users\Admin\Desktop\Template-Matching---OpenCv\Barcode Scanner\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.pdb
-C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\bin\Release\Scanner_Barcode.exe
-C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\bin\Release\Scanner_Barcode.pdb
-C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\bin\Release\Scanner_Barcode.xml
-C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\bin\Release\System.Data.SqlClient.dll
-C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\ResolveAssemblyReference.cache
-C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.Form1.resources
-C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.Identify_Model_2.resources
-C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.Resources.resources
-C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.Settings.resources
-C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.Subline_Result_3.resources
-C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.WorkCentre_Topup_Scan_Part_5.resources
-C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.WorkCentre_Topup_Scan_Sample_7.resources
-C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.WorkCentre_Topup_Scan_Station_6.resources
-C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.vbproj.GenerateResource.Cache
-C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.exe
-C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.xml
-C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.pdb
 C:\Users\Paul\Desktop\Work\Infinite Solutions\Barcode_Scanner\Scanner_Barcode(vs2008)\Scanner_Barcode\bin\Release\Scanner_Barcode.exe
 C:\Users\Paul\Desktop\Work\Infinite Solutions\Barcode_Scanner\Scanner_Barcode(vs2008)\Scanner_Barcode\bin\Release\Scanner_Barcode.pdb
 C:\Users\Paul\Desktop\Work\Infinite Solutions\Barcode_Scanner\Scanner_Barcode(vs2008)\Scanner_Barcode\bin\Release\Scanner_Barcode.xml
@@ -121,3 +104,20 @@ C:\Users\Paul\Desktop\Work\Infinite Solutions\Barcode_Scanner\Scanner_Barcode(vs
 C:\Users\Paul\Desktop\Work\Infinite Solutions\Barcode_Scanner\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.exe
 C:\Users\Paul\Desktop\Work\Infinite Solutions\Barcode_Scanner\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.xml
 C:\Users\Paul\Desktop\Work\Infinite Solutions\Barcode_Scanner\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.pdb
+C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\bin\Release\Scanner_Barcode.exe
+C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\bin\Release\Scanner_Barcode.pdb
+C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\bin\Release\Scanner_Barcode.xml
+C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\bin\Release\System.Data.SqlClient.dll
+C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.Form1.resources
+C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.Identify_Model_2.resources
+C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.Resources.resources
+C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.Settings.resources
+C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.Subline_Result_3.resources
+C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.WorkCentre_Topup_Scan_Part_5.resources
+C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.WorkCentre_Topup_Scan_Sample_7.resources
+C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.WorkCentre_Topup_Scan_Station_6.resources
+C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.vbproj.GenerateResource.Cache
+C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.exe
+C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.xml
+C:\Users\Admin\Desktop\Paul_Barcode\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.pdb

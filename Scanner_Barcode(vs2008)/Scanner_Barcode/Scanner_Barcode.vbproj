@@ -24,6 +24,7 @@
     <NativePlatformName>Toradex_CE700</NativePlatformName>
     <FormFactorID>
     </FormFactorID>
+    <ApplicationIcon>icons8-barcode-scanner-64.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -157,6 +158,9 @@
     <EmbeddedResource Include="WorkCentre_Topup_Scan_Station_6.resx">
       <DependentUpon>WorkCentre_Topup_Scan_Station_6.vb</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icons8-barcode-scanner-64.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="My Project\DataSources\" />

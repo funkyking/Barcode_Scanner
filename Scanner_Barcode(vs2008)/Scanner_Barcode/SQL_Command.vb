@@ -381,7 +381,7 @@ Module SQL_Command
         Try
             Using conn = New SqlConnection(conn_str)
                 conn.Open()
-                Dim query As String = "Select * From dbo.ProductionStation where RunningId=@RunningId and and PartID=@PartID" 'Qty=@Qty
+                Dim query As String = "Select * From dbo.ProductionStation where RunningId=@RunningId and PartID=@PartID" 'Qty=@Qty
                 cmd = New SqlCommand(query, conn)
                 cmd.Parameters.AddWithValue("@RunningId", RunningId)
                 cmd.Parameters.AddWithValue("@PartID", PartID)
@@ -511,7 +511,7 @@ Module SQL_Command
                 conn.Open()
 
                 'Current Time
-                Dim temp_time As String = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+                Dim temp_time As String = getTime() 'System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
                 Dim _status As String = "1"
                 Dim query As String = "Insert into dbo.ProductionStation (ProductionStationId, ScheduleID, MasterBOMId, ProductionId, PartID, Qty, TDate, Status, RunningId) values(@ProductionStationId, @ScheduleID, @MasterBOMId, @ProductionId, @PartID, @Qty, @TDate, @Status, @RunningId)"
                 Dim Qty As Int32 = Convert.ToInt32(ScannedPartQty)
@@ -549,6 +549,7 @@ Module SQL_Command
 #End Region
 
 #Region " Testing Area "
+
     'testing
     Public Sub testing()
         Using conn = New SqlConnection(conn_str)
@@ -570,6 +571,17 @@ Module SQL_Command
 
         End Using
     End Sub
+
+    Public Function getTime() As String
+        Dim timeRes As String = ""
+        Try
+            Dim zone As TimeZone = TimeZone.CurrentTimeZone
+            Dim local As DateTime = zone.ToLocalTime(DateTime.Now)
+            timeRes = local.ToString("yyyy/MM/dd HH:mm:ss")
+        Catch ex As Exception
+        End Try
+        Return timeRes
+    End Function
 
 #End Region
 

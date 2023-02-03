@@ -54,7 +54,7 @@ Partial Public Class Form1
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.SystemColors.InactiveCaptionText
+        Me.Panel1.BackColor = System.Drawing.SystemColors.ControlText
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
@@ -63,7 +63,7 @@ Partial Public Class Form1
         '
         'Label1
         '
-        Me.Label1.BackColor = System.Drawing.SystemColors.InactiveCaptionText
+        Me.Label1.BackColor = System.Drawing.SystemColors.ControlText
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 26.0!, System.Drawing.FontStyle.Regular)
         Me.Label1.ForeColor = System.Drawing.Color.DarkTurquoise
         Me.Label1.Location = New System.Drawing.Point(90, 3)
@@ -74,7 +74,7 @@ Partial Public Class Form1
         '
         'dropdown_pbx
         '
-        Me.dropdown_pbx.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.dropdown_pbx.BackColor = System.Drawing.Color.White
         Me.dropdown_pbx.Dock = System.Windows.Forms.DockStyle.Top
         Me.dropdown_pbx.Image = CType(resources.GetObject("dropdown_pbx.Image"), System.Drawing.Image)
         Me.dropdown_pbx.Location = New System.Drawing.Point(0, 0)
@@ -101,7 +101,7 @@ Partial Public Class Form1
         '
         'dropdown_pnl
         '
-        Me.dropdown_pnl.BackColor = System.Drawing.Color.Transparent
+        Me.dropdown_pnl.BackColor = System.Drawing.Color.White
         Me.dropdown_pnl.Controls.Add(Me.exit_btn)
         Me.dropdown_pnl.Controls.Add(Me.info_btn)
         Me.dropdown_pnl.Controls.Add(Me.stg_btn)
@@ -157,8 +157,9 @@ Partial Public Class Form1
         '
         'login_btn
         '
-        Me.login_btn.BackColor = System.Drawing.Color.Gainsboro
+        Me.login_btn.BackColor = System.Drawing.SystemColors.Desktop
         Me.login_btn.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
+        Me.login_btn.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.login_btn.Location = New System.Drawing.Point(348, 267)
         Me.login_btn.Name = "login_btn"
         Me.login_btn.Size = New System.Drawing.Size(71, 33)
@@ -199,7 +200,7 @@ Partial Public Class Form1
         '
         'pass_txtbx
         '
-        Me.pass_txtbx.Font = New System.Drawing.Font("Tahoma", 20.0!, System.Drawing.FontStyle.Regular)
+        Me.pass_txtbx.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
         Me.pass_txtbx.Location = New System.Drawing.Point(222, 221)
         Me.pass_txtbx.Multiline = True
         Me.pass_txtbx.Name = "pass_txtbx"
@@ -208,7 +209,7 @@ Partial Public Class Form1
         '
         'user_txtbx
         '
-        Me.user_txtbx.Font = New System.Drawing.Font("Tahoma", 20.0!, System.Drawing.FontStyle.Regular)
+        Me.user_txtbx.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
         Me.user_txtbx.Location = New System.Drawing.Point(222, 157)
         Me.user_txtbx.Multiline = True
         Me.user_txtbx.Name = "user_txtbx"
@@ -225,7 +226,7 @@ Partial Public Class Form1
         '
         'qr_txtbx
         '
-        Me.qr_txtbx.Font = New System.Drawing.Font("Tahoma", 20.0!, System.Drawing.FontStyle.Regular)
+        Me.qr_txtbx.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
         Me.qr_txtbx.Location = New System.Drawing.Point(125, 419)
         Me.qr_txtbx.Multiline = True
         Me.qr_txtbx.Name = "qr_txtbx"
@@ -261,7 +262,7 @@ Partial Public Class Form1
         '
         'DataGrid1
         '
-        Me.DataGrid1.BackgroundColor = System.Drawing.Color.WhiteSmoke
+        Me.DataGrid1.BackgroundColor = System.Drawing.Color.White
         Me.DataGrid1.Location = New System.Drawing.Point(43, 149)
         Me.DataGrid1.Name = "DataGrid1"
         Me.DataGrid1.Size = New System.Drawing.Size(397, 163)
@@ -269,7 +270,7 @@ Partial Public Class Form1
         '
         'DataGrid2
         '
-        Me.DataGrid2.BackgroundColor = System.Drawing.Color.WhiteSmoke
+        Me.DataGrid2.BackgroundColor = System.Drawing.Color.White
         Me.DataGrid2.Location = New System.Drawing.Point(43, 360)
         Me.DataGrid2.Name = "DataGrid2"
         Me.DataGrid2.Size = New System.Drawing.Size(397, 145)
@@ -278,7 +279,7 @@ Partial Public Class Form1
         'user_found_lbl
         '
         Me.user_found_lbl.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.user_found_lbl.BackColor = System.Drawing.Color.Gainsboro
+        Me.user_found_lbl.BackColor = System.Drawing.Color.WhiteSmoke
         Me.user_found_lbl.Location = New System.Drawing.Point(397, 169)
         Me.user_found_lbl.Name = "user_found_lbl"
         Me.user_found_lbl.Size = New System.Drawing.Size(22, 20)
@@ -296,7 +297,7 @@ Partial Public Class Form1
         'pass_found_lbl
         '
         Me.pass_found_lbl.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.pass_found_lbl.BackColor = System.Drawing.Color.Gainsboro
+        Me.pass_found_lbl.BackColor = System.Drawing.Color.WhiteSmoke
         Me.pass_found_lbl.Location = New System.Drawing.Point(397, 227)
         Me.pass_found_lbl.Name = "pass_found_lbl"
         Me.pass_found_lbl.Size = New System.Drawing.Size(22, 23)
@@ -306,7 +307,7 @@ Partial Public Class Form1
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit
         Me.AutoScroll = True
-        Me.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(480, 640)
         Me.Controls.Add(Me.pass_found_lbl)
         Me.Controls.Add(Me.dropdown_pnl)
@@ -328,6 +329,7 @@ Partial Public Class Form1
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.DataGrid1)
         Me.Controls.Add(Me.DataGrid2)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form1"
         Me.Text = "Login"
         Me.Panel1.ResumeLayout(False)

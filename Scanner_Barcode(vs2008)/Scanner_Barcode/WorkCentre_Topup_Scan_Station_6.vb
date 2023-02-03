@@ -38,6 +38,7 @@
                     failed._top_lbl = "Station"
                     failed._bot_lbl = "Not Match !"
                     failed.Show()
+                    userInput.Text = ""
                 End If
             End If
         Catch ex As Exception

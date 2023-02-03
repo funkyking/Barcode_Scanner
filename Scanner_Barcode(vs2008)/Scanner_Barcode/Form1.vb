@@ -17,7 +17,6 @@ Public Class Form1
             dropdown_pnl.Size = New Size(34, 32)
             home_btn.Visible = False
             qr_txtbx.Focus()
-
             'Check if Connected to database
             If (conn_str = "null") Then
                 Label9.Text = "Not Connected to Database"
