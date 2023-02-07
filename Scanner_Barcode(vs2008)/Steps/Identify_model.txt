@@ -1,0 +1,25 @@
+line id with model id must match
+
+Template scan  = "Subline 2,Test1"
+
++
+Line code = Subline 2
+line ID = a0efe197-e2d5-40f4-93e0-51b15d30312d
++
+
+-
+Model Code = Test1
+Model ID = de479b44-9b63-41da-ac46-96b023469785
+-
+
+Master Station "E1" / Master Station ID = dd0fce1f-d3fd-43dd-96e2-840d9a7d8e23
+
+
+/*
+1 - From the Scan we get the line code. Check in  dbo.line if the [ Line ID and Line Code ] matches
+
+2 - Retrieve only the Line Id 
+
+3 - got to dbo.MasterBOM and check if Model ID and Line ID are in same Row
+
+4 - if positive can go to next form

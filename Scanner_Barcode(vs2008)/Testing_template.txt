@@ -1,0 +1,27 @@
+First Input// Linecode,ModelCode
+------------------
+Subline 2,TP3MAXXX
+------------------
+
+Second Input// PartNo,ActualQty
+------------------
+K1KY03BA0799 300 or 12345 K1KY03BA0799 300
+------------------
+
+Third & Fourth// MasterBOMId
+------------------
+D4FD9BC0-47F4-4FBD-B2F5-098999A40D12
+------------------
+
++++++++++++++++++++++++++++++++++++++++
+//Testing Unit//
+LineCode = Subline 2
+LineID = A0EFE197-E2D5-40F4-93E0-51B15D30312D
+
+
+ModelCode = TP3MAXXX
+ModelID = FE9AAA80-FA1D-4BD9-B0E5-7F4041F2F9EC
+MasterModelID = FD8337D1-56EF-470B-AE4C-C35FF7F3317A
+
+PartNo = K1KY03BA0799
+PartID = E6F35430-CBE6-4B17-BAD4-01DEF45D2865

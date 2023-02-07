@@ -1,0 +1,25 @@
++
+Line code = Subline 2
+line ID = a0efe197-e2d5-40f4-93e0-51b15d30312d
++
+
+-
+Model Code = Test1
+Model ID = de479b44-9b63-41da-ac46-96b023469785
+Master Model ID = cbe1ab90-ac22-4203-b795-2f478a143686
+-
+
+-
+Part No - K1KY03BA0799 //This the one they scan
+Part ID - e6f35430-cbe6-4b17-bad4-01def45d2865
+Assembly Ref - Diod
+-
+
+MasterStationCode (E1) / MasterStationId = dd0fce1f-d3fd-43dd-96e2-840d9a7d8e23
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+userinput = dd0fce1f-d3fd-43dd-96e2-840d9a7d8e23 (MasterStationId)
+
+Steps
+1 - Access dbo.MasterStation. Scan with MasterStationID. 
+2 - Check if matches with MasterStationCode(E1) or can use the top label
+3 - Return Lable

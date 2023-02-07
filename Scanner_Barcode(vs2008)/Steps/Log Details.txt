@@ -1,0 +1,20 @@
+Updated Flowchart
+
+Subline & Model -(remove the top up part(option))->  Scan Station -> Scan Part --?(Match)<Create log> 
+										  (notmatch)<-Rescan Station
+
+Create log (Production)
+First
+->Acces dbo.Masterbom and get LineID, MasterModelID, ModelID and [*MasterBOMid]
+->we take MasterBOMid but not using it in the next step but final logging step
+
+Second
+-> Access dbo.Schedule. Using = LineID, MasterModelID, ModelID to retrieve ScheduleID and ProductionId
+-> Check if the ProductionStatus is Started. If Stopped, pending or Complete
+->store the ScheduleID data
+
+Third
+->Access dbo.ProductionStation once finish all the the topup checking
+->Input [ProductionStationId = ModelID] , [ScheduleID = ScheduleID]
+-,[ProductionId = ProductionId], [MasterBOMId = MasterBOMId] and [Model_Qty = Model_Qty]
+->Fill in the Colums and rows with a log you create
