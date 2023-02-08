@@ -59,14 +59,14 @@ Partial Public Class Form1
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(480, 53)
+        Me.Panel1.Size = New System.Drawing.Size(480, 69)
         '
         'Label1
         '
         Me.Label1.BackColor = System.Drawing.SystemColors.ControlText
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 26.0!, System.Drawing.FontStyle.Regular)
         Me.Label1.ForeColor = System.Drawing.Color.DarkTurquoise
-        Me.Label1.Location = New System.Drawing.Point(90, 3)
+        Me.Label1.Location = New System.Drawing.Point(87, 11)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(304, 47)
         Me.Label1.Text = "Barcode Scanner"
@@ -79,7 +79,7 @@ Partial Public Class Form1
         Me.dropdown_pbx.Image = CType(resources.GetObject("dropdown_pbx.Image"), System.Drawing.Image)
         Me.dropdown_pbx.Location = New System.Drawing.Point(0, 0)
         Me.dropdown_pbx.Name = "dropdown_pbx"
-        Me.dropdown_pbx.Size = New System.Drawing.Size(91, 36)
+        Me.dropdown_pbx.Size = New System.Drawing.Size(91, 55)
         '
         'Panel2
         '
@@ -87,14 +87,14 @@ Partial Public Class Form1
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel2.BackColor = System.Drawing.Color.DarkGray
         Me.Panel2.Controls.Add(Me.Label2)
-        Me.Panel2.Location = New System.Drawing.Point(0, 53)
+        Me.Panel2.Location = New System.Drawing.Point(0, 65)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(480, 46)
+        Me.Panel2.Size = New System.Drawing.Size(480, 47)
         '
         'Label2
         '
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 22.0!, System.Drawing.FontStyle.Regular)
-        Me.Label2.Location = New System.Drawing.Point(3, 3)
+        Me.Label2.Location = New System.Drawing.Point(13, 4)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(100, 43)
         Me.Label2.Text = "Login"
@@ -107,16 +107,16 @@ Partial Public Class Form1
         Me.dropdown_pnl.Controls.Add(Me.stg_btn)
         Me.dropdown_pnl.Controls.Add(Me.home_btn)
         Me.dropdown_pnl.Controls.Add(Me.dropdown_pbx)
-        Me.dropdown_pnl.Location = New System.Drawing.Point(12, 105)
+        Me.dropdown_pnl.Location = New System.Drawing.Point(13, 127)
         Me.dropdown_pnl.Name = "dropdown_pnl"
-        Me.dropdown_pnl.Size = New System.Drawing.Size(91, 181)
+        Me.dropdown_pnl.Size = New System.Drawing.Size(91, 200)
         '
         'exit_btn
         '
         Me.exit_btn.BackColor = System.Drawing.Color.Transparent
         Me.exit_btn.Dock = System.Windows.Forms.DockStyle.Top
         Me.exit_btn.Font = New System.Drawing.Font("Tahoma", 14.0!, System.Drawing.FontStyle.Regular)
-        Me.exit_btn.Location = New System.Drawing.Point(0, 144)
+        Me.exit_btn.Location = New System.Drawing.Point(0, 163)
         Me.exit_btn.Name = "exit_btn"
         Me.exit_btn.Size = New System.Drawing.Size(91, 36)
         Me.exit_btn.TabIndex = 6
@@ -127,7 +127,7 @@ Partial Public Class Form1
         Me.info_btn.BackColor = System.Drawing.Color.Transparent
         Me.info_btn.Dock = System.Windows.Forms.DockStyle.Top
         Me.info_btn.Font = New System.Drawing.Font("Tahoma", 14.0!, System.Drawing.FontStyle.Regular)
-        Me.info_btn.Location = New System.Drawing.Point(0, 108)
+        Me.info_btn.Location = New System.Drawing.Point(0, 127)
         Me.info_btn.Name = "info_btn"
         Me.info_btn.Size = New System.Drawing.Size(91, 36)
         Me.info_btn.TabIndex = 4
@@ -138,7 +138,7 @@ Partial Public Class Form1
         Me.stg_btn.BackColor = System.Drawing.Color.Transparent
         Me.stg_btn.Dock = System.Windows.Forms.DockStyle.Top
         Me.stg_btn.Font = New System.Drawing.Font("Tahoma", 14.0!, System.Drawing.FontStyle.Regular)
-        Me.stg_btn.Location = New System.Drawing.Point(0, 72)
+        Me.stg_btn.Location = New System.Drawing.Point(0, 91)
         Me.stg_btn.Name = "stg_btn"
         Me.stg_btn.Size = New System.Drawing.Size(91, 36)
         Me.stg_btn.TabIndex = 3
@@ -149,7 +149,7 @@ Partial Public Class Form1
         Me.home_btn.BackColor = System.Drawing.Color.Transparent
         Me.home_btn.Dock = System.Windows.Forms.DockStyle.Top
         Me.home_btn.Font = New System.Drawing.Font("Tahoma", 14.0!, System.Drawing.FontStyle.Regular)
-        Me.home_btn.Location = New System.Drawing.Point(0, 36)
+        Me.home_btn.Location = New System.Drawing.Point(0, 55)
         Me.home_btn.Name = "home_btn"
         Me.home_btn.Size = New System.Drawing.Size(91, 36)
         Me.home_btn.TabIndex = 1
@@ -160,66 +160,66 @@ Partial Public Class Form1
         Me.login_btn.BackColor = System.Drawing.SystemColors.Desktop
         Me.login_btn.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
         Me.login_btn.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.login_btn.Location = New System.Drawing.Point(348, 267)
+        Me.login_btn.Location = New System.Drawing.Point(355, 318)
         Me.login_btn.Name = "login_btn"
-        Me.login_btn.Size = New System.Drawing.Size(71, 33)
+        Me.login_btn.Size = New System.Drawing.Size(71, 41)
         Me.login_btn.TabIndex = 6
         Me.login_btn.Text = "Login"
         '
         'Label6
         '
         Me.Label6.Font = New System.Drawing.Font("Tahoma", 24.0!, System.Drawing.FontStyle.Regular)
-        Me.Label6.Location = New System.Drawing.Point(195, 157)
+        Me.Label6.Location = New System.Drawing.Point(190, 200)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(21, 44)
+        Me.Label6.Size = New System.Drawing.Size(21, 52)
         Me.Label6.Text = ":"
         '
         'Label5
         '
         Me.Label5.Font = New System.Drawing.Font("Tahoma", 24.0!, System.Drawing.FontStyle.Regular)
-        Me.Label5.Location = New System.Drawing.Point(195, 218)
+        Me.Label5.Location = New System.Drawing.Point(190, 261)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(25, 40)
+        Me.Label5.Size = New System.Drawing.Size(25, 48)
         Me.Label5.Text = ":"
         '
         'Label4
         '
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 24.0!, System.Drawing.FontStyle.Regular)
-        Me.Label4.Location = New System.Drawing.Point(57, 218)
+        Me.Label4.Location = New System.Drawing.Point(52, 261)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(150, 40)
+        Me.Label4.Size = New System.Drawing.Size(150, 48)
         Me.Label4.Text = "Password"
         '
         'Label3
         '
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 24.0!, System.Drawing.FontStyle.Regular)
-        Me.Label3.Location = New System.Drawing.Point(57, 157)
+        Me.Label3.Location = New System.Drawing.Point(52, 200)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(121, 52)
+        Me.Label3.Size = New System.Drawing.Size(121, 60)
         Me.Label3.Text = "User Id"
         '
         'pass_txtbx
         '
         Me.pass_txtbx.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
-        Me.pass_txtbx.Location = New System.Drawing.Point(222, 221)
+        Me.pass_txtbx.Location = New System.Drawing.Point(217, 264)
         Me.pass_txtbx.Multiline = True
         Me.pass_txtbx.Name = "pass_txtbx"
-        Me.pass_txtbx.Size = New System.Drawing.Size(169, 40)
+        Me.pass_txtbx.Size = New System.Drawing.Size(169, 48)
         Me.pass_txtbx.TabIndex = 1
         '
         'user_txtbx
         '
         Me.user_txtbx.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
-        Me.user_txtbx.Location = New System.Drawing.Point(222, 157)
+        Me.user_txtbx.Location = New System.Drawing.Point(217, 200)
         Me.user_txtbx.Multiline = True
         Me.user_txtbx.Name = "user_txtbx"
-        Me.user_txtbx.Size = New System.Drawing.Size(169, 44)
+        Me.user_txtbx.Size = New System.Drawing.Size(169, 52)
         Me.user_txtbx.TabIndex = 0
         '
         'Label7
         '
         Me.Label7.Font = New System.Drawing.Font("Tahoma", 14.0!, System.Drawing.FontStyle.Regular)
-        Me.Label7.Location = New System.Drawing.Point(242, 327)
+        Me.Label7.Location = New System.Drawing.Point(237, 370)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(40, 30)
         Me.Label7.Text = "Or"
@@ -227,88 +227,88 @@ Partial Public Class Form1
         'qr_txtbx
         '
         Me.qr_txtbx.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
-        Me.qr_txtbx.Location = New System.Drawing.Point(125, 419)
+        Me.qr_txtbx.Location = New System.Drawing.Point(120, 462)
         Me.qr_txtbx.Multiline = True
         Me.qr_txtbx.Name = "qr_txtbx"
-        Me.qr_txtbx.Size = New System.Drawing.Size(255, 37)
+        Me.qr_txtbx.Size = New System.Drawing.Size(255, 45)
         Me.qr_txtbx.TabIndex = 11
         '
         'Label8
         '
         Me.Label8.Font = New System.Drawing.Font("Tahoma", 20.0!, System.Drawing.FontStyle.Regular)
         Me.Label8.ForeColor = System.Drawing.SystemColors.InactiveCaption
-        Me.Label8.Location = New System.Drawing.Point(150, 459)
+        Me.Label8.Location = New System.Drawing.Point(145, 502)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(214, 37)
+        Me.Label8.Size = New System.Drawing.Size(214, 45)
         Me.Label8.Text = "Scan Qr Code"
         '
         'Label10
         '
         Me.Label10.Font = New System.Drawing.Font("Tahoma", 24.0!, System.Drawing.FontStyle.Regular)
         Me.Label10.ForeColor = System.Drawing.Color.Black
-        Me.Label10.Location = New System.Drawing.Point(57, 370)
+        Me.Label10.Location = New System.Drawing.Point(52, 413)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(183, 46)
+        Me.Label10.Size = New System.Drawing.Size(183, 54)
         Me.Label10.Text = "QR Login"
         '
         'forgot_password_link
         '
         Me.forgot_password_link.Font = New System.Drawing.Font("Tahoma", 18.0!, System.Drawing.FontStyle.Underline)
-        Me.forgot_password_link.Location = New System.Drawing.Point(139, 518)
+        Me.forgot_password_link.Location = New System.Drawing.Point(134, 561)
         Me.forgot_password_link.Name = "forgot_password_link"
-        Me.forgot_password_link.Size = New System.Drawing.Size(199, 27)
+        Me.forgot_password_link.Size = New System.Drawing.Size(199, 35)
         Me.forgot_password_link.TabIndex = 13
         Me.forgot_password_link.Text = "Forgot Password"
         '
         'DataGrid1
         '
         Me.DataGrid1.BackgroundColor = System.Drawing.Color.White
-        Me.DataGrid1.Location = New System.Drawing.Point(43, 149)
+        Me.DataGrid1.Location = New System.Drawing.Point(38, 192)
         Me.DataGrid1.Name = "DataGrid1"
-        Me.DataGrid1.Size = New System.Drawing.Size(397, 163)
+        Me.DataGrid1.Size = New System.Drawing.Size(397, 175)
         Me.DataGrid1.TabIndex = 19
         '
         'DataGrid2
         '
         Me.DataGrid2.BackgroundColor = System.Drawing.Color.White
-        Me.DataGrid2.Location = New System.Drawing.Point(43, 360)
+        Me.DataGrid2.Location = New System.Drawing.Point(38, 403)
         Me.DataGrid2.Name = "DataGrid2"
-        Me.DataGrid2.Size = New System.Drawing.Size(397, 145)
+        Me.DataGrid2.Size = New System.Drawing.Size(397, 153)
         Me.DataGrid2.TabIndex = 20
         '
         'user_found_lbl
         '
-        Me.user_found_lbl.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.user_found_lbl.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.user_found_lbl.Location = New System.Drawing.Point(397, 169)
+        Me.user_found_lbl.Location = New System.Drawing.Point(392, 218)
         Me.user_found_lbl.Name = "user_found_lbl"
-        Me.user_found_lbl.Size = New System.Drawing.Size(22, 20)
+        Me.user_found_lbl.Size = New System.Drawing.Size(22, 28)
         Me.user_found_lbl.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Label9
         '
         Me.Label9.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Regular)
-        Me.Label9.Location = New System.Drawing.Point(119, 114)
+        Me.Label9.Location = New System.Drawing.Point(113, 154)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(262, 15)
+        Me.Label9.Size = New System.Drawing.Size(262, 22)
         Me.Label9.Text = "Label9"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'pass_found_lbl
         '
-        Me.pass_found_lbl.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.pass_found_lbl.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.pass_found_lbl.Location = New System.Drawing.Point(397, 227)
+        Me.pass_found_lbl.Location = New System.Drawing.Point(392, 278)
         Me.pass_found_lbl.Name = "pass_found_lbl"
-        Me.pass_found_lbl.Size = New System.Drawing.Size(22, 23)
+        Me.pass_found_lbl.Size = New System.Drawing.Size(22, 31)
         Me.pass_found_lbl.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Form1
         '
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(480, 640)
+        Me.ControlBox = False
         Me.Controls.Add(Me.pass_found_lbl)
         Me.Controls.Add(Me.dropdown_pnl)
         Me.Controls.Add(Me.Label9)
@@ -329,6 +329,7 @@ Partial Public Class Form1
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.DataGrid1)
         Me.Controls.Add(Me.DataGrid2)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form1"
         Me.Text = "Login"

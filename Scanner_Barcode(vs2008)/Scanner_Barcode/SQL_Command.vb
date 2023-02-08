@@ -388,10 +388,10 @@ Module SQL_Command
                 'cmd.Parameters.AddWithValue("@Qty", ScannedPartQty)
                 Dim dr As SqlDataReader
                 dr = cmd.ExecuteReader()
-                If (dr.Read = True) Then
-                    Res = False
-                Else
+                If (dr.Read = False) Then
                     Res = True
+                Else
+                    Res = False
                 End If
             End Using
         Catch ex As Exception

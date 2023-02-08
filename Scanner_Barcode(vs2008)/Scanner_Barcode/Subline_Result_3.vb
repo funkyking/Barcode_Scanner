@@ -23,4 +23,15 @@
     Private Sub Subline_Result_3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Click
         Me.Dispose()
     End Sub
+
+    'When Event Load
+    Private Sub Subline_Result_3_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        closeTimer.Enabled = True
+    End Sub
+
+    'Closing the form
+    Private Sub closeTimer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles closeTimer.Tick
+        Me.Dispose()
+        Me.Close()
+    End Sub
 End Class

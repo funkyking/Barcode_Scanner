@@ -14,7 +14,7 @@ Public Class Form1
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
             'GUI effects
-            dropdown_pnl.Size = New Size(34, 32)
+            dropdown_pnl.Size = New Size(91, 55)
             home_btn.Visible = False
             qr_txtbx.Focus()
             'Check if Connected to database
@@ -187,10 +187,10 @@ Public Class Form1
     'dropdown menu
     Private Sub settings_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dropdown_pbx.Click
         Try
-            If (dropdown_pnl.Size = New Size(34, 32)) Then
-                dropdown_pnl.Size = New Size(91, 181)
+            If (dropdown_pnl.Size = New Size(91, 55)) Then
+                dropdown_pnl.Size = New Size(91, 200)
             Else
-                dropdown_pnl.Size = New Size(34, 32)
+                dropdown_pnl.Size = New Size(91, 55)
             End If
         Catch ex As Exception
         End Try
