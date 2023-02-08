@@ -6,6 +6,7 @@ Public Class Settings
 
     Shared table_list As String
     Shared conn As SqlConnection
+    Public ConnectionId As String = ""
 
     'Add Sql Connection
     Private Sub Add_Btn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Add_Btn.Click
@@ -59,8 +60,13 @@ Public Class Settings
                     MsgBox("Database Not found / Inactive")
                 End If
             End Using
-            DatabaseName = String.Format("Connected to = [{0}]", conn_str)
-            Form1.Label9.Text = DatabaseName
+            'Display Connection on Login
+            DatabaseName = conn_str
+            Dim temp As String = DatabaseName
+            Dim es As Integer = temp.IndexOf("=") + 1
+            Dim eq As Integer = temp.IndexOf(";")
+            ConnectionId = temp.Substring(es, eq - es)
+            Form1.Label9.Text = "Connected = " + ConnectionId
         Catch ex As Exception
         End Try
     End Sub

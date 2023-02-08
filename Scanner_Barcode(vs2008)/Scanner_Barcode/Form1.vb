@@ -21,7 +21,7 @@ Public Class Form1
             If (conn_str = "null") Then
                 Label9.Text = "Not Connected to Database"
             Else
-                Label9.Text = DatabaseName
+                Label9.Text = "Connected = " + Settings.ConnectionId
             End If
         Catch ex As Exception
         End Try
@@ -52,7 +52,8 @@ Public Class Form1
 
     'Displays database name (connection to)
     Private Sub Form1_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.GotFocus
-        Label9.Text = DatabaseName
+        qr_txtbx.Focus()
+        Label9.Text = "Connected = " + Settings.ConnectionId
     End Sub
 
 #End Region
@@ -178,6 +179,7 @@ Public Class Form1
     'Removes text from the textbox qr_login
     Private Sub qr_txtbx_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles qr_txtbx.GotFocus
         qr_txtbx.Text = ""
+        Label9.Text = "Connected = " + Settings.ConnectionId
     End Sub
 
 #End Region
