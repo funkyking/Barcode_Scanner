@@ -60,7 +60,11 @@ Partial Public Class Form1
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
+<<<<<<< HEAD
         Me.Panel1.Size = New System.Drawing.Size(478, 69)
+=======
+        Me.Panel1.Size = New System.Drawing.Size(480, 69)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         '
         'Label1
         '
@@ -90,7 +94,11 @@ Partial Public Class Form1
         Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Location = New System.Drawing.Point(0, 65)
         Me.Panel2.Name = "Panel2"
+<<<<<<< HEAD
         Me.Panel2.Size = New System.Drawing.Size(683, 47)
+=======
+        Me.Panel2.Size = New System.Drawing.Size(480, 47)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         '
         'Label2
         '
@@ -108,7 +116,11 @@ Partial Public Class Form1
         Me.dropdown_pnl.Controls.Add(Me.stg_btn)
         Me.dropdown_pnl.Controls.Add(Me.home_btn)
         Me.dropdown_pnl.Controls.Add(Me.dropdown_pbx)
+<<<<<<< HEAD
         Me.dropdown_pnl.Location = New System.Drawing.Point(12, 121)
+=======
+        Me.dropdown_pnl.Location = New System.Drawing.Point(13, 127)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.dropdown_pnl.Name = "dropdown_pnl"
         Me.dropdown_pnl.Size = New System.Drawing.Size(91, 200)
         '
@@ -161,7 +173,11 @@ Partial Public Class Form1
         Me.login_btn.BackColor = System.Drawing.SystemColors.Desktop
         Me.login_btn.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
         Me.login_btn.ForeColor = System.Drawing.SystemColors.ControlLightLight
+<<<<<<< HEAD
         Me.login_btn.Location = New System.Drawing.Point(355, 313)
+=======
+        Me.login_btn.Location = New System.Drawing.Point(355, 318)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.login_btn.Name = "login_btn"
         Me.login_btn.Size = New System.Drawing.Size(71, 41)
         Me.login_btn.TabIndex = 6
@@ -170,7 +186,11 @@ Partial Public Class Form1
         'Label6
         '
         Me.Label6.Font = New System.Drawing.Font("Tahoma", 24.0!, System.Drawing.FontStyle.Regular)
+<<<<<<< HEAD
         Me.Label6.Location = New System.Drawing.Point(190, 195)
+=======
+        Me.Label6.Location = New System.Drawing.Point(190, 200)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(21, 52)
         Me.Label6.Text = ":"
@@ -178,7 +198,11 @@ Partial Public Class Form1
         'Label5
         '
         Me.Label5.Font = New System.Drawing.Font("Tahoma", 24.0!, System.Drawing.FontStyle.Regular)
+<<<<<<< HEAD
         Me.Label5.Location = New System.Drawing.Point(190, 256)
+=======
+        Me.Label5.Location = New System.Drawing.Point(190, 261)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(25, 48)
         Me.Label5.Text = ":"
@@ -186,7 +210,11 @@ Partial Public Class Form1
         'Label4
         '
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 24.0!, System.Drawing.FontStyle.Regular)
+<<<<<<< HEAD
         Me.Label4.Location = New System.Drawing.Point(52, 256)
+=======
+        Me.Label4.Location = New System.Drawing.Point(52, 261)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(150, 48)
         Me.Label4.Text = "Password"
@@ -202,7 +230,11 @@ Partial Public Class Form1
         'pass_txtbx
         '
         Me.pass_txtbx.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
+<<<<<<< HEAD
         Me.pass_txtbx.Location = New System.Drawing.Point(217, 259)
+=======
+        Me.pass_txtbx.Location = New System.Drawing.Point(217, 264)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.pass_txtbx.Multiline = True
         Me.pass_txtbx.Name = "pass_txtbx"
         Me.pass_txtbx.Size = New System.Drawing.Size(169, 48)
@@ -211,7 +243,11 @@ Partial Public Class Form1
         'user_txtbx
         '
         Me.user_txtbx.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
+<<<<<<< HEAD
         Me.user_txtbx.Location = New System.Drawing.Point(217, 195)
+=======
+        Me.user_txtbx.Location = New System.Drawing.Point(217, 200)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.user_txtbx.Multiline = True
         Me.user_txtbx.Name = "user_txtbx"
         Me.user_txtbx.Size = New System.Drawing.Size(169, 52)
@@ -220,7 +256,11 @@ Partial Public Class Form1
         'Label7
         '
         Me.Label7.Font = New System.Drawing.Font("Tahoma", 14.0!, System.Drawing.FontStyle.Regular)
+<<<<<<< HEAD
         Me.Label7.Location = New System.Drawing.Point(235, 371)
+=======
+        Me.Label7.Location = New System.Drawing.Point(237, 370)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(40, 28)
         Me.Label7.Text = "Or"
@@ -228,10 +268,17 @@ Partial Public Class Form1
         'qr_txtbx
         '
         Me.qr_txtbx.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
+<<<<<<< HEAD
         Me.qr_txtbx.Location = New System.Drawing.Point(120, 457)
         Me.qr_txtbx.Multiline = True
         Me.qr_txtbx.Name = "qr_txtbx"
         Me.qr_txtbx.Size = New System.Drawing.Size(255, 39)
+=======
+        Me.qr_txtbx.Location = New System.Drawing.Point(120, 462)
+        Me.qr_txtbx.Multiline = True
+        Me.qr_txtbx.Name = "qr_txtbx"
+        Me.qr_txtbx.Size = New System.Drawing.Size(255, 45)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.qr_txtbx.TabIndex = 11
         '
         'Label8
@@ -240,22 +287,36 @@ Partial Public Class Form1
         Me.Label8.ForeColor = System.Drawing.SystemColors.InactiveCaption
         Me.Label8.Location = New System.Drawing.Point(145, 502)
         Me.Label8.Name = "Label8"
+<<<<<<< HEAD
         Me.Label8.Size = New System.Drawing.Size(214, 26)
+=======
+        Me.Label8.Size = New System.Drawing.Size(214, 45)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.Label8.Text = "Scan Qr Code"
         '
         'Label10
         '
         Me.Label10.Font = New System.Drawing.Font("Tahoma", 24.0!, System.Drawing.FontStyle.Regular)
         Me.Label10.ForeColor = System.Drawing.Color.Black
+<<<<<<< HEAD
         Me.Label10.Location = New System.Drawing.Point(52, 415)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(183, 42)
+=======
+        Me.Label10.Location = New System.Drawing.Point(52, 413)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(183, 54)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.Label10.Text = "QR Login"
         '
         'forgot_password_link
         '
         Me.forgot_password_link.Font = New System.Drawing.Font("Tahoma", 18.0!, System.Drawing.FontStyle.Underline)
+<<<<<<< HEAD
         Me.forgot_password_link.Location = New System.Drawing.Point(134, 541)
+=======
+        Me.forgot_password_link.Location = New System.Drawing.Point(134, 561)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.forgot_password_link.Name = "forgot_password_link"
         Me.forgot_password_link.Size = New System.Drawing.Size(199, 35)
         Me.forgot_password_link.TabIndex = 13
@@ -264,7 +325,11 @@ Partial Public Class Form1
         'DataGrid1
         '
         Me.DataGrid1.BackgroundColor = System.Drawing.Color.White
+<<<<<<< HEAD
         Me.DataGrid1.Location = New System.Drawing.Point(38, 187)
+=======
+        Me.DataGrid1.Location = New System.Drawing.Point(38, 192)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.DataGrid1.Name = "DataGrid1"
         Me.DataGrid1.Size = New System.Drawing.Size(397, 175)
         Me.DataGrid1.TabIndex = 19
@@ -272,15 +337,25 @@ Partial Public Class Form1
         'DataGrid2
         '
         Me.DataGrid2.BackgroundColor = System.Drawing.Color.White
+<<<<<<< HEAD
         Me.DataGrid2.Location = New System.Drawing.Point(38, 402)
         Me.DataGrid2.Name = "DataGrid2"
         Me.DataGrid2.Size = New System.Drawing.Size(397, 130)
+=======
+        Me.DataGrid2.Location = New System.Drawing.Point(38, 403)
+        Me.DataGrid2.Name = "DataGrid2"
+        Me.DataGrid2.Size = New System.Drawing.Size(397, 153)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.DataGrid2.TabIndex = 20
         '
         'user_found_lbl
         '
         Me.user_found_lbl.BackColor = System.Drawing.Color.WhiteSmoke
+<<<<<<< HEAD
         Me.user_found_lbl.Location = New System.Drawing.Point(392, 213)
+=======
+        Me.user_found_lbl.Location = New System.Drawing.Point(392, 218)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.user_found_lbl.Name = "user_found_lbl"
         Me.user_found_lbl.Size = New System.Drawing.Size(22, 28)
         Me.user_found_lbl.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -288,7 +363,11 @@ Partial Public Class Form1
         'Label9
         '
         Me.Label9.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Regular)
+<<<<<<< HEAD
         Me.Label9.Location = New System.Drawing.Point(113, 140)
+=======
+        Me.Label9.Location = New System.Drawing.Point(113, 154)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(262, 22)
         Me.Label9.Text = "Label9"
@@ -297,7 +376,11 @@ Partial Public Class Form1
         'pass_found_lbl
         '
         Me.pass_found_lbl.BackColor = System.Drawing.Color.WhiteSmoke
+<<<<<<< HEAD
         Me.pass_found_lbl.Location = New System.Drawing.Point(392, 273)
+=======
+        Me.pass_found_lbl.Location = New System.Drawing.Point(392, 278)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.pass_found_lbl.Name = "pass_found_lbl"
         Me.pass_found_lbl.Size = New System.Drawing.Size(22, 31)
         Me.pass_found_lbl.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -312,7 +395,11 @@ Partial Public Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.White
+<<<<<<< HEAD
         Me.ClientSize = New System.Drawing.Size(478, 615)
+=======
+        Me.ClientSize = New System.Drawing.Size(480, 640)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.ControlBox = False
         Me.Controls.Add(Me.pass_found_lbl)
         Me.Controls.Add(Me.dropdown_pnl)

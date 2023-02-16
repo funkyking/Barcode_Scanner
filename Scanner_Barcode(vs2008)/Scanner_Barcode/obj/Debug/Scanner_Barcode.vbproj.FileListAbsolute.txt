@@ -98,6 +98,7 @@ C:\Users\Paul\Desktop\Work\Infinite Solutions\Barcode_Scanner\Scanner_Barcode(vs
 C:\Users\Paul\Desktop\Work\Infinite Solutions\Barcode_Scanner\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Debug\Scanner_Barcode.exe
 C:\Users\Paul\Desktop\Work\Infinite Solutions\Barcode_Scanner\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Debug\Scanner_Barcode.xml
 C:\Users\Paul\Desktop\Work\Infinite Solutions\Barcode_Scanner\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Debug\Scanner_Barcode.pdb
+<<<<<<< HEAD
 C:\Users\Admin\Desktop\BarcodeScanner\Scanner_Barcode(vs2008)\Scanner_Barcode\bin\Debug\Scanner_Barcode.exe
 C:\Users\Admin\Desktop\BarcodeScanner\Scanner_Barcode(vs2008)\Scanner_Barcode\bin\Debug\Scanner_Barcode.pdb
 C:\Users\Admin\Desktop\BarcodeScanner\Scanner_Barcode(vs2008)\Scanner_Barcode\bin\Debug\Scanner_Barcode.xml
@@ -115,3 +116,5 @@ C:\Users\Admin\Desktop\BarcodeScanner\Scanner_Barcode(vs2008)\Scanner_Barcode\ob
 C:\Users\Admin\Desktop\BarcodeScanner\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Debug\Scanner_Barcode.exe
 C:\Users\Admin\Desktop\BarcodeScanner\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Debug\Scanner_Barcode.xml
 C:\Users\Admin\Desktop\BarcodeScanner\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Debug\Scanner_Barcode.pdb
+=======
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19

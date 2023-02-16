@@ -5,6 +5,7 @@ Imports System.Diagnostics
 Public Class WorkCentre_Topup_Scan_Station_6
 
 
+
 #Region "Main"
     'cont_btn event
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cont_btn.Click
@@ -22,6 +23,7 @@ Public Class WorkCentre_Topup_Scan_Station_6
     Private Sub scn_stn_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles userInput.KeyDown
         Try
             If e.KeyCode = Keys.Enter Then
+<<<<<<< HEAD
                 Dim res As Boolean = False
                 Dim stn_res As Boolean
 
@@ -36,12 +38,26 @@ Public Class WorkCentre_Topup_Scan_Station_6
                 'Display(Results)
                 If (res = True) Then
                     'station_List = ""
+=======
+                Dim res As Boolean
+
+
+                res = getMasterBOMId(userInput.Text)
+                ProductionStationId = GetFinalProductionId()
+                res = UpdateProductionStation()
+
+                'Display Results
+                If (res = True) Then
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
                     Dim passed As New Subline_Result_3
                     passed.BackColor = Color.LawnGreen
                     passed._top_lbl = "Top Up"
                     passed._bot_lbl = "Success !"
                     passed.Show()
+<<<<<<< HEAD
                     checkTheDb.Dispose() 'Clears the database of models,parts, etc
+=======
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
                     Button2_Click(sender, New EventArgs())
                     MasterBOMId = ""
                 Else
@@ -52,12 +68,17 @@ Public Class WorkCentre_Topup_Scan_Station_6
                     failed._top_lbl = "Station"
                     failed._bot_lbl = "Not Match !"
                     failed.Show()
+<<<<<<< HEAD
                     MasterBOMId = ""
+=======
+                    rescan_pbx_Click(sender, New EventArgs())
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
                 End If
             End If
         Catch ex As Exception
         End Try
     End Sub
+<<<<<<< HEAD
 
     'Display The Stations to top up the Parts in
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
@@ -67,6 +88,8 @@ Public Class WorkCentre_Topup_Scan_Station_6
         MessageBox.Show(temp)
     End Sub
 
+=======
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
 #End Region
 
 #Region "Misc"
@@ -78,8 +101,13 @@ Public Class WorkCentre_Topup_Scan_Station_6
             username.Text = UserID
             mdl_lbl.Text = ModelCode 'ModelCode/ModelName
             sub_lbl.Text = LineCode 'LineCode/LineName
+<<<<<<< HEAD
             'msc_lbl.Text = MasterStationCode
             part_lbl.Text = PartNo
+=======
+            msc_lbl.Text = MasterStationCode
+            part_lbl.Text = "Part Code : " + PartNo
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
 
             userInput.Focus()
             'Dropdown panel size

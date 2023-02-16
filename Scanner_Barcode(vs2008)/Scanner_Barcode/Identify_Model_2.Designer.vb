@@ -78,7 +78,11 @@ Partial Public Class Identify_Model_2
         '
         Me.username.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
         Me.username.ForeColor = System.Drawing.Color.Black
+<<<<<<< HEAD
         Me.username.Location = New System.Drawing.Point(346, 132)
+=======
+        Me.username.Location = New System.Drawing.Point(346, 134)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.username.Name = "username"
         Me.username.Size = New System.Drawing.Size(122, 34)
         Me.username.Text = "[username]"
@@ -104,7 +108,11 @@ Partial Public Class Identify_Model_2
         'Label3
         '
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 34.0!, System.Drawing.FontStyle.Underline)
+<<<<<<< HEAD
         Me.Label3.Location = New System.Drawing.Point(3, 10)
+=======
+        Me.Label3.Location = New System.Drawing.Point(3, 9)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(401, 68)
         Me.Label3.Text = "Scan Line && Model"
@@ -112,10 +120,18 @@ Partial Public Class Identify_Model_2
         'model_ID
         '
         Me.model_ID.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+<<<<<<< HEAD
         Me.model_ID.Font = New System.Drawing.Font("Leelawadee UI Semilight", 36.0!, System.Drawing.FontStyle.Regular)
         Me.model_ID.Location = New System.Drawing.Point(10, 118)
         Me.model_ID.Name = "model_ID"
         Me.model_ID.Size = New System.Drawing.Size(409, 70)
+=======
+        Me.model_ID.Font = New System.Drawing.Font("Tahoma", 26.0!, System.Drawing.FontStyle.Regular)
+        Me.model_ID.Location = New System.Drawing.Point(7, 111)
+        Me.model_ID.Multiline = True
+        Me.model_ID.Name = "model_ID"
+        Me.model_ID.Size = New System.Drawing.Size(409, 144)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.model_ID.TabIndex = 0
         '
         'Cont_btn
@@ -138,14 +154,22 @@ Partial Public Class Identify_Model_2
         Me.Panel3.Controls.Add(Me.model_ID)
         Me.Panel3.Location = New System.Drawing.Point(25, 219)
         Me.Panel3.Name = "Panel3"
+<<<<<<< HEAD
         Me.Panel3.Size = New System.Drawing.Size(429, 280)
+=======
+        Me.Panel3.Size = New System.Drawing.Size(429, 322)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         '
         'Label8
         '
         Me.Label8.BackColor = System.Drawing.Color.White
         Me.Label8.Font = New System.Drawing.Font("Tahoma", 18.0!, System.Drawing.FontStyle.Regular)
         Me.Label8.ForeColor = System.Drawing.SystemColors.InactiveCaption
+<<<<<<< HEAD
         Me.Label8.Location = New System.Drawing.Point(8, 233)
+=======
+        Me.Label8.Location = New System.Drawing.Point(8, 269)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(396, 32)
         Me.Label8.Text = "Scan the Barcode on Model"
@@ -155,7 +179,11 @@ Partial Public Class Identify_Model_2
         '
         Me.rescan_pbx.BackColor = System.Drawing.SystemColors.Window
         Me.rescan_pbx.Image = CType(resources.GetObject("rescan_pbx.Image"), System.Drawing.Image)
+<<<<<<< HEAD
         Me.rescan_pbx.Location = New System.Drawing.Point(363, 134)
+=======
+        Me.rescan_pbx.Location = New System.Drawing.Point(351, 174)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.rescan_pbx.Name = "rescan_pbx"
         Me.rescan_pbx.Size = New System.Drawing.Size(53, 33)
         Me.rescan_pbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage

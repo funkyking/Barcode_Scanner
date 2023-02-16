@@ -436,12 +436,17 @@ Module SQL_Command
                 'cmd.Parameters.AddWithValue("@Qty", ScannedPartQty)
                 Dim dr As SqlDataReader
                 dr = cmd.ExecuteReader()
+<<<<<<< HEAD
                 If (dr.Read) Then
                     If dr.Item(0).ToString > 0 Then
                         Res = False
                     Else
                         Res = True
                     End If
+=======
+                If (dr.Read = False) Then
+                    Res = True
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
                 Else
                     Res = False
                 End If

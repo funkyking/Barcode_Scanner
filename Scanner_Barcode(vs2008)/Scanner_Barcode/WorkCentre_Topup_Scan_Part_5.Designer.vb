@@ -151,10 +151,18 @@ Partial Public Class WorkCentre_Topup_Scan_Part_5
         'userInput
         '
         Me.userInput.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+<<<<<<< HEAD
         Me.userInput.Font = New System.Drawing.Font("Leelawadee UI Semilight", 36.0!, System.Drawing.FontStyle.Regular)
         Me.userInput.Location = New System.Drawing.Point(13, 182)
         Me.userInput.Name = "userInput"
         Me.userInput.Size = New System.Drawing.Size(409, 70)
+=======
+        Me.userInput.Font = New System.Drawing.Font("Tahoma", 26.0!, System.Drawing.FontStyle.Regular)
+        Me.userInput.Location = New System.Drawing.Point(10, 132)
+        Me.userInput.Multiline = True
+        Me.userInput.Name = "userInput"
+        Me.userInput.Size = New System.Drawing.Size(409, 144)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.userInput.TabIndex = 23
         '
         'DataGrid2
@@ -208,7 +216,11 @@ Partial Public Class WorkCentre_Topup_Scan_Part_5
         '
         Me.rescan_pbx.BackColor = System.Drawing.SystemColors.Window
         Me.rescan_pbx.Image = CType(resources.GetObject("rescan_pbx.Image"), System.Drawing.Image)
+<<<<<<< HEAD
         Me.rescan_pbx.Location = New System.Drawing.Point(365, 199)
+=======
+        Me.rescan_pbx.Location = New System.Drawing.Point(357, 193)
+>>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.rescan_pbx.Name = "rescan_pbx"
         Me.rescan_pbx.Size = New System.Drawing.Size(53, 33)
         Me.rescan_pbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
