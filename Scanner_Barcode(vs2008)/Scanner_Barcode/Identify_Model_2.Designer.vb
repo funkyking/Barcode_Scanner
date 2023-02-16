@@ -53,44 +53,45 @@ Partial Public Class Identify_Model_2
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(478, 65)
+        Me.Panel1.Size = New System.Drawing.Size(480, 69)
         '
         'Label1
         '
         Me.Label1.BackColor = System.Drawing.SystemColors.ControlText
-        Me.Label1.Font = New System.Drawing.Font("Arial", 26.0!, System.Drawing.FontStyle.Regular)
+        Me.Label1.Font = New System.Drawing.Font("Tahoma", 26.0!, System.Drawing.FontStyle.Regular)
         Me.Label1.ForeColor = System.Drawing.Color.DarkTurquoise
         Me.Label1.Location = New System.Drawing.Point(97, 13)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(294, 49)
+        Me.Label1.Size = New System.Drawing.Size(281, 49)
         Me.Label1.Text = "Barcode Scanner"
         '
         'logout_pbx
         '
         Me.logout_pbx.BackColor = System.Drawing.SystemColors.ControlText
         Me.logout_pbx.Image = CType(resources.GetObject("logout_pbx.Image"), System.Drawing.Image)
-        Me.logout_pbx.Location = New System.Drawing.Point(425, 13)
+        Me.logout_pbx.Location = New System.Drawing.Point(427, 12)
         Me.logout_pbx.Name = "logout_pbx"
-        Me.logout_pbx.Size = New System.Drawing.Size(44, 36)
+        Me.logout_pbx.Size = New System.Drawing.Size(50, 50)
         Me.logout_pbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         '
         'username
         '
         Me.username.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
         Me.username.ForeColor = System.Drawing.Color.Black
-        Me.username.Location = New System.Drawing.Point(346, 124)
+        Me.username.Location = New System.Drawing.Point(346, 132)
         Me.username.Name = "username"
         Me.username.Size = New System.Drawing.Size(122, 34)
         Me.username.Text = "[username]"
+        Me.username.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.CadetBlue
         Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel2.Location = New System.Drawing.Point(0, 65)
+        Me.Panel2.Location = New System.Drawing.Point(0, 69)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(478, 56)
+        Me.Panel2.Size = New System.Drawing.Size(480, 56)
         '
         'Label2
         '
@@ -102,27 +103,26 @@ Partial Public Class Identify_Model_2
         '
         'Label3
         '
-        Me.Label3.Font = New System.Drawing.Font("Tahoma", 28.0!, System.Drawing.FontStyle.Regular)
-        Me.Label3.Location = New System.Drawing.Point(3, 9)
+        Me.Label3.Font = New System.Drawing.Font("Tahoma", 34.0!, System.Drawing.FontStyle.Underline)
+        Me.Label3.Location = New System.Drawing.Point(3, 10)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(348, 54)
+        Me.Label3.Size = New System.Drawing.Size(401, 68)
         Me.Label3.Text = "Scan Line && Model"
         '
         'model_ID
         '
         Me.model_ID.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.model_ID.Font = New System.Drawing.Font("Tahoma", 13.0!, System.Drawing.FontStyle.Regular)
-        Me.model_ID.Location = New System.Drawing.Point(5, 111)
-        Me.model_ID.Multiline = True
+        Me.model_ID.Font = New System.Drawing.Font("Leelawadee UI Semilight", 36.0!, System.Drawing.FontStyle.Regular)
+        Me.model_ID.Location = New System.Drawing.Point(10, 118)
         Me.model_ID.Name = "model_ID"
-        Me.model_ID.Size = New System.Drawing.Size(409, 48)
+        Me.model_ID.Size = New System.Drawing.Size(409, 70)
         Me.model_ID.TabIndex = 0
         '
         'Cont_btn
         '
         Me.Cont_btn.BackColor = System.Drawing.Color.SteelBlue
         Me.Cont_btn.ForeColor = System.Drawing.Color.White
-        Me.Cont_btn.Location = New System.Drawing.Point(198, 577)
+        Me.Cont_btn.Location = New System.Drawing.Point(197, 610)
         Me.Cont_btn.Name = "Cont_btn"
         Me.Cont_btn.Size = New System.Drawing.Size(65, 16)
         Me.Cont_btn.TabIndex = 10
@@ -136,18 +136,18 @@ Partial Public Class Identify_Model_2
         Me.Panel3.Controls.Add(Me.Label3)
         Me.Panel3.Controls.Add(Me.rescan_pbx)
         Me.Panel3.Controls.Add(Me.model_ID)
-        Me.Panel3.Location = New System.Drawing.Point(29, 208)
+        Me.Panel3.Location = New System.Drawing.Point(25, 219)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(419, 280)
+        Me.Panel3.Size = New System.Drawing.Size(429, 280)
         '
         'Label8
         '
         Me.Label8.BackColor = System.Drawing.Color.White
         Me.Label8.Font = New System.Drawing.Font("Tahoma", 18.0!, System.Drawing.FontStyle.Regular)
         Me.Label8.ForeColor = System.Drawing.SystemColors.InactiveCaption
-        Me.Label8.Location = New System.Drawing.Point(76, 162)
+        Me.Label8.Location = New System.Drawing.Point(8, 233)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(255, 71)
+        Me.Label8.Size = New System.Drawing.Size(396, 32)
         Me.Label8.Text = "Scan the Barcode on Model"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
@@ -155,7 +155,7 @@ Partial Public Class Identify_Model_2
         '
         Me.rescan_pbx.BackColor = System.Drawing.SystemColors.Window
         Me.rescan_pbx.Image = CType(resources.GetObject("rescan_pbx.Image"), System.Drawing.Image)
-        Me.rescan_pbx.Location = New System.Drawing.Point(357, 119)
+        Me.rescan_pbx.Location = New System.Drawing.Point(363, 134)
         Me.rescan_pbx.Name = "rescan_pbx"
         Me.rescan_pbx.Size = New System.Drawing.Size(53, 33)
         Me.rescan_pbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
@@ -163,7 +163,7 @@ Partial Public Class Identify_Model_2
         'Label5
         '
         Me.Label5.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
-        Me.Label5.Location = New System.Drawing.Point(246, 124)
+        Me.Label5.Location = New System.Drawing.Point(246, 134)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(114, 34)
         Me.Label5.Text = "User_ID :"
@@ -172,10 +172,10 @@ Partial Public Class Identify_Model_2
         '
         Me.DataGrid1.BackColor = System.Drawing.Color.White
         Me.DataGrid1.BackgroundColor = System.Drawing.Color.White
-        Me.DataGrid1.Location = New System.Drawing.Point(12, 192)
+        Me.DataGrid1.Location = New System.Drawing.Point(12, 203)
         Me.DataGrid1.Name = "DataGrid1"
         Me.DataGrid1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.DataGrid1.Size = New System.Drawing.Size(453, 310)
+        Me.DataGrid1.Size = New System.Drawing.Size(453, 385)
         Me.DataGrid1.TabIndex = 11
         '
         'dropdown_pnl
@@ -185,16 +185,16 @@ Partial Public Class Identify_Model_2
         Me.dropdown_pnl.Controls.Add(Me.info_btn)
         Me.dropdown_pnl.Controls.Add(Me.stg_btn)
         Me.dropdown_pnl.Controls.Add(Me.dropdown_pbx)
-        Me.dropdown_pnl.Location = New System.Drawing.Point(12, 132)
+        Me.dropdown_pnl.Location = New System.Drawing.Point(12, 134)
         Me.dropdown_pnl.Name = "dropdown_pnl"
-        Me.dropdown_pnl.Size = New System.Drawing.Size(91, 144)
+        Me.dropdown_pnl.Size = New System.Drawing.Size(91, 164)
         '
         'exit_btn
         '
         Me.exit_btn.BackColor = System.Drawing.Color.Transparent
         Me.exit_btn.Dock = System.Windows.Forms.DockStyle.Top
         Me.exit_btn.Font = New System.Drawing.Font("Tahoma", 14.0!, System.Drawing.FontStyle.Regular)
-        Me.exit_btn.Location = New System.Drawing.Point(0, 108)
+        Me.exit_btn.Location = New System.Drawing.Point(0, 127)
         Me.exit_btn.Name = "exit_btn"
         Me.exit_btn.Size = New System.Drawing.Size(91, 36)
         Me.exit_btn.TabIndex = 6
@@ -205,7 +205,7 @@ Partial Public Class Identify_Model_2
         Me.info_btn.BackColor = System.Drawing.Color.Transparent
         Me.info_btn.Dock = System.Windows.Forms.DockStyle.Top
         Me.info_btn.Font = New System.Drawing.Font("Tahoma", 14.0!, System.Drawing.FontStyle.Regular)
-        Me.info_btn.Location = New System.Drawing.Point(0, 72)
+        Me.info_btn.Location = New System.Drawing.Point(0, 91)
         Me.info_btn.Name = "info_btn"
         Me.info_btn.Size = New System.Drawing.Size(91, 36)
         Me.info_btn.TabIndex = 4
@@ -216,7 +216,7 @@ Partial Public Class Identify_Model_2
         Me.stg_btn.BackColor = System.Drawing.Color.Transparent
         Me.stg_btn.Dock = System.Windows.Forms.DockStyle.Top
         Me.stg_btn.Font = New System.Drawing.Font("Tahoma", 14.0!, System.Drawing.FontStyle.Regular)
-        Me.stg_btn.Location = New System.Drawing.Point(0, 36)
+        Me.stg_btn.Location = New System.Drawing.Point(0, 55)
         Me.stg_btn.Name = "stg_btn"
         Me.stg_btn.Size = New System.Drawing.Size(91, 36)
         Me.stg_btn.TabIndex = 3
@@ -229,22 +229,25 @@ Partial Public Class Identify_Model_2
         Me.dropdown_pbx.Image = CType(resources.GetObject("dropdown_pbx.Image"), System.Drawing.Image)
         Me.dropdown_pbx.Location = New System.Drawing.Point(0, 0)
         Me.dropdown_pbx.Name = "dropdown_pbx"
-        Me.dropdown_pbx.Size = New System.Drawing.Size(91, 36)
+        Me.dropdown_pbx.Size = New System.Drawing.Size(91, 55)
         '
         'Identify_Model_2
         '
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(478, 615)
+        Me.ClientSize = New System.Drawing.Size(480, 640)
+        Me.ControlBox = False
         Me.Controls.Add(Me.dropdown_pnl)
         Me.Controls.Add(Me.username)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Cont_btn)
-        Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.DataGrid1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Identify_Model_2"
         Me.Text = "Scan Line & Model"

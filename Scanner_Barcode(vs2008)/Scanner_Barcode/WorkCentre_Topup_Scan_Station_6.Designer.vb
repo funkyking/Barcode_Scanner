@@ -25,8 +25,8 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         Me.logout_pbx = New System.Windows.Forms.PictureBox
         Me.Label1 = New System.Windows.Forms.Label
         Me.Panel2 = New System.Windows.Forms.Panel
-        Me.Label7 = New System.Windows.Forms.Label
-        Me.Label4 = New System.Windows.Forms.Label
+        Me.Label2 = New System.Windows.Forms.Label
+        Me.sub_lbl = New System.Windows.Forms.Label
         Me.mdl_lbl = New System.Windows.Forms.Label
         Me.cont_btn = New System.Windows.Forms.Button
         Me.Label5 = New System.Windows.Forms.Label
@@ -43,10 +43,15 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         Me.stg_btn = New System.Windows.Forms.Button
         Me.home_btn = New System.Windows.Forms.Button
         Me.dropdown_pbx = New System.Windows.Forms.PictureBox
+        Me.Panel4 = New System.Windows.Forms.Panel
+        Me.Label4 = New System.Windows.Forms.Label
+        Me.Button1 = New System.Windows.Forms.Button
+        Me.part_lbl = New System.Windows.Forms.Label
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.dropdown_pnl.SuspendLayout()
+        Me.Panel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -58,7 +63,7 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(478, 65)
+        Me.Panel1.Size = New System.Drawing.Size(480, 65)
         '
         'PictureBox2
         '
@@ -66,16 +71,16 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
         Me.PictureBox2.Location = New System.Drawing.Point(3, 6)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(46, 41)
+        Me.PictureBox2.Size = New System.Drawing.Size(50, 50)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         '
         'logout_pbx
         '
         Me.logout_pbx.BackColor = System.Drawing.SystemColors.ControlText
         Me.logout_pbx.Image = CType(resources.GetObject("logout_pbx.Image"), System.Drawing.Image)
-        Me.logout_pbx.Location = New System.Drawing.Point(428, 8)
+        Me.logout_pbx.Location = New System.Drawing.Point(422, 6)
         Me.logout_pbx.Name = "logout_pbx"
-        Me.logout_pbx.Size = New System.Drawing.Size(44, 36)
+        Me.logout_pbx.Size = New System.Drawing.Size(50, 50)
         Me.logout_pbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         '
         'Label1
@@ -91,38 +96,39 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.LightSeaGreen
-        Me.Panel2.Controls.Add(Me.Label7)
-        Me.Panel2.Controls.Add(Me.Label4)
+        Me.Panel2.BackColor = System.Drawing.Color.CadetBlue
+        Me.Panel2.Controls.Add(Me.Label2)
+        Me.Panel2.Controls.Add(Me.sub_lbl)
         Me.Panel2.Controls.Add(Me.mdl_lbl)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 65)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(478, 57)
+        Me.Panel2.Size = New System.Drawing.Size(480, 57)
         '
-        'Label7
+        'Label2
         '
-        Me.Label7.Font = New System.Drawing.Font("Tahoma", 22.0!, System.Drawing.FontStyle.Regular)
-        Me.Label7.Location = New System.Drawing.Point(0, 10)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(219, 37)
-        Me.Label7.Text = "TopUp Station"
-        Me.Label7.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Label2.Font = New System.Drawing.Font("Tahoma", 24.0!, System.Drawing.FontStyle.Regular)
+        Me.Label2.Location = New System.Drawing.Point(196, 5)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(17, 44)
+        Me.Label2.Text = "|"
         '
-        'Label4
+        'sub_lbl
         '
-        Me.Label4.Font = New System.Drawing.Font("Tahoma", 24.0!, System.Drawing.FontStyle.Regular)
-        Me.Label4.Location = New System.Drawing.Point(225, 3)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(24, 44)
-        Me.Label4.Text = "|"
+        Me.sub_lbl.BackColor = System.Drawing.Color.CadetBlue
+        Me.sub_lbl.Font = New System.Drawing.Font("Tahoma", 22.0!, System.Drawing.FontStyle.Regular)
+        Me.sub_lbl.Location = New System.Drawing.Point(3, 9)
+        Me.sub_lbl.Name = "sub_lbl"
+        Me.sub_lbl.Size = New System.Drawing.Size(157, 38)
+        Me.sub_lbl.Text = "Subline [0]"
+        Me.sub_lbl.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'mdl_lbl
         '
         Me.mdl_lbl.Font = New System.Drawing.Font("Tahoma", 22.0!, System.Drawing.FontStyle.Regular)
-        Me.mdl_lbl.Location = New System.Drawing.Point(255, 10)
+        Me.mdl_lbl.Location = New System.Drawing.Point(219, 10)
         Me.mdl_lbl.Name = "mdl_lbl"
-        Me.mdl_lbl.Size = New System.Drawing.Size(220, 37)
+        Me.mdl_lbl.Size = New System.Drawing.Size(253, 37)
         Me.mdl_lbl.Text = "Model ID [0]"
         Me.mdl_lbl.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
@@ -130,7 +136,7 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         '
         Me.cont_btn.BackColor = System.Drawing.Color.DodgerBlue
         Me.cont_btn.ForeColor = System.Drawing.Color.White
-        Me.cont_btn.Location = New System.Drawing.Point(225, 588)
+        Me.cont_btn.Location = New System.Drawing.Point(216, 608)
         Me.cont_btn.Name = "cont_btn"
         Me.cont_btn.Size = New System.Drawing.Size(57, 24)
         Me.cont_btn.TabIndex = 28
@@ -139,7 +145,7 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         '
         'Label5
         '
-        Me.Label5.Font = New System.Drawing.Font("Tahoma", 28.0!, System.Drawing.FontStyle.Regular)
+        Me.Label5.Font = New System.Drawing.Font("Tahoma", 34.0!, System.Drawing.FontStyle.Underline)
         Me.Label5.Location = New System.Drawing.Point(3, 15)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(293, 53)
@@ -148,25 +154,24 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         'userInput
         '
         Me.userInput.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.userInput.Font = New System.Drawing.Font("Tahoma", 13.0!, System.Drawing.FontStyle.Regular)
-        Me.userInput.Location = New System.Drawing.Point(12, 125)
-        Me.userInput.Multiline = True
+        Me.userInput.Font = New System.Drawing.Font("Leelawadee UI Semilight", 36.0!, System.Drawing.FontStyle.Regular)
+        Me.userInput.Location = New System.Drawing.Point(14, 140)
         Me.userInput.Name = "userInput"
-        Me.userInput.Size = New System.Drawing.Size(409, 48)
+        Me.userInput.Size = New System.Drawing.Size(409, 70)
         Me.userInput.TabIndex = 27
         '
         'DataGrid2
         '
         Me.DataGrid2.BackgroundColor = System.Drawing.Color.White
-        Me.DataGrid2.Location = New System.Drawing.Point(11, 189)
+        Me.DataGrid2.Location = New System.Drawing.Point(11, 257)
         Me.DataGrid2.Name = "DataGrid2"
-        Me.DataGrid2.Size = New System.Drawing.Size(454, 312)
+        Me.DataGrid2.Size = New System.Drawing.Size(454, 345)
         Me.DataGrid2.TabIndex = 29
         '
         'username
         '
         Me.username.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
-        Me.username.Location = New System.Drawing.Point(350, 125)
+        Me.username.Location = New System.Drawing.Point(350, 193)
         Me.username.Name = "username"
         Me.username.Size = New System.Drawing.Size(122, 46)
         Me.username.Text = "[username]"
@@ -174,7 +179,7 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         'Label3
         '
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
-        Me.Label3.Location = New System.Drawing.Point(255, 125)
+        Me.Label3.Location = New System.Drawing.Point(255, 193)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(115, 46)
         Me.Label3.Text = "User_ID :"
@@ -186,15 +191,15 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         Me.Panel3.Controls.Add(Me.userInput)
         Me.Panel3.Controls.Add(Me.Label5)
         Me.Panel3.Controls.Add(Me.back_pbx)
-        Me.Panel3.Location = New System.Drawing.Point(23, 205)
+        Me.Panel3.Location = New System.Drawing.Point(23, 273)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(431, 286)
+        Me.Panel3.Size = New System.Drawing.Size(431, 319)
         '
         'rescan_pbx
         '
         Me.rescan_pbx.BackColor = System.Drawing.SystemColors.Window
         Me.rescan_pbx.Image = CType(resources.GetObject("rescan_pbx.Image"), System.Drawing.Image)
-        Me.rescan_pbx.Location = New System.Drawing.Point(363, 132)
+        Me.rescan_pbx.Location = New System.Drawing.Point(367, 157)
         Me.rescan_pbx.Name = "rescan_pbx"
         Me.rescan_pbx.Size = New System.Drawing.Size(53, 33)
         Me.rescan_pbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
@@ -202,7 +207,7 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         'back_pbx
         '
         Me.back_pbx.Image = CType(resources.GetObject("back_pbx.Image"), System.Drawing.Image)
-        Me.back_pbx.Location = New System.Drawing.Point(184, 208)
+        Me.back_pbx.Location = New System.Drawing.Point(182, 253)
         Me.back_pbx.Name = "back_pbx"
         Me.back_pbx.Size = New System.Drawing.Size(68, 55)
         Me.back_pbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
@@ -215,16 +220,16 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         Me.dropdown_pnl.Controls.Add(Me.stg_btn)
         Me.dropdown_pnl.Controls.Add(Me.home_btn)
         Me.dropdown_pnl.Controls.Add(Me.dropdown_pbx)
-        Me.dropdown_pnl.Location = New System.Drawing.Point(12, 132)
+        Me.dropdown_pnl.Location = New System.Drawing.Point(11, 193)
         Me.dropdown_pnl.Name = "dropdown_pnl"
-        Me.dropdown_pnl.Size = New System.Drawing.Size(91, 181)
+        Me.dropdown_pnl.Size = New System.Drawing.Size(91, 200)
         '
         'exit_btn
         '
         Me.exit_btn.BackColor = System.Drawing.Color.Transparent
         Me.exit_btn.Dock = System.Windows.Forms.DockStyle.Top
         Me.exit_btn.Font = New System.Drawing.Font("Tahoma", 14.0!, System.Drawing.FontStyle.Regular)
-        Me.exit_btn.Location = New System.Drawing.Point(0, 144)
+        Me.exit_btn.Location = New System.Drawing.Point(0, 163)
         Me.exit_btn.Name = "exit_btn"
         Me.exit_btn.Size = New System.Drawing.Size(91, 36)
         Me.exit_btn.TabIndex = 6
@@ -235,7 +240,7 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         Me.info_btn.BackColor = System.Drawing.Color.Transparent
         Me.info_btn.Dock = System.Windows.Forms.DockStyle.Top
         Me.info_btn.Font = New System.Drawing.Font("Tahoma", 14.0!, System.Drawing.FontStyle.Regular)
-        Me.info_btn.Location = New System.Drawing.Point(0, 108)
+        Me.info_btn.Location = New System.Drawing.Point(0, 127)
         Me.info_btn.Name = "info_btn"
         Me.info_btn.Size = New System.Drawing.Size(91, 36)
         Me.info_btn.TabIndex = 4
@@ -246,7 +251,7 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         Me.stg_btn.BackColor = System.Drawing.Color.Transparent
         Me.stg_btn.Dock = System.Windows.Forms.DockStyle.Top
         Me.stg_btn.Font = New System.Drawing.Font("Tahoma", 14.0!, System.Drawing.FontStyle.Regular)
-        Me.stg_btn.Location = New System.Drawing.Point(0, 72)
+        Me.stg_btn.Location = New System.Drawing.Point(0, 91)
         Me.stg_btn.Name = "stg_btn"
         Me.stg_btn.Size = New System.Drawing.Size(91, 36)
         Me.stg_btn.TabIndex = 3
@@ -257,7 +262,7 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         Me.home_btn.BackColor = System.Drawing.Color.Transparent
         Me.home_btn.Dock = System.Windows.Forms.DockStyle.Top
         Me.home_btn.Font = New System.Drawing.Font("Tahoma", 14.0!, System.Drawing.FontStyle.Regular)
-        Me.home_btn.Location = New System.Drawing.Point(0, 36)
+        Me.home_btn.Location = New System.Drawing.Point(0, 55)
         Me.home_btn.Name = "home_btn"
         Me.home_btn.Size = New System.Drawing.Size(91, 36)
         Me.home_btn.TabIndex = 1
@@ -270,14 +275,56 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         Me.dropdown_pbx.Image = CType(resources.GetObject("dropdown_pbx.Image"), System.Drawing.Image)
         Me.dropdown_pbx.Location = New System.Drawing.Point(0, 0)
         Me.dropdown_pbx.Name = "dropdown_pbx"
-        Me.dropdown_pbx.Size = New System.Drawing.Size(91, 36)
+        Me.dropdown_pbx.Size = New System.Drawing.Size(91, 55)
+        '
+        'Panel4
+        '
+        Me.Panel4.BackColor = System.Drawing.Color.PowderBlue
+        Me.Panel4.Controls.Add(Me.Label4)
+        Me.Panel4.Controls.Add(Me.Button1)
+        Me.Panel4.Controls.Add(Me.part_lbl)
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel4.Location = New System.Drawing.Point(0, 122)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(480, 57)
+        '
+        'Label4
+        '
+        Me.Label4.Font = New System.Drawing.Font("Tahoma", 24.0!, System.Drawing.FontStyle.Regular)
+        Me.Label4.Location = New System.Drawing.Point(196, 6)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(17, 44)
+        Me.Label4.Text = "|"
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.Green
+        Me.Button1.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
+        Me.Button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Button1.Location = New System.Drawing.Point(11, 10)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(141, 40)
+        Me.Button1.TabIndex = 3
+        Me.Button1.Text = "Station List"
+        '
+        'part_lbl
+        '
+        Me.part_lbl.BackColor = System.Drawing.Color.PowderBlue
+        Me.part_lbl.Font = New System.Drawing.Font("Tahoma", 22.0!, System.Drawing.FontStyle.Regular)
+        Me.part_lbl.Location = New System.Drawing.Point(219, 10)
+        Me.part_lbl.Name = "part_lbl"
+        Me.part_lbl.Size = New System.Drawing.Size(235, 38)
+        Me.part_lbl.Text = "Part [0]"
+        Me.part_lbl.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'WorkCentre_Topup_Scan_Station_6
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(478, 615)
+        Me.ClientSize = New System.Drawing.Size(480, 640)
+        Me.ControlBox = False
+        Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.dropdown_pnl)
         Me.Controls.Add(Me.username)
         Me.Controls.Add(Me.Label3)
@@ -286,6 +333,7 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.DataGrid2)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "WorkCentre_Topup_Scan_Station_6"
         Me.Text = "Station Scan (TopUp)"
@@ -293,6 +341,7 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         Me.Panel2.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
         Me.dropdown_pnl.ResumeLayout(False)
+        Me.Panel4.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -316,7 +365,11 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
     Friend WithEvents stg_btn As System.Windows.Forms.Button
     Friend WithEvents home_btn As System.Windows.Forms.Button
     Friend WithEvents dropdown_pbx As System.Windows.Forms.PictureBox
-    Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents mdl_lbl As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents sub_lbl As System.Windows.Forms.Label
+    Friend WithEvents Panel4 As System.Windows.Forms.Panel
+    Friend WithEvents part_lbl As System.Windows.Forms.Label
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Label4 As System.Windows.Forms.Label
 End Class

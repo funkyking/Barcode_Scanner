@@ -6,11 +6,8 @@
     'Cont_btn event
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cont_btn.Click
         Try
+            'Station Scan
             Dim Station As New WorkCentre_Topup_Scan_Station_6
-            Station.mdl_lbl.Text = ModelCode
-            'Station.sub_lbl.Text = LineCode
-            'Station.part_lbl.Text = PartNo
-            'Station.prtStn_lbl.Text = MasterStationCode
             Station.Show()
             Me.Close()
         Catch ex As Exception
@@ -21,59 +18,60 @@
     Private Sub part_ID_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles userInput.KeyDown
         Try
             If e.KeyCode = Keys.Enter Then
-                Dim temp As String
-                Dim res As Boolean
-                Dim runid_res As Boolean = False
 
-                'Previously Used ","(Comma) but follow client format is " "(space)
-                'Dim _PartNo As String = userInput.Text.Substring(0, userInput.Text.IndexOf(" ")) 'PartNo/Part's Name
-                'Dim _ScannedPartQty As String = userInput.Text.Split(" ")(1) 'Quantity Given
-                'PartNo = _PartNo
-                'ScannedPartQty = _ScannedPartQty
+                'This on Loads a database of content that is used by
+                'Scan Part And Scan Station Forms
+                checkTheDb = chckQry()
 
+                Dim res As Boolean = False
+                Dim stn_res As Boolean = False
+
+                rm_RunningId() 'clears runningId
+
+                'Split the String to 3 inputs
                 Dim strarr As String() = userInput.Text.Split(" ")
                 RunningId = strarr(0)
                 PartNo = strarr(1)
                 ScannedPartQty = strarr(2)
 
-                
-                If (PartNo IsNot Nothing) Then
-                    temp = GetPartID(PartNo)
-                    temp = GetMasterStationID(PartID, LineID, ModelID)
-                    temp = GetMasterStationCode(MasterStationId, LineID)
-                    res = CheckMasterStationCode(temp)
+                stn_res = get_Mstncode_PrtID(PartNo)
 
-                    runid_res = CheckRunningId()
-                    If runid_res = True Then
-                        res = UpdateProductionStation()
-                    Else
-                        res = False
-                    End If
+                If (stn_res = True) Then
 
-                    ProductionStationId = GetFinalProductionId()
-                    If (res = True) Then
-                        'Dim passed As New Subline_Result_3
-                        'passed.BackColor = Color.LawnGreen
-                        'passed._top_lbl = "Top Up"
-                        'passed._bot_lbl = "Successful" 'String.Format("{0}", temp)
-                        'passed.Show()
-                        'Button2_Click(sender, New EventArgs())
-                        Label2.Visible = True
-                        Label2.Text = "✓ TopUp Success"
-                        userInput.Text = ""
-                    Else
-                        Dim failed As New Subline_Result_3
-                        failed.BackColor = Color.Red
-                        failed._top_lbl = "TopUp Schedule"
-                        failed._bot_lbl = "Invalid or Completed"
-                        failed.Show()
-                        Label2.Text = "X Topup Failed"
-                        userInput.Text = ""
-                        'rm_RunningId()
-                    End If
+                    ''CheckPartID()
+                    'testing = GetMasterStationID()
+                    ''GetMasterStationCode()
+                    ''res = CheckMasterStationCode()
+                    'res = GetPartID()
+
+                    res = CheckRunningId()
                 End If
-            End If
+                If (res = True) Then
+                    Label2.Visible = True
+                    Label2.Text = "✓ TopUp Success"
+                    userInput.Text = ""
+                    'Show Passed Form
+                    Dim passed As New Subline_Result_3
+                    passed.BackColor = Color.LawnGreen
+                    passed._top_lbl = "Station = "
+                    passed._bot_lbl = station_List 'MasterStationCode 'String.Format("{0}", temp)
+                    passed.Show()
+                    Button2_Click(sender, New EventArgs())
+                Else
+                    rescan_pbx_Click(sender, New EventArgs())
+                    userInput.Text = ""
+                    Dim failed As New Subline_Result_3
+                    failed.BackColor = Color.Red
+                    failed._top_lbl = "Part Status"
+                    failed._bot_lbl = "Invalid or Completed"
+                    failed.Show()
+                    Label2.Text = "Part Not Found"
+                    checkTheDb.Dispose() 'Clears old Database
+                    station_List = ""
+                    'rm_RunningId()
+                End If
 
+            End If
         Catch ex As Exception
         End Try
     End Sub
@@ -87,9 +85,10 @@
         Try
             mdl_lbl.Text = ModelCode
             sub_lbl.Text = LineCode
+            username.Text = UserID
             userInput.Focus()
             Label2.Visible = False
-            dropdown_pnl.Size = New Size(34, 32)
+            dropdown_pnl.Size = New Size(91, 55)
         Catch ex As Exception
         End Try
     End Sub
@@ -101,20 +100,25 @@
 
     'log out
     Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
+        checkTheDb.Dispose() 'clears datatable of partlist,models, etc
         Dim logout As New Form1 'Return to Login Screen (Logout)
         rm_RunningId() 'Clears RunningID Cache
         logout.Show()
         Me.Close()
     End Sub
 
+
     'back
     Private Sub back_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles back_pbx.Click
         Try
-            rm_RunningId() 'Clears RunningID Cache
-            Dim back As New WorkCentre_Topup_Scan_Station_6
-            back.username.Text = UserID
+            checkTheDb.Dispose() 'clears datatable of partlist,models, etc
+            Dim back As New Identify_Model_2
             back.Show()
             Me.Close()
+            'PartID = Nothing
+            'PartNo = Nothing
+            'MasterModelID = Nothing
+            'MasterStationCode = Nothing
         Catch ex As Exception
         End Try
     End Sub
@@ -123,6 +127,7 @@
     Private Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.Click
         Try
             rm_RunningId() 'Clears RunningID Cache
+            checkTheDb.Dispose() 'clears datatable of partlist,models, etc
             Dim Home As New Identify_Model_2
             Home.username.Text = UserID
             Home.Show()
@@ -136,6 +141,8 @@
         Try
             rm_RunningId() 'Clears RunningID Cache
             userInput.Text = ""
+            userInput.Refresh()
+            userInput.Focus()
         Catch ex As Exception
         End Try
     End Sub
@@ -146,10 +153,10 @@
     'dropdown menu
     Private Sub dropdown_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dropdown_pbx.Click
         Try
-            If (dropdown_pnl.Size = New Size(34, 32)) Then
-                dropdown_pnl.Size = New Size(91, 181)
+            If (dropdown_pnl.Size = New Size(91, 55)) Then
+                dropdown_pnl.Size = New Size(91, 200)
             Else
-                dropdown_pnl.Size = New Size(34, 32)
+                dropdown_pnl.Size = New Size(91, 55)
             End If
         Catch ex As Exception
         End Try
@@ -180,6 +187,7 @@
     Private Sub home_btn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles home_btn.Click
         Try
             Try
+                checkTheDb.Dispose()
                 Dim Home As New Identify_Model_2
                 Home.username.Text = UserID
                 Home.Show()

@@ -132,33 +132,42 @@ Module SQL_Command
 
 #Region "First Scan / Scan Subline & Model "
 
-    'Function to return ModelID given ModelCode/ModeName
+    'Function to return ModelID And MasterModelID given ModelCode/ModeName
     Public Function GetModelId(Optional ByVal ValueFromFunc As String = Nothing) As String
-        Dim returnValue As String = ValueFromFunc 'Model Name
-        Using conn = New SqlConnection(conn_str)
-            conn.Open()
+        Try
 
-            Dim query As String = "Select * From dbo.Model"
-            cmd = New SqlCommand(query, conn)
-            Dim da As New SqlDataAdapter(cmd)
-            Dim dt As New DataTable
-            da.Fill(dt)
-            'DataGrid1.DataSource = dt
 
-            Dim temp As String = returnValue
+            Dim returnValue As String = ValueFromFunc 'Model Name
+            Using conn = New SqlConnection(conn_str)
+                conn.Open()
 
-            temp = String.Format("ModelCode = '{0}'", temp)
+                Dim query As String = "Select * From dbo.Model WHERE ModelCode = '" & returnValue.Trim & "'"
+                cmd = New SqlCommand(query, conn)
+                Dim da As New SqlDataAdapter(cmd)
+                Dim dt As New DataTable
+                da.Fill(dt)
 
-            'DataTable.Rows(RowNo).ItemArray(columnNo).ToString()
-            Dim row() As DataRow = dt.Select(temp)
-            If row.Count > 0 Then
-                temp = row(0).Item("ModelID").ToString
-                MasterModelID = row(0).Item("MasterModelID").ToString
-                returnValue = temp
-            End If
-            conn.Close()
-        End Using
-        ModelID = returnValue
+                ModelID = dt.Rows(0)("ModelID").ToString
+                MasterModelID = dt.Rows(0)("MasterModelID").ToString
+
+                'DataGrid1.DataSource = dt
+
+                'Dim temp As String = returnValue
+
+                'temp = String.Format("ModelCode = '{0}'", temp)
+
+                ''DataTable.Rows(RowNo).ItemArray(columnNo).ToString()
+                'Dim row() As DataRow = dt.Select(temp)
+                'If row.Count > 0 Then
+                '    ModelID = row(0)("ModelID").ToString
+                '    MasterModelID = row(0)("MasterModelID").ToString
+                '    returnValue = temp
+                'End If
+                conn.Close()
+            End Using
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
         Return ModelID
     End Function
 
@@ -254,12 +263,9 @@ Module SQL_Command
     'STEP 1'
     'This is the part where you input PartNo and AssemblyQty (eg: K1KY03BA0799,300) 
     'Get Part ID from part.dbo
-    Public Function GetPartID(ByRef PartNo) As String
-        Dim returnValue As String = PartNo
+    Public Function GetPartID() As Boolean
         Try
             Using conn = New SqlConnection(conn_str)
-                conn.Open()
-
                 Dim query As String = "Select * From dbo.Part"
                 cmd = New SqlCommand(query, conn)
                 Dim da As New SqlDataAdapter(cmd)
@@ -271,88 +277,131 @@ Module SQL_Command
                 Dim row() As DataRow = dt.Select(temp)
                 If row.Count > 0 Then
                     temp = row(0).Item("PartID").ToString
-                    returnValue = temp
+                    PartID = temp
+                    Return True
+                Else : Return False
                 End If
-                conn.Close()
             End Using
         Catch ex As Exception
+            Return False
         End Try
-        PartID = returnValue
-        Return returnValue
     End Function
 
-    'Get MasterStationID And AssemblyRef(using LineID , PartID and ModelID) from dbo.MasterBOM
-    Public Function GetMasterStationID(ByRef PartID, ByRef LineID, ByRef ModelID) As String
-        Dim returnValue As String = ""
+    'Check if PartID is in PartID column or OrPartID1 or orPartID2
+    Public Sub CheckPartID()
         Try
+            Dim temp As String = PartID
             Using conn = New SqlConnection(conn_str)
                 conn.Open()
-                Dim query As String = "Select * From dbo.MasterBOM where PartID=@PartID and LineID=@LineID and ModelID=@ModelID and MasterModelID=@MasterModelID"
-                cmd = New SqlCommand(query, conn)
-                cmd.Parameters.AddWithValue("@PartID", PartID)
-                cmd.Parameters.AddWithValue("@LineID", LineID)
-                cmd.Parameters.AddWithValue("@ModelID", ModelID)
-                cmd.Parameters.AddWithValue("@MasterModelID", MasterModelID)
                 Dim dr As SqlDataReader
-                Dim da As New SqlDataAdapter(cmd)
-                Dim dt As New DataTable
-                da.Fill(dt)
-                dr = cmd.ExecuteReader()
-                Dim temp As String = PartID
 
-                If dr.Read = True Then
-                    Dim row As DataRow() = dt.Select("[MasterModelID] = '" & MasterModelID & "' AND [PartID] = '" & PartID & "' AND [ModelID] = '" & ModelID & "' AND [LineID] = '" & LineID & "'")
-                    If row.Count > 0 Then
-                        temp = row(0).Item("MasterStationId").ToString
-                        AssemblyRef = row(0).Item("AssemblyRef")
-                        returnValue = temp
+                Dim query = "Select * from dbo.MasterBOM where PartID=@PartID"
+                cmd = New SqlCommand(query, conn)
+                cmd.Parameters.AddWithValue("@PartID", temp)
+                dr = cmd.ExecuteReader()
+                If (dr.Read = True) Then
+                    PartID = temp
+                End If
+                If (dr.Read = False) Then
+                    Dim query1 = "Select * from dbo.MasterBOM where OrPartID1=@OrPartID1"
+                    Dim cmd1 = New SqlCommand(query1, conn)
+                    cmd1.Parameters.AddWithValue("@OrPartID1", temp)
+                    dr = cmd1.ExecuteReader()
+                    If (dr.Read = True) Then
+                        OrPartID1 = temp
+                        OrPartID1_bool = True
+                    End If
+                    If (dr.Read = False) Then
+                        Dim query2 = "Select * from dbo.MasterBOM where OrPartID2=@OrPartID2"
+                        Dim cmd2 = New SqlCommand(query2, conn)
+                        cmd2.Parameters.AddWithValue("@OrPartID2", temp)
+                        dr = cmd2.ExecuteReader()
+                        If (dr.Read = True) Then
+                            OrPartID2 = temp
+                            OrPartID2_bool = True
+                        End If
+                        If (dr.Read = False) Then
+                            Dim query3 = "Select * from dbo.MasterBOM where OrPartID3=@OrPartID3"
+                            Dim cmd3 = New SqlCommand(query3, conn)
+                            cmd3.Parameters.AddWithValue("@OrPartID3", temp)
+                            dr = cmd3.ExecuteReader()
+                            If (dr.Read = True) Then
+                                OrPartID3 = temp
+                                OrPartID3_bool = True
+                            End If
+                        End If
                     End If
                 End If
-                conn.Close()
             End Using
         Catch ex As Exception
         End Try
-        MasterStationId = returnValue
-        Return returnValue
+    End Sub
+
+    'Get MasterStationID And AssemblyRef(using LineID , PartID and ModelID) from dbo.MasterBOM
+    Public Function GetMasterStationID() As String
+        Dim rtnVal As String = ""
+        Dim temp_str As String = ""
+        Dim tmp As String = ""
+        Try
+
+            Using conn = New SqlConnection(conn_str)
+                conn.Open()
+
+                Dim temp_partID As String = PartID
+
+                Dim query As String = "Select Top 1 MasterStationId FROM dbo.MasterBOM WHERE "
+                query += "ModelID='" & ModelID & "' " 'And MasterModelID='" & MasterModelID & "' "
+                query += "And LineID='" & LineID & "' "
+                query += "And PartID='" & temp_partID & "' "
+                query += "or OrPartID1='" & temp_partID & "' "
+                query += "or OrPartID2='" & temp_partID & "' "
+                query += "or OrPartID3='" & temp_partID & "'"
+
+
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(query, conn)
+                da.Fill(dt)
+                'Dim row() As DataRow = dt.Select("MasterStationId") 'MasterStationId = dr("MasterStationId").ToString
+                For Each station As DataRow In dt.Rows() 'dr("MasterStationId")
+                    temp_str = station.Item("MasterStationId").ToString()
+                    tmp = GetMasterStationCode(temp_str)
+                    rtnVal += tmp + ", "
+                Next
+                'station_List.Add(tmp)
+                conn.Close()
+            End Using
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        Return rtnVal
     End Function
 
     'Get Master Station Code (eg, E1, E2, ...)
-    Public Function GetMasterStationCode(ByRef MasterStationId, ByRef LineID) As String
-        Dim returnValue As String = ""
+    Public Function GetMasterStationCode(ByRef userinput As String) As String
+        Dim rtVal As String = ""
         Try
             Using conn = New SqlConnection(conn_str)
                 conn.Open()
                 Dim query As String = "Select * From dbo.MasterStation where MasterStationId=@MasterStationId and LineID=@LineID"
                 cmd = New SqlCommand(query, conn)
-                cmd.Parameters.AddWithValue("@MasterStationId", MasterStationId)
+                cmd.Parameters.AddWithValue("@MasterStationId", userinput)
                 cmd.Parameters.AddWithValue("@LineID", LineID)
-                Dim dr As SqlDataReader
-                Dim da As New SqlDataAdapter(cmd)
-                Dim dt As New DataTable
-                da.Fill(dt)
-                dr = cmd.ExecuteReader()
-                Dim temp As String = MasterStationId
-
-                If dr.Read = True Then
-                    temp = String.Format("MasterStationId = '{0}'", temp)
-                    Dim row() As DataRow = dt.Select(temp)
-                    If row.Count > 0 Then
-                        temp = row(0).Item("MasterStationCode").ToString
-                        returnValue = temp
-                    End If
+                Dim dr As SqlDataReader = cmd.ExecuteReader()
+                dr.Read()
+                If (dr.Read = True) Then
+                    'MasterStationCode = dr("MasterStationCode").ToString
+                    rtVal = dr("MasterStationCode").ToString
                 End If
                 conn.Close()
             End Using
         Catch ex As Exception
         End Try
-        MasterStationCode = returnValue
-        Return returnValue
+        Return rtVal
     End Function
 
     'Just Make Sure MasterStationCode exists
-    Public Function CheckMasterStationCode(ByVal MasterStationCode) As Boolean
+    Public Function CheckMasterStationCode() As Boolean
         Dim res As Boolean
-        Dim returnValue As Boolean
         Try
             Using conn = New SqlConnection(conn_str)
                 conn.Open()
@@ -363,38 +412,44 @@ Module SQL_Command
                 dr = cmd.ExecuteReader()
                 If (dr.Read = True) Then
                     res = True
-                    returnValue = res
                 Else
                     res = False
-                    returnValue = res
                 End If
                 conn.Close()
             End Using
         Catch ex As Exception
         End Try
-        Return returnValue
+        Return res
     End Function
 
     'Checks if the Item has been Scanned before. If true User is unable to Proceed.
     Public Function CheckRunningId() As Boolean
         Dim Res As Boolean
+        Dim query As String
         Try
             Using conn = New SqlConnection(conn_str)
                 conn.Open()
-                Dim query As String = "Select * From dbo.ProductionStation where RunningId=@RunningId and PartID=@PartID" 'Qty=@Qty
+                query = "Select Count(*) From dbo.ProductionStation where RunningId='" & RunningId & "' and PartID='" & PartID & "'" 'Qty=@Qty
                 cmd = New SqlCommand(query, conn)
-                cmd.Parameters.AddWithValue("@RunningId", RunningId)
-                cmd.Parameters.AddWithValue("@PartID", PartID)
+                'cmd.Parameters.AddWithValue("@RunningId", RunningId)
+                'cmd.Parameters.AddWithValue("@PartID", PartID)
                 'cmd.Parameters.AddWithValue("@Qty", ScannedPartQty)
                 Dim dr As SqlDataReader
                 dr = cmd.ExecuteReader()
-                If (dr.Read = True) Then
-                    Res = False
+                If (dr.Read) Then
+                    If dr.Item(0).ToString > 0 Then
+                        Res = False
+                    Else
+                        Res = True
+                    End If
                 Else
-                    Res = True
+                    Res = False
                 End If
+                conn.Close()
             End Using
         Catch ex As Exception
+            conn.Close()
+            MsgBox(ex.Message)
         End Try
         Return Res
     End Function
@@ -405,52 +460,89 @@ Module SQL_Command
 
     'STEP 2'
     'Check if userInput = MasterBOMId is found in the database
+    'Added extra function for OrPartd 1,2,3
     Public Function CheckStation(Optional ByRef userInput As String = Nothing) As Boolean
-        Dim res As Boolean = False
-
-        Try
-            Using conn = New SqlConnection(conn_str)
-                conn.Open()
-                Dim query As String = "Select * From dbo.MasterBOM where MasterBOMId=@MasterBOMId and MasterModelID=@MasterModelID and LineID=@LineID and MasterStationID=@MasterStationID and ModelID=@ModelID and PartID=@PartID"
-                cmd = New SqlCommand(query, conn)
-                cmd.Parameters.AddWithValue("@MasterBOMId", userInput)
-                cmd.Parameters.AddWithValue("@MasterModelID", MasterModelID)
-                cmd.Parameters.AddWithValue("@LineID", LineID)
-                cmd.Parameters.AddWithValue("@ModelID", ModelID)
-                cmd.Parameters.AddWithValue("@PartID", PartID)
-                cmd.Parameters.AddWithValue("@MasterStationID", MasterStationId)
-                Dim dr As SqlDataReader
-                dr = cmd.ExecuteReader()
-
-                If (dr.Read = True) Then
-                    res = True
-                    MasterBOMId = userInput
-                End If
-            End Using
-        Catch ex As Exception
-        End Try
-        Return res
-    End Function
-
-    'Only Check if Station Matches MasterBOMId
-    Public Function getMasterBOMId(ByVal userInput As String) As Boolean
         Dim result As Boolean = False
         Try
             Using conn = New SqlConnection(conn_str)
                 conn.Open()
-                Dim query As String = "Select * From dbo.MasterBOM where MasterBOMId=@MasterBOMId and LineID=@LineID"
+
+                Dim query = "Select MasterStationId FROM dbo.MasterStation WHERE"
+
+                query += " MasterStationCode='" & userInput & "' "
+                query += "And LineID='" & LineID & "'"
+
                 cmd = New SqlCommand(query, conn)
-                cmd.Parameters.AddWithValue("@MasterBOMId", userInput)
-                cmd.Parameters.AddWithValue("@LineID", LineID)
-                Dim dr As SqlDataReader
-                dr = cmd.ExecuteReader()
+                Dim dr As SqlDataReader = cmd.ExecuteReader()
+                dr.Read()
                 If (dr.Read = True) Then
+                    MasterStationId = dr("MasterStationId").ToString
                     result = True
-                    MasterBOMId = userInput
+                Else
+                    result = False
                 End If
-                conn.Close()
+
+                'Dim query As String = "Select * From dbo.MasterBOM where MasterBOMId=@MasterBOMId and MasterModelID=@MasterModelID and LineID=@LineID and MasterStationID=@MasterStationID and ModelID=@ModelID and PartID=@PartID"
+                'cmd = New SqlCommand(query, conn)
+                'cmd.Parameters.AddWithValue("@MasterBOMId", userInput)
+                'cmd.Parameters.AddWithValue("@MasterModelID", MasterModelID)
+                'cmd.Parameters.AddWithValue("@LineID", LineID)
+                'cmd.Parameters.AddWithValue("@ModelID", ModelID)
+                'cmd.Parameters.AddWithValue("@PartID", PartID)
+                'cmd.Parameters.AddWithValue("@MasterStationID", MasterStationId)
+                'Dim dr As SqlDataReader
+                'dr = cmd.ExecuteReader()
+                'dr.Read()
+                'If (dr.Read = True) Then
+                '    res = True
+                '    MasterBOMId = userInput
+                '    PartID = temp_PartID
+                'End If
             End Using
         Catch ex As Exception
+        End Try
+        Return result
+    End Function
+
+    'Only Check if Station Matches MasterBOMId
+    Public Function getMasterBOMId() As Boolean
+        Dim result As Boolean
+        Try
+            Using conn = New SqlConnection(conn_str)
+                conn.Open()
+                Dim temp_partID As String = PartID
+
+                Dim query As String = "Select MasterBOMId FROM dbo.MasterBOM WHERE PartID=@Part OR OrPartID1=@Part OR OrPartID2=@Part OR OrPartID3=@Part"
+                query += " And LineID='" & LineID & "' "
+                query += "And ModelID='" & ModelID & "' "
+                query += "And MasterModelID='" & MasterModelID & "' "
+                query += "And MasterStationID='" & MasterStationId & "'"
+
+                cmd = New SqlCommand(query, conn)
+                cmd.Parameters.AddWithValue("@Part", temp_partID)
+                Dim dr As SqlDataReader = cmd.ExecuteReader()
+                dr.Read()
+                If (dr.Read = True) Then
+                    result = True
+                    MasterBOMId = dr("MasterBOMId").ToString
+                Else
+                    result = False
+                End If
+
+                'Dim query As String = "Select * From dbo.MasterBOM where MasterBOMId=@MasterBOMId and LineID=@LineID"
+                'cmd = New SqlCommand(query, conn)
+                'cmd.Parameters.AddWithValue("@MasterBOMId", userInput)
+                'cmd.Parameters.AddWithValue("@LineID", LineID)
+                'Dim dr As SqlDataReader
+                'dr = cmd.ExecuteReader()
+                'If (dr.Read = True) Then
+                '    result = True
+                '    MasterBOMId = userInput
+                'End If
+                'conn.Close()
+            End Using
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
         End Try
         Return result
     End Function
@@ -531,20 +623,164 @@ Module SQL_Command
 
                 'Execute the Insert data
                 Dim i As Integer = cmd.ExecuteNonQuery()
-                conn.Close()
 
                 If (i = 0) Then
                     res = False
                 Else
                     res = True
                 End If
+                conn.Close()
             End Using
         Catch ex As Exception
+            conn.Close()
         End Try
         Return res
     End Function
 
 
+
+#End Region
+
+
+#Region "New Using Functions"
+
+    'Time
+    Public Function getTime() As String
+        Dim timeRes As String = ""
+        Try
+            Dim zone As TimeZone = TimeZone.CurrentTimeZone
+            Dim local As DateTime = zone.ToLocalTime(DateTime.Now)
+            timeRes = local.ToString("yyyy/MM/dd HH:mm:ss")
+        Catch ex As Exception
+        End Try
+        Return timeRes
+    End Function
+
+    'Create LogTable of Parts, Models And Stations
+    Public Function chckQry() As DataTable
+        Dim dt As New DataTable
+        Try
+            Dim temp_modelID = ModelID '6778CF19-DDE7-47B7-B2EF-5686212396E2
+            Dim temp_LineID = LineID 'A0EFE197-E2D5-40F4-93E0-51B15D30312Dl
+            Dim temp_PartID = PartID
+            Using conn = New SqlConnection(conn_str)
+                'conn.Open()
+                Dim query As String = "SELECT [MasterBOMId],"
+                query += "(SELECT Top 1 [MasterStationCode] FROM [PCC].[dbo].[MasterStation] WHERE [MasterStationId] = [MasterBOM].[MasterStationId]) AS [MasterStationCode],"
+                query += "(Select [PartNo] From [PCC].[Dbo].[Part] Where [Part].[PartID] = [PCC].[dbo].[MasterBOM].[PartID]) AS [PartNo],"
+                query += "(SELECT [PartNo] FROM [PCC].[dbo].[Part] WHERE [Part].[PartID] = [PCC].[dbo].[MasterBOM].[OrPartID1]) AS [OrPartNo1],"
+                query += "(SELECT [PartNo] FROM [PCC].[dbo].[Part] WHERE [Part].[PartID] = [PCC].[dbo].[MasterBOM].[OrPartID2]) AS [OrPartNo2],"
+                query += "(SELECT [PartNo] FROM [PCC].[dbo].[Part] WHERE [Part].[PartID] = [PCC].[dbo].[MasterBOM].[OrPartID3]) AS [OrPartNo3],"
+                query += "[PartID],[ModelID],[OrPartID1],[OrPartID2],[OrPartID3],[MasterStationId]"
+                query += "From [PCC].[Dbo].[MasterBOM] "
+                query += "Where LineID = '" & temp_LineID & "' And ModelID = '" & temp_modelID & "' "
+                'query += "And PartID = '" & temp_PartID & "' or OrPartID1 = '" & temp_PartID & "' "
+                'query += "or OrPartID2 = '" & temp_PartID & "' or OrPartID3 = '" & temp_PartID & "'"
+
+                'query += "Convert(uniqueidentifier,[LineID]) = '" & temp_LineID & "' And CONVERT(uniqueidentifier,[ModelID]) = '" & temp_modelID & "' "
+                'query += "WHERE CONVERT(uniqueidentifier,[ModelID]) = '" & temp_modelID & "' "
+                'query += "AND Convert(uniqueidentifier,[LineID]) = '" & temp_LineID & "'"
+
+
+                Dim da As New SqlDataAdapter(query, conn)
+                da.Fill(dt)
+            End Using
+        Catch ex As SqlException
+            MessageBox.Show(ex.Message)
+        End Try
+        Return dt
+    End Function
+
+    'Part Scan
+    Public Function prtScan(ByRef _part As String) As String
+        Dim testStr As String = ""
+        Try
+            testStr = ""
+            For Each station As DataRow In checkTheDb.Rows() 'checkTheDb.Select(query)
+                testStr += station("StationCode").ToString
+                testStr += ", "
+            Next
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        Return testStr
+    End Function
+
+    'Gets = MasterStationCode and PartID
+    Public Function get_Mstncode_PrtID(ByRef _PartNo As String) As Boolean
+        station_List = ""
+        Try
+            'tmpStationDT = checkTheDb.Clone
+            'User Input is PartNo
+            Dim query As String = String.Format("ModelID = '{1}' AND PartNo = '{0}' OR OrPartNo1 = '{0}' OR OrPartNo2 = '{0}' OR OrPartNo3 = '{0}'", _PartNo, ModelID)
+            Dim foundRows() As DataRow = checkTheDb.Select(query)
+            For Each row As DataRow In foundRows
+                station_List += row.Item("MasterStationCode").ToString
+                station_List += "," + " "
+
+                If _PartNo = row.Item("PartNo").ToString Then
+                    PartID = row.Item("PartID").ToString
+                ElseIf _PartNo = row.Item("OrPartNo1").ToString Then
+                    PartID = row.Item("OrPartID1").ToString
+                ElseIf _PartNo = row.Item("OrPartNo2").ToString Then
+                    PartID = row.Item("OrPartID2").ToString
+                ElseIf _PartNo = row.Item("OrPartNo3").ToString Then
+                    PartID = row.Item("OrPartID3").ToString
+                End If
+            Next
+            station_List = station_List.Trim().Substring(0, station_List.Length - 2)
+            Return True
+
+
+
+            'For Each Item As DataRow In checkTheDb.Select("[PartNo]='" & _PartNo & "'")
+            '    temp += Item.Item("MasterStationCode").ToString
+            '    temp += ","
+            '    If _PartNo = Item.Item("PartNo").ToString Then
+            '        PartID = Item.Item("PartID").ToString
+            '    End If
+            'Next
+
+            'For Each item As DataRow In checkTheDb.Select(query) '"[PartNo]='" & _PartNo & "'"
+            '    temp += item.Item("StationCode").ToString 
+            '    temp += ","
+            '    ''To get PartId which is Which
+            '    'If _PartNo = item.Item("PartNo").ToString Then
+            '    '    PartID = item.Item("PartID").ToString
+            '    'ElseIf _PartNo = item.Item("PartID").ToString Then
+
+            '    'End If
+            '    'tmpStationDt.Rows.Add(item)
+            'Next
+
+            'For Each rw As DataRow In tmpStationDt.Select("[StationCode]='" & 12 & "'")
+            '    'Buat dekt function lain
+            '    'to get BOMID, Stationid and the rest.
+            'Next
+
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
+
+    'Get MasterBomId
+    Public Function get_MstBOMID_(ByRef _MasterStationCode) As Boolean
+        Dim res As Boolean = False
+        Try
+            Dim query As String = String.Format("MasterStationCode = '{0}' AND PartNo = '{1}' OR OrPartNo1 = '{0}' OR OrPartNo2 = '{0}' OR OrPartNo3 = '{0}'", _MasterStationCode, PartNo)
+            Dim foundRows() As DataRow = checkTheDb.Select(query)
+            If foundRows.Count > 0 Then
+                For Each row As DataRow In foundRows
+                    If _MasterStationCode = row.Item("MasterStationCode").ToString Then
+                        MasterBOMId = row.Item("MasterBOMId").ToString
+                    End If
+                    res = True
+                Next
+            End If
+        Catch ex As Exception
+        End Try
+        Return res
+    End Function
 
 #End Region
 
@@ -571,17 +807,6 @@ Module SQL_Command
 
         End Using
     End Sub
-
-    Public Function getTime() As String
-        Dim timeRes As String = ""
-        Try
-            Dim zone As TimeZone = TimeZone.CurrentTimeZone
-            Dim local As DateTime = zone.ToLocalTime(DateTime.Now)
-            timeRes = local.ToString("yyyy/MM/dd HH:mm:ss")
-        Catch ex As Exception
-        End Try
-        Return timeRes
-    End Function
 
 #End Region
 

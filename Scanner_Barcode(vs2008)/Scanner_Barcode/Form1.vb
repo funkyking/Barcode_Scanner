@@ -14,14 +14,14 @@ Public Class Form1
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
             'GUI effects
-            dropdown_pnl.Size = New Size(34, 32)
+            dropdown_pnl.Size = New Size(91, 55)
             home_btn.Visible = False
             qr_txtbx.Focus()
             'Check if Connected to database
             If (conn_str = "null") Then
                 Label9.Text = "Not Connected to Database"
             Else
-                Label9.Text = DatabaseName
+                Label9.Text = "Connected = " + Settings.ConnectionId
             End If
         Catch ex As Exception
         End Try
@@ -52,7 +52,8 @@ Public Class Form1
 
     'Displays database name (connection to)
     Private Sub Form1_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.GotFocus
-        Label9.Text = DatabaseName
+        qr_txtbx.Focus()
+        Label9.Text = "Connected = " + Settings.ConnectionId
     End Sub
 
 #End Region
@@ -178,6 +179,7 @@ Public Class Form1
     'Removes text from the textbox qr_login
     Private Sub qr_txtbx_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles qr_txtbx.GotFocus
         qr_txtbx.Text = ""
+        Label9.Text = "Connected = " + Settings.ConnectionId
     End Sub
 
 #End Region
@@ -187,10 +189,10 @@ Public Class Form1
     'dropdown menu
     Private Sub settings_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dropdown_pbx.Click
         Try
-            If (dropdown_pnl.Size = New Size(34, 32)) Then
-                dropdown_pnl.Size = New Size(91, 181)
+            If (dropdown_pnl.Size = New Size(91, 55)) Then
+                dropdown_pnl.Size = New Size(91, 200)
             Else
-                dropdown_pnl.Size = New Size(34, 32)
+                dropdown_pnl.Size = New Size(91, 55)
             End If
         Catch ex As Exception
         End Try

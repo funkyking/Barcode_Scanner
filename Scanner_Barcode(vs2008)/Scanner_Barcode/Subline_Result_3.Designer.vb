@@ -21,6 +21,7 @@ Partial Public Class Subline_Result_3
     Private Sub InitializeComponent()
         Me._top = New System.Windows.Forms.Label
         Me._bot = New System.Windows.Forms.Label
+        Me.closeTimer = New System.Windows.Forms.Timer
         Me.SuspendLayout()
         '
         '_top
@@ -41,6 +42,10 @@ Partial Public Class Subline_Result_3
         Me._bot.Text = "00"
         Me._bot.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
+        'closeTimer
+        '
+        Me.closeTimer.Interval = 1500
+        '
         'Subline_Result_3
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit
@@ -60,4 +65,5 @@ Partial Public Class Subline_Result_3
     End Sub
     Friend WithEvents _top As System.Windows.Forms.Label
     Friend WithEvents _bot As System.Windows.Forms.Label
+    Friend WithEvents closeTimer As System.Windows.Forms.Timer
 End Class

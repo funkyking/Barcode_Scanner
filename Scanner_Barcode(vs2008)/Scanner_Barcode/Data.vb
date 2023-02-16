@@ -28,9 +28,30 @@ Module Data
     Public ProductionStationId As String 'Final UUID Output After Scan
     Public RunningId As String
 
-    
+    'Extra PartID if found in Database
+    Public OrPartID1 As String
+    Public OrPartID2 As String
+    Public OrPartID3 As String
+    Public OrPartID1_bool As Boolean
+    Public OrPartID2_bool As Boolean
+    Public OrPartID3_bool As Boolean
+
+
+    'Create Table to Scan for Part, Model And Subline
+    Public checkTheDb As DataTable
+    Public tmpStationDT As DataTable
+
+
     'Creates a public LogBook
     Public logTable As DataTable
+
+
+    'Timer For multiple scan_part List when The subline result form is shown
+    'This one stops the time so the form will not auto close when it is not clicked
+    Public prt_Timer As Boolean
+    Public station_List As String
+
+
 
     Public Function createLogBook() As DataTable
         Dim dt As New DataTable
@@ -45,6 +66,11 @@ Module Data
             dt.Columns.Add("ModelID", GetType(String))
             dt.Columns.Add("LineID", GetType(String))
             dt.Columns.Add("ProductionId", GetType(String))
+            dt.Columns.Add("MasterBOMId", GetType(String))
+            dt.Columns.Add("MasterStationId", GetType(String))
+            dt.Columns.Add("MasterModelID", GetType(String))
+            dt.Columns.Add("MasterStationCode", GetType(String))
+
 
         End If
         Return dt
@@ -53,7 +79,7 @@ Module Data
     Public Function updateLogBook(ByVal dt As DataTable) As DataTable
         Try
             ' Add rows with those columns filled in the DataTable.
-            dt.Rows.Add(RunningId, UserID, PartNo, PartID, ScannedPartQty, ModelID, LineID, ProductionId)
+            dt.Rows.Add(RunningId, UserID, PartNo, PartID, ScannedPartQty, ModelID, LineID, ProductionId, MasterBOMId, MasterStationId, MasterModelID, MasterStationCode)
         Catch ex As Exception
         End Try
         Return dt

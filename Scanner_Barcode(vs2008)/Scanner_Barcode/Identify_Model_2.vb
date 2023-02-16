@@ -12,11 +12,8 @@ Public Class Identify_Model_2
     'Continue button event
     Private Sub Cont_btn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cont_btn.Click
         Try
-            'Scan Station
-            Dim Part As New WorkCentre_Topup_Scan_Station_6
-            Part.username.Text = UserID
-            Part.mdl_lbl.Text = ModelCode
-            'Part.sub_lbl.Text = LineCode
+            'Scan Part
+            Dim Part As New WorkCentre_Topup_Scan_Part_5
             Part.Show()
             Me.Close()
         Catch ex As Exception
@@ -33,7 +30,7 @@ Public Class Identify_Model_2
 
                 'Given Variable
                 Dim _LineCode As String = userInput.Substring(0, userInput.IndexOf(",")) 'Subline (num)
-                Dim _ModelCode As String = userInput.Split(",")(1) 'Name of the Model
+                Dim _ModelCode As String = userInput.Split(",")(1) 'Name of the ModelCode
 
 
                 'giving the data to data.vb
@@ -63,28 +60,38 @@ Public Class Identify_Model_2
                     _ModelCode = ModelCode 'ModelName
                     _LineCode = LineCode 'Subline Station
 
+
+                    ''This on Loads a database of content that is used by
+                    ''Scan Part And Scan Station Forms
+                    'checkTheDb = chckQry()
+
                     Cont_btn_Click(sender, New EventArgs())
                 Else
+                    model_ID.Text = ""
+                    rescan_pbx_Click(sender, New EventArgs())
                     Dim failed As New Subline_Result_3
                     failed._top_lbl = "Station && Model"
                     failed.BackColor = Color.Red
                     failed._bot_lbl = "Not Active/Not Found"
                     failed.Show()
-                    model_ID.Text = ""
+                    rescan_pbx_Click(sender, New EventArgs())
                 End If
             End If
         Catch ex As Exception
-            MessageBox.Show("Invalid Input", MessageBoxButtons.OK)
         End Try
     End Sub
 
     'Rescan
     Private Sub rescan_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rescan_pbx.Click
         Try
+
             model_ID.Text = ""
+            model_ID.Refresh()
+            model_ID.Focus()
         Catch ex As Exception
         End Try
     End Sub
+
 #End Region
 
 #Region "Dropdown"
@@ -101,10 +108,10 @@ Public Class Identify_Model_2
     'dropdown menu
     Private Sub dropdown_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dropdown_pbx.Click
         Try
-            If (dropdown_pnl.Size = New Size(34, 32)) Then
-                dropdown_pnl.Size = New Size(91, 144)
+            If (dropdown_pnl.Size = New Size(91, 55)) Then
+                dropdown_pnl.Size = New Size(91, 164)
             Else
-                dropdown_pnl.Size = New Size(34, 32)
+                dropdown_pnl.Size = New Size(91, 55)
             End If
         Catch ex As Exception
         End Try
@@ -128,7 +135,7 @@ Public Class Identify_Model_2
         Try
             username.Text = UserID
             model_ID.Focus()
-            dropdown_pnl.Size = New Size(34, 32)
+            dropdown_pnl.Size = New Size(91, 55)
         Catch ex As Exception
         End Try
     End Sub
@@ -144,7 +151,4 @@ Public Class Identify_Model_2
     End Sub
 #End Region
 
-    Private Sub model_ID_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles model_ID.TextChanged
-
-    End Sub
 End Class

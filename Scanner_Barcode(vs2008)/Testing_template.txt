@@ -1,11 +1,11 @@
 First Input// Linecode,ModelCode
 ------------------
-Subline 2,TP3MAXXX
+Subline 2,TP3MAXXX , Subline 1, TNPA7885EA
 ------------------
 
 Second Input// PartNo,ActualQty
 ------------------
-K1KY03BA0799 300 or 12345 K1KY03BA0799 300
+K1KY03BA0799 300 or 12345 K1KY03BA0799 300, 12345 K1KY28BA0491 300
 ------------------
 
 Third & Fourth// MasterBOMId
