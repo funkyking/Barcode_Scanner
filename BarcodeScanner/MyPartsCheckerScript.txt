@@ -1,0 +1,28 @@
+DECLARE @temp_partID AS varchar(50);
+DECLARE @temp_ModelID AS varchar(50);
+DECLARE @temp_LineID as Varchar(50);
+
+Set @temp_partID = '1250236D-778D-4CE5-9FCE-0794FB41F19E'
+Set @temp_ModelID = '7EE2D164-6B09-44C7-AA53-1F0A55EA2D44'
+Set @temp_LineID = 'A0EFE197-E2D5-40F4-93E0-51B15D30312D'
+
+Select 
+(SELECT [MasterStationCode] FROM [PCC].[dbo].[MasterStation] WHERE [MasterStationId] = [MasterBOM].[MasterStationId]) As [MasterStationCode],
+[MasterStationId],
+(Select [PartNo] From [PCC].[Dbo].[Part] Where [Part].[PartID] = [PCC].[dbo].[MasterBOM].[PartID]) AS [PartNo],
+[PartID],
+(SELECT [PartNo] FROM [PCC].[dbo].[Part] WHERE [Part].[PartID] = [PCC].[dbo].[MasterBOM].[OrPartID1]) AS [OrPartNo1],
+[OrPartID1],
+(SELECT [PartNo] FROM [PCC].[dbo].[Part] WHERE [Part].[PartID] = [PCC].[dbo].[MasterBOM].[OrPartID2]) AS [OrPartNo2],
+[OrPartID2],
+(SELECT [PartNo] FROM [PCC].[dbo].[Part] WHERE [Part].[PartID] = [PCC].[dbo].[MasterBOM].[OrPartID3]) AS [OrPartNo3],
+[OrPartId3],
+(SELECT [ModelCode] FROM [PCC].[dbo].[Model] WHERE [Model].[ModelID] = [PCC].[dbo].[MasterBOM].[ModelID]) AS [ModelCode],
+(SELECT [LineCode] FROM [PCC].[dbo].[Line] WHERE [Line].[LineID] = [PCC].[dbo].[MasterBOM].[LineID]) AS [LineCode],
+[MasterBOMId],[ModelID]
+
+From [PCC].[Dbo].[MasterBOM]
+Where
+LineID = @temp_LineID And ModelID = @temp_ModelID
+And (PartID = @temp_partID or OrPartID1 = @temp_partID
+or OrPartID2 = @temp_partID or OrPartID3 = @temp_partID)

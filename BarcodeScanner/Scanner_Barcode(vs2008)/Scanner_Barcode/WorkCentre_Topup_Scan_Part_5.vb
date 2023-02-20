@@ -1,7 +1,5 @@
 ﻿Public Class WorkCentre_Topup_Scan_Part_5
 
-
-
 #Region "Main"
     'Cont_btn event
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cont_btn.Click
@@ -18,7 +16,6 @@
     Private Sub part_ID_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles userInput.KeyDown
         Try
             If e.KeyCode = Keys.Enter Then
-<<<<<<< HEAD
 
                 'This on Loads a database of content that is used by
                 'Scan Part And Scan Station Forms
@@ -29,20 +26,12 @@
 
                 rm_RunningId() 'clears runningId
 
-=======
-                Dim temp As String
-                Dim res As Boolean
-                Dim runid_res As Boolean = False
-                rm_RunningId() 'clears runningId
-
->>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
                 'Split the String to 3 inputs
                 Dim strarr As String() = userInput.Text.Split(" ")
                 RunningId = strarr(0)
                 PartNo = strarr(1)
                 ScannedPartQty = strarr(2)
 
-<<<<<<< HEAD
                 stn_res = get_Mstncode_PrtID(PartNo)
 
                 If (stn_res = True) Then
@@ -71,56 +60,29 @@
                     userInput.Text = ""
                     Dim failed As New Subline_Result_3
                     failed.BackColor = Color.Red
-                    failed._top_lbl = "Part Status"
-                    failed._bot_lbl = "Invalid or Completed"
+                    failed._top_lbl = "Part Invalid"
+                    failed._bot_lbl = "or" + vbNewLine + vbNewLine + "MMS Label is Already Scanned"
                     failed.Show()
-                    Label2.Text = "Part Not Found"
+                    Label2.Text = "Part Invalid"
                     checkTheDb.Dispose() 'Clears old Database
                     station_List = ""
+                    userInput.Focus()
                     'rm_RunningId()
                 End If
 
-=======
-                If (PartNo IsNot Nothing) Then
-                    temp = GetPartID(PartNo)
-                    temp = GetMasterStationID(PartID, LineID, ModelID)
-                    temp = GetMasterStationCode(MasterStationId, LineID)
-                    res = CheckMasterStationCode(temp)
-
-                    runid_res = CheckRunningId()
-                    If runid_res = True Then
-                        res = True
-                    Else
-                        res = False
-                    End If
-
-                    If (res = True) Then
-                        Label2.Visible = True
-                        Label2.Text = "✓ TopUp Success"
-                        userInput.Text = ""
-                        'Show Passed Form
-                        Dim passed As New Subline_Result_3
-                        passed.BackColor = Color.LawnGreen
-                        passed._top_lbl = "Part Found !"
-                        passed._bot_lbl = "Station = " + MasterStationCode 'String.Format("{0}", temp)
-                        passed.Show()
-                        Button2_Click(sender, New EventArgs())
-                    Else
-                        rescan_pbx_Click(sender, New EventArgs())
-                        userInput.Text = ""
-                        Dim failed As New Subline_Result_3
-                        failed.BackColor = Color.Red
-                        failed._top_lbl = "Part Status"
-                        failed._bot_lbl = "Invalid or Completed"
-                        failed.Show()
-                        Label2.Text = "Part Not Found"
-                        rescan_pbx_Click(sender, New EventArgs())
-                        'rm_RunningId()
-                    End If
-                End If
->>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
             End If
         Catch ex As Exception
+            rescan_pbx_Click(sender, New EventArgs())
+            userInput.Text = ""
+            Dim failed As New Subline_Result_3
+            failed.BackColor = Color.Red
+            failed._top_lbl = "Part Invalid"
+            failed._bot_lbl = "or" + vbNewLine + vbNewLine + "MMS Label is Already Scanned"
+            failed.Show()
+            Label2.Text = "Part Invalid"
+            checkTheDb.Dispose() 'Clears old Database
+            station_List = ""
+            userInput.Focus()
         End Try
     End Sub
 
@@ -155,21 +117,26 @@
         Me.Close()
     End Sub
 
-
     'back
     Private Sub back_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles back_pbx.Click
         Try
-<<<<<<< HEAD
-            checkTheDb.Dispose() 'clears datatable of partlist,models, etc
-=======
->>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
             Dim back As New Identify_Model_2
             back.Show()
             Me.Close()
-            'PartID = Nothing
-            'PartNo = Nothing
-            'MasterModelID = Nothing
-            'MasterStationCode = Nothing
+            PartID = Nothing
+            PartNo = Nothing
+            ModelCode = Nothing
+            ModelID = Nothing
+            MasterModelID = Nothing
+            MasterStationCode = Nothing
+            LineCode = Nothing
+            LineID = Nothing
+            ModelID = Nothing
+            ModelCode = Nothing
+            ScheduleID = Nothing
+            ProductionId = Nothing
+            MasterModelID = Nothing
+            checkTheDb.Dispose() 'clears datatable of partlist,models, etc
         Catch ex As Exception
         End Try
     End Sub
@@ -249,6 +216,5 @@
         End Try
     End Sub
 #End Region
-
 
 End Class

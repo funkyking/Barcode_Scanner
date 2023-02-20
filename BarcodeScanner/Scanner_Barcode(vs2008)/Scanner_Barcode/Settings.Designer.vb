@@ -53,10 +53,7 @@ Partial Public Class Settings
         '
         Me.Panel1.AutoScroll = True
         Me.Panel1.BackColor = System.Drawing.Color.White
-<<<<<<< HEAD
         Me.Panel1.Controls.Add(Me.Button3)
-=======
->>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.Label5)
         Me.Panel1.Controls.Add(Me.tableList_cmbx)
@@ -72,7 +69,6 @@ Partial Public Class Settings
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Location = New System.Drawing.Point(3, 83)
         Me.Panel1.Name = "Panel1"
-<<<<<<< HEAD
         Me.Panel1.Size = New System.Drawing.Size(228, 480)
         '
         'Button3
@@ -85,20 +81,13 @@ Partial Public Class Settings
         Me.Button3.Size = New System.Drawing.Size(76, 40)
         Me.Button3.TabIndex = 23
         Me.Button3.Text = "M Table"
-=======
-        Me.Panel1.Size = New System.Drawing.Size(228, 515)
->>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         '
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.ForestGreen
         Me.Button1.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular)
         Me.Button1.ForeColor = System.Drawing.Color.White
-<<<<<<< HEAD
         Me.Button1.Location = New System.Drawing.Point(149, 419)
-=======
-        Me.Button1.Location = New System.Drawing.Point(74, 373)
->>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(69, 40)
         Me.Button1.TabIndex = 17
@@ -185,11 +174,8 @@ Partial Public Class Settings
         Me.ComboBox1.Items.Add("Data Source=192.169.42.100,1433;Password=saadmin;User ID=sa;Initial Catalog=PCC")
         Me.ComboBox1.Items.Add("Data Source=192.168.8.126,1433;Password=saadmin;User ID=sa;Initial Catalog=PCC")
         Me.ComboBox1.Items.Add("Data Source=DESKTOP-P9BJNAI;Password=saadmin;User ID=sa;Initial Catalog=PCC")
-<<<<<<< HEAD
         Me.ComboBox1.Items.Add("Data Source=DESKTOP-601UU1V\SQLEXPRESS2014;Password=saadmin;User ID=sa;Initial Ca" & _
                 "talog=PCC")
-=======
->>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.ComboBox1.Location = New System.Drawing.Point(7, 70)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(211, 26)
@@ -220,11 +206,7 @@ Partial Public Class Settings
         Me.DataGrid1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.DataGrid1.Location = New System.Drawing.Point(237, 83)
         Me.DataGrid1.Name = "DataGrid1"
-<<<<<<< HEAD
         Me.DataGrid1.Size = New System.Drawing.Size(240, 480)
-=======
-        Me.DataGrid1.Size = New System.Drawing.Size(240, 515)
->>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
         Me.DataGrid1.TabIndex = 5
         '
         'home_pbx

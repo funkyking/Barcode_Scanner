@@ -7,8 +7,8 @@ Public Class Identify_Model_2
     Dim cmd As SqlCommand
     Dim dr As SqlDataReader
 
-
 #Region "Main Events"
+
     'Continue button event
     Private Sub Cont_btn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cont_btn.Click
         Try
@@ -23,7 +23,7 @@ Public Class Identify_Model_2
     'Once user scan it triggers this (same as scan)
     Private Sub model_ID_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles model_ID.KeyDown
         Try
-            Dim res As Boolean 'Check if input matches database
+            Dim result As Boolean = False
 
             If e.KeyCode = Keys.Enter Then
                 Dim userInput As String = model_ID.Text
@@ -44,12 +44,12 @@ Public Class Identify_Model_2
                 'Functions to determine if the data was found in the system
                 _LineID = GetLineID(_LineCode)
                 _ModelID = GetModelId(_ModelCode)
-                res = Model_and_Line_Check(_ModelID, _LineID)
-                res = GetScheduleID_and_ProductionId()
+                result = Model_and_Line_Check(_ModelID, _LineID)
+                result = GetScheduleID_and_ProductionId()
 
                 'Success screen loads if all the functions used above found the variables
                 'if data was not in db then this is considered failed
-                If (res = True) Then
+                If (result = True) Then
                     Dim passed As New Subline_Result_3
                     passed.BackColor = Color.LawnGreen
                     passed._top_lbl = "Station && Model" 'top Label
@@ -75,9 +75,36 @@ Public Class Identify_Model_2
                     failed._bot_lbl = "Not Active/Not Found"
                     failed.Show()
                     rescan_pbx_Click(sender, New EventArgs())
+
+                    'Clearing the Cache
+                    LineCode = Nothing
+                    LineID = Nothing
+                    ModelID = Nothing
+                    ModelCode = Nothing
+                    ScheduleID = Nothing
+                    ProductionId = Nothing
+                    MasterModelID = Nothing
+
                 End If
             End If
         Catch ex As Exception
+            model_ID.Text = ""
+            rescan_pbx_Click(sender, New EventArgs())
+            Dim failed As New Subline_Result_3
+            failed._top_lbl = "Station && Model"
+            failed.BackColor = Color.Red
+            failed._bot_lbl = "Not Active/Not Found"
+            failed.Show()
+            rescan_pbx_Click(sender, New EventArgs())
+
+            'Clearing the Cache
+            LineCode = Nothing
+            LineID = Nothing
+            ModelID = Nothing
+            ModelCode = Nothing
+            ScheduleID = Nothing
+            ProductionId = Nothing
+            MasterModelID = Nothing
         End Try
     End Sub
 

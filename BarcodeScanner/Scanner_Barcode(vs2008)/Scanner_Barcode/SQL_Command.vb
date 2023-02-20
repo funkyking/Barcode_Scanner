@@ -46,11 +46,25 @@ Module SQL_Command
     Public Sub autoSqlConn()
         Try
             Dim i As Int32 = 1
+            Dim res As Boolean = False
 
-            Using conn = New SqlConnection(Settings.ComboBox1.SelectedItem.ToString)
-                conn.Open()
-            End Using
+            For Each connection As String In Settings.ComboBox1.Items()
+                Using conn = New SqlConnection(connection)
+                    conn.Open()
+                End Using
+                conn.Close()
+            Next
         Catch ex As Exception
+        End Try
+    End Sub
+
+    Public Sub setSqlConn()
+        Try
+            conn_str = Settings.ComboBox1.Items(0)
+            'Dim load As Settings
+            'load.conn_Btn_Click(sender:= e, New EventArgs)
+        Catch ex As Exception
+            'MessageBox.Show(ex.Message)
         End Try
     End Sub
 
@@ -166,7 +180,7 @@ Module SQL_Command
                 conn.Close()
             End Using
         Catch ex As Exception
-            MsgBox(ex.Message)
+            conn.Close()
         End Try
         Return ModelID
     End Function
@@ -220,7 +234,9 @@ Module SQL_Command
             If dr.Read = True Then
                 res = True
             End If
+            conn.Close()
         Catch ex As Exception
+            conn.Close()
         End Try
         Return res
     End Function
@@ -251,7 +267,9 @@ Module SQL_Command
                     res = True
                 End If
             End If
+            conn.Close()
         Catch ex As Exception
+            conn.Close()
         End Try
         Return res
     End Function
@@ -371,7 +389,7 @@ Module SQL_Command
                 conn.Close()
             End Using
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            conn.Close()
         End Try
         Return rtnVal
     End Function
@@ -395,6 +413,7 @@ Module SQL_Command
                 conn.Close()
             End Using
         Catch ex As Exception
+            conn.Close()
         End Try
         Return rtVal
     End Function
@@ -418,6 +437,7 @@ Module SQL_Command
                 conn.Close()
             End Using
         Catch ex As Exception
+            conn.Close()
         End Try
         Return res
     End Function
@@ -436,17 +456,12 @@ Module SQL_Command
                 'cmd.Parameters.AddWithValue("@Qty", ScannedPartQty)
                 Dim dr As SqlDataReader
                 dr = cmd.ExecuteReader()
-<<<<<<< HEAD
                 If (dr.Read) Then
                     If dr.Item(0).ToString > 0 Then
                         Res = False
                     Else
                         Res = True
                     End If
-=======
-                If (dr.Read = False) Then
-                    Res = True
->>>>>>> 0d6055eed53b1b3304b77c91fb6f11866c034b19
                 Else
                     Res = False
                 End If
@@ -691,7 +706,7 @@ Module SQL_Command
                 da.Fill(dt)
             End Using
         Catch ex As SqlException
-            MessageBox.Show(ex.Message)
+            'MessageBox.Show(ex.Message)
         End Try
         Return dt
     End Function
@@ -706,7 +721,7 @@ Module SQL_Command
                 testStr += ", "
             Next
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            'MessageBox.Show(ex.Message)
         End Try
         Return testStr
     End Function

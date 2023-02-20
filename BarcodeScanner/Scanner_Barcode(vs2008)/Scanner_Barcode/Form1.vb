@@ -13,6 +13,9 @@ Public Class Form1
     'form load (start)
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
+            'Choose First connection string in settings.combobox1.items
+            setSqlConn()
+
             'GUI effects
             dropdown_pnl.Size = New Size(91, 55)
             home_btn.Visible = False
@@ -21,7 +24,13 @@ Public Class Form1
             If (conn_str = "null") Then
                 Label9.Text = "Not Connected to Database"
             Else
-                Label9.Text = "Connected = " + Settings.ConnectionId
+                Dim temp As String = conn_str
+                Dim es As Integer = temp.IndexOf("=") + 1
+                Dim eq As Integer = temp.IndexOf(";")
+                Dim _temp = temp.Substring(es, eq - es)
+                Label9.Text = "Connected = " + _temp
+                'Label9.Text = "Connected = " + Settings.ConnectionId
+                'Label9.Text = conn_str
             End If
         Catch ex As Exception
         End Try

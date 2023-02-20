@@ -36,9 +36,9 @@ Partial Public Class Subline_Result_3
         '_bot
         '
         Me._bot.Font = New System.Drawing.Font("Microsoft Sans Serif", 42.0!, System.Drawing.FontStyle.Regular)
-        Me._bot.Location = New System.Drawing.Point(12, 283)
+        Me._bot.Location = New System.Drawing.Point(7, 283)
         Me._bot.Name = "_bot"
-        Me._bot.Size = New System.Drawing.Size(465, 309)
+        Me._bot.Size = New System.Drawing.Size(465, 330)
         Me._bot.Text = "00"
         Me._bot.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '

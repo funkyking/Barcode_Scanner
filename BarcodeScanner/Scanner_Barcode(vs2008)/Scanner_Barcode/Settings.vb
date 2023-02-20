@@ -34,12 +34,13 @@ Public Class Settings
     End Sub
 
     'Connect to selected sql connection
-    Private Sub conn_Btn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles conn_Btn.Click
+    Public Sub conn_Btn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles conn_Btn.Click
         Try
             If (ComboBox1.Items.Count > 0 And ComboBox1.SelectedText IsNot Nothing) Then
                 'Give the the connection string throughout the application
                 'conn_str = ComboBox1.SelectedText
                 conn_str = ComboBox1.SelectedItem.ToString
+                'conn_str = ComboBox1.Items(0)
             End If
 
             Using conn = New SqlConnection(conn_str)
