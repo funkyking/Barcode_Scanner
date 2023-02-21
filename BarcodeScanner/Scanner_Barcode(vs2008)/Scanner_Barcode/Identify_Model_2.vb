@@ -135,10 +135,18 @@ Public Class Identify_Model_2
     'dropdown menu
     Private Sub dropdown_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dropdown_pbx.Click
         Try
-            If (dropdown_pnl.Size = New Size(91, 55)) Then
-                dropdown_pnl.Size = New Size(91, 164)
+            If (stg_btn.Visible = True) Then
+                If (dropdown_pnl.Size = New Size(91, 55)) Then
+                    dropdown_pnl.Size = New Size(91, 164)
+                Else
+                    dropdown_pnl.Size = New Size(91, 55)
+                End If
             Else
-                dropdown_pnl.Size = New Size(91, 55)
+                If (dropdown_pnl.Size = New Size(91, 55)) Then
+                    dropdown_pnl.Size = New Size(91, 128)
+                Else
+                    dropdown_pnl.Size = New Size(91, 55)
+                End If
             End If
         Catch ex As Exception
         End Try
@@ -161,6 +169,13 @@ Public Class Identify_Model_2
     Private Sub Identify_Model_2_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
             username.Text = UserID
+            'Only Admin Can see Settings
+            If (UserID = "admin" Or UserID = "Admin") Then
+                stg_btn.Visible = True
+            Else
+                stg_btn.Visible = False
+            End If
+
             model_ID.Focus()
             dropdown_pnl.Size = New Size(91, 55)
         Catch ex As Exception

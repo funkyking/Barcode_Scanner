@@ -96,6 +96,13 @@
             mdl_lbl.Text = ModelCode
             sub_lbl.Text = LineCode
             username.Text = UserID
+            'Only Admin Can see Settings
+            If (UserID = "admin" Or UserID = "Admin") Then
+                stg_btn.Visible = True
+            Else
+                stg_btn.Visible = False
+            End If
+
             userInput.Focus()
             Label2.Visible = False
             dropdown_pnl.Size = New Size(91, 55)
@@ -110,11 +117,14 @@
 
     'log out
     Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
-        checkTheDb.Dispose() 'clears datatable of partlist,models, etc
-        Dim logout As New Form1 'Return to Login Screen (Logout)
-        rm_RunningId() 'Clears RunningID Cache
-        logout.Show()
-        Me.Close()
+        Try
+            Dim logout As New Form1 'Return to Login Screen (Logout)
+            rm_RunningId() 'Clears RunningID Cache
+            checkTheDb.Dispose() 'clears datatable of partlist,models, etc
+            logout.Show()
+            Me.Close()
+        Catch ex As Exception
+        End Try
     End Sub
 
     'back
@@ -171,10 +181,18 @@
     'dropdown menu
     Private Sub dropdown_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dropdown_pbx.Click
         Try
-            If (dropdown_pnl.Size = New Size(91, 55)) Then
-                dropdown_pnl.Size = New Size(91, 200)
+            If (stg_btn.Visible = True) Then
+                If (dropdown_pnl.Size = New Size(91, 55)) Then
+                    dropdown_pnl.Size = New Size(91, 200)
+                Else
+                    dropdown_pnl.Size = New Size(91, 55)
+                End If
             Else
-                dropdown_pnl.Size = New Size(91, 55)
+                If (dropdown_pnl.Size = New Size(91, 55)) Then
+                    dropdown_pnl.Size = New Size(91, 164)
+                Else
+                    dropdown_pnl.Size = New Size(91, 55)
+                End If
             End If
         Catch ex As Exception
         End Try

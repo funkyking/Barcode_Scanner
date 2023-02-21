@@ -71,10 +71,16 @@ Public Class WorkCentre_Topup_Scan_Station_6
 
     'Display The Stations to top up the Parts in
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-
-        Dim temp As String = "Station List : " + station_List
-
-        MessageBox.Show(temp)
+        Try
+            'Dim temp As String = "Station List : " + station_List
+            'MessageBox.Show(temp)
+            Dim passed As New Subline_Result_3
+            passed.BackColor = Color.LawnGreen
+            passed._top_lbl = "Station = "
+            passed._bot_lbl = station_List 'MasterStationCode 'String.Format("{0}", temp)
+            passed.Show()
+        Catch ex As Exception
+        End Try
     End Sub
 
 #End Region
@@ -86,6 +92,18 @@ Public Class WorkCentre_Topup_Scan_Station_6
         Try
             'Loading Labels
             username.Text = UserID
+
+            'List the stations That you Can Topup In
+            stn_lbl_list.Text = "Station List : " + station_List
+
+
+            'Only Admin Can see Settings
+            If (UserID = "admin" Or UserID = "Admin") Then
+                stg_btn.Visible = True
+            Else
+                stg_btn.Visible = False
+            End If
+
             mdl_lbl.Text = ModelCode 'ModelCode/ModelName
             sub_lbl.Text = LineCode 'LineCode/LineName
             'msc_lbl.Text = MasterStationCode
@@ -155,10 +173,18 @@ Public Class WorkCentre_Topup_Scan_Station_6
     'dropdown menu
     Private Sub dropdown_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dropdown_pbx.Click
         Try
-            If (dropdown_pnl.Size = New Size(91, 55)) Then
-                dropdown_pnl.Size = New Size(91, 200)
+            If (stg_btn.Visible = True) Then
+                If (dropdown_pnl.Size = New Size(91, 55)) Then
+                    dropdown_pnl.Size = New Size(91, 200)
+                Else
+                    dropdown_pnl.Size = New Size(91, 55)
+                End If
             Else
-                dropdown_pnl.Size = New Size(91, 55)
+                If (dropdown_pnl.Size = New Size(91, 55)) Then
+                    dropdown_pnl.Size = New Size(91, 164)
+                Else
+                    dropdown_pnl.Size = New Size(91, 55)
+                End If
             End If
         Catch ex As Exception
         End Try
