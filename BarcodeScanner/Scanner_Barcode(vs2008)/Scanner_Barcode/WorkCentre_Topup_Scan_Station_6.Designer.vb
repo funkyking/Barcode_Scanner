@@ -33,8 +33,8 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         Me.userInput = New System.Windows.Forms.TextBox
         Me.DataGrid2 = New System.Windows.Forms.DataGrid
         Me.username = New System.Windows.Forms.Label
-        Me.Label3 = New System.Windows.Forms.Label
         Me.Panel3 = New System.Windows.Forms.Panel
+        Me.stn_lbl_list = New System.Windows.Forms.Label
         Me.rescan_pbx = New System.Windows.Forms.PictureBox
         Me.back_pbx = New System.Windows.Forms.PictureBox
         Me.dropdown_pnl = New System.Windows.Forms.Panel
@@ -47,7 +47,6 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         Me.Label4 = New System.Windows.Forms.Label
         Me.Button1 = New System.Windows.Forms.Button
         Me.part_lbl = New System.Windows.Forms.Label
-        Me.stn_lbl_list = New System.Windows.Forms.Label
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -147,7 +146,7 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         'Label5
         '
         Me.Label5.Font = New System.Drawing.Font("Tahoma", 34.0!, System.Drawing.FontStyle.Underline)
-        Me.Label5.Location = New System.Drawing.Point(3, 15)
+        Me.Label5.Location = New System.Drawing.Point(3, 13)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(293, 53)
         Me.Label5.Text = "Scan Station"
@@ -156,7 +155,7 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         '
         Me.userInput.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.userInput.Font = New System.Drawing.Font("Leelawadee UI Semilight", 36.0!, System.Drawing.FontStyle.Regular)
-        Me.userInput.Location = New System.Drawing.Point(11, 185)
+        Me.userInput.Location = New System.Drawing.Point(11, 145)
         Me.userInput.Name = "userInput"
         Me.userInput.Size = New System.Drawing.Size(409, 70)
         Me.userInput.TabIndex = 27
@@ -164,26 +163,19 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         'DataGrid2
         '
         Me.DataGrid2.BackgroundColor = System.Drawing.Color.White
-        Me.DataGrid2.Location = New System.Drawing.Point(11, 242)
+        Me.DataGrid2.Location = New System.Drawing.Point(11, 247)
         Me.DataGrid2.Name = "DataGrid2"
-        Me.DataGrid2.Size = New System.Drawing.Size(454, 377)
+        Me.DataGrid2.Size = New System.Drawing.Size(454, 315)
         Me.DataGrid2.TabIndex = 29
         '
         'username
         '
         Me.username.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
-        Me.username.Location = New System.Drawing.Point(350, 193)
+        Me.username.Location = New System.Drawing.Point(108, 184)
         Me.username.Name = "username"
-        Me.username.Size = New System.Drawing.Size(122, 33)
+        Me.username.Size = New System.Drawing.Size(364, 33)
         Me.username.Text = "[username]"
-        '
-        'Label3
-        '
-        Me.Label3.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
-        Me.Label3.Location = New System.Drawing.Point(255, 193)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(115, 33)
-        Me.Label3.Text = "User_ID :"
+        Me.username.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'Panel3
         '
@@ -195,13 +187,21 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         Me.Panel3.Controls.Add(Me.back_pbx)
         Me.Panel3.Location = New System.Drawing.Point(23, 259)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(431, 348)
+        Me.Panel3.Size = New System.Drawing.Size(431, 294)
+        '
+        'stn_lbl_list
+        '
+        Me.stn_lbl_list.Font = New System.Drawing.Font("Leelawadee UI Semilight", 28.0!, System.Drawing.FontStyle.Regular)
+        Me.stn_lbl_list.Location = New System.Drawing.Point(15, 88)
+        Me.stn_lbl_list.Name = "stn_lbl_list"
+        Me.stn_lbl_list.Size = New System.Drawing.Size(400, 44)
+        Me.stn_lbl_list.Text = "station codes"
         '
         'rescan_pbx
         '
         Me.rescan_pbx.BackColor = System.Drawing.SystemColors.Window
         Me.rescan_pbx.Image = CType(resources.GetObject("rescan_pbx.Image"), System.Drawing.Image)
-        Me.rescan_pbx.Location = New System.Drawing.Point(362, 203)
+        Me.rescan_pbx.Location = New System.Drawing.Point(362, 163)
         Me.rescan_pbx.Name = "rescan_pbx"
         Me.rescan_pbx.Size = New System.Drawing.Size(53, 33)
         Me.rescan_pbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
@@ -209,7 +209,7 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         'back_pbx
         '
         Me.back_pbx.Image = CType(resources.GetObject("back_pbx.Image"), System.Drawing.Image)
-        Me.back_pbx.Location = New System.Drawing.Point(184, 280)
+        Me.back_pbx.Location = New System.Drawing.Point(184, 231)
         Me.back_pbx.Name = "back_pbx"
         Me.back_pbx.Size = New System.Drawing.Size(68, 55)
         Me.back_pbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
@@ -319,14 +319,6 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         Me.part_lbl.Text = "Part [0]"
         Me.part_lbl.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'stn_lbl_list
-        '
-        Me.stn_lbl_list.Font = New System.Drawing.Font("Leelawadee UI Semilight", 28.0!, System.Drawing.FontStyle.Regular)
-        Me.stn_lbl_list.Location = New System.Drawing.Point(15, 119)
-        Me.stn_lbl_list.Name = "stn_lbl_list"
-        Me.stn_lbl_list.Size = New System.Drawing.Size(400, 53)
-        Me.stn_lbl_list.Text = "station codes"
-        '
         'WorkCentre_Topup_Scan_Station_6
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit
@@ -337,7 +329,6 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.dropdown_pnl)
         Me.Controls.Add(Me.username)
-        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cont_btn)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -346,7 +337,7 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "WorkCentre_Topup_Scan_Station_6"
-        Me.Text = "Station Scan (TopUp)"
+        Me.Text = "7"
         Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
@@ -363,7 +354,6 @@ Partial Public Class WorkCentre_Topup_Scan_Station_6
     Friend WithEvents userInput As System.Windows.Forms.TextBox
     Friend WithEvents DataGrid2 As System.Windows.Forms.DataGrid
     Friend WithEvents username As System.Windows.Forms.Label
-    Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents logout_pbx As System.Windows.Forms.PictureBox
     Friend WithEvents back_pbx As System.Windows.Forms.PictureBox

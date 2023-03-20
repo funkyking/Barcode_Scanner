@@ -129,6 +129,7 @@ C:\Users\Admin\Desktop\BarcodeScanner\Scanner_Barcode(vs2008)\Scanner_Barcode\ob
 C:\Users\Admin\Desktop\BarcodeScanner\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.Form1.resources
 C:\Users\Admin\Desktop\BarcodeScanner\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.Identify_Model_2.resources
 C:\Users\Admin\Desktop\BarcodeScanner\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.Resources.resources
+C:\Users\Admin\Desktop\BarcodeScanner\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.Remove_Part.resources
 C:\Users\Admin\Desktop\BarcodeScanner\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.Settings.resources
 C:\Users\Admin\Desktop\BarcodeScanner\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.Subline_Result_3.resources
 C:\Users\Admin\Desktop\BarcodeScanner\Scanner_Barcode(vs2008)\Scanner_Barcode\obj\Release\Scanner_Barcode.WorkCentre_Topup_Scan_Part_5.resources

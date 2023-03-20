@@ -46,7 +46,7 @@
                 End If
                 If (res = True) Then
                     Label2.Visible = True
-                    Label2.Text = "✓ TopUp Success"
+                    Label2.Text = "✓ Part Found"
                     userInput.Text = ""
                     'Show Passed Form
                     Dim passed As New Subline_Result_3
@@ -86,6 +86,12 @@
         End Try
     End Sub
 
+    'Remove Part Form
+    Private Sub rmPartTopUp_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rmPartTopUp.Click
+        Dim _RMPART As New Remove_Part
+        _RMPART.Show()
+    End Sub
+
 #End Region
 
 #Region "Misc"
@@ -95,12 +101,17 @@
         Try
             mdl_lbl.Text = ModelCode
             sub_lbl.Text = LineCode
-            username.Text = UserID
+            username.Text = "User : " + EmployeeName + UserID
             'Only Admin Can see Settings
-            If (UserID = "admin" Or UserID = "Admin") Then
+            If (User_Admin_Flag = True) Then
                 stg_btn.Visible = True
             Else
                 stg_btn.Visible = False
+            End If
+
+            'Enable visibility of remove part Button
+            If (removePart_Flag = True) Then
+                rmPartTopUp.Visible = True
             End If
 
             userInput.Focus()
@@ -118,10 +129,14 @@
     'log out
     Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
         Try
-            Dim logout As New Form1 'Return to Login Screen (Logout)
             rm_RunningId() 'Clears RunningID Cache
             checkTheDb.Dispose() 'clears datatable of partlist,models, etc
-            logout.Show()
+            User_Admin_Flag = False
+            Form1.Show()
+            Form1.user_txtbx.Focus()
+            'Dim logout As New Form1 'Return to Login Screen (Logout)
+            'logout.Show()
+            'logout.user_txtbx.Focus()
             Me.Close()
         Catch ex As Exception
         End Try
@@ -235,4 +250,5 @@
     End Sub
 #End Region
 
+    
 End Class

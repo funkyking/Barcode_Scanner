@@ -135,7 +135,6 @@ Partial Public Class Form1
         Me.stg_btn.Size = New System.Drawing.Size(91, 36)
         Me.stg_btn.TabIndex = 3
         Me.stg_btn.Text = "Settings"
-        Me.stg_btn.Visible = False
         '
         'home_btn
         '
@@ -147,6 +146,7 @@ Partial Public Class Form1
         Me.home_btn.Size = New System.Drawing.Size(91, 36)
         Me.home_btn.TabIndex = 1
         Me.home_btn.Text = "Home"
+        Me.home_btn.Visible = False
         '
         'login_btn
         '
@@ -163,7 +163,7 @@ Partial Public Class Form1
         'Label6
         '
         Me.Label6.Font = New System.Drawing.Font("Tahoma", 24.0!, System.Drawing.FontStyle.Regular)
-        Me.Label6.Location = New System.Drawing.Point(190, 301)
+        Me.Label6.Location = New System.Drawing.Point(172, 301)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(21, 52)
         Me.Label6.Text = ":"
@@ -171,32 +171,31 @@ Partial Public Class Form1
         'Label3
         '
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 24.0!, System.Drawing.FontStyle.Regular)
-        Me.Label3.Location = New System.Drawing.Point(63, 302)
+        Me.Label3.Location = New System.Drawing.Point(45, 302)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(121, 60)
         Me.Label3.Text = "User Id"
         '
         'user_txtbx
         '
-        Me.user_txtbx.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
-        Me.user_txtbx.Location = New System.Drawing.Point(217, 301)
-        Me.user_txtbx.Multiline = True
+        Me.user_txtbx.Font = New System.Drawing.Font("Tahoma", 36.0!, System.Drawing.FontStyle.Regular)
+        Me.user_txtbx.Location = New System.Drawing.Point(198, 293)
         Me.user_txtbx.Name = "user_txtbx"
-        Me.user_txtbx.Size = New System.Drawing.Size(169, 52)
+        Me.user_txtbx.Size = New System.Drawing.Size(220, 64)
         Me.user_txtbx.TabIndex = 0
         '
         'DataGrid1
         '
         Me.DataGrid1.BackgroundColor = System.Drawing.Color.White
-        Me.DataGrid1.Location = New System.Drawing.Point(38, 260)
+        Me.DataGrid1.Location = New System.Drawing.Point(20, 260)
         Me.DataGrid1.Name = "DataGrid1"
-        Me.DataGrid1.Size = New System.Drawing.Size(397, 135)
+        Me.DataGrid1.Size = New System.Drawing.Size(439, 135)
         Me.DataGrid1.TabIndex = 19
         '
         'user_found_lbl
         '
         Me.user_found_lbl.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.user_found_lbl.Location = New System.Drawing.Point(392, 313)
+        Me.user_found_lbl.Location = New System.Drawing.Point(424, 312)
         Me.user_found_lbl.Name = "user_found_lbl"
         Me.user_found_lbl.Size = New System.Drawing.Size(22, 28)
         Me.user_found_lbl.TextAlign = System.Drawing.ContentAlignment.TopCenter

@@ -33,8 +33,8 @@ Partial Public Class WorkCentre_Topup_Scan_Part_5
         Me.userInput = New System.Windows.Forms.TextBox
         Me.DataGrid2 = New System.Windows.Forms.DataGrid
         Me.username = New System.Windows.Forms.Label
-        Me.Label6 = New System.Windows.Forms.Label
         Me.Panel4 = New System.Windows.Forms.Panel
+        Me.rmPartTopUp = New System.Windows.Forms.Button
         Me.Label2 = New System.Windows.Forms.Label
         Me.rescan_pbx = New System.Windows.Forms.PictureBox
         Me.back_pbx = New System.Windows.Forms.PictureBox
@@ -168,23 +168,16 @@ Partial Public Class WorkCentre_Topup_Scan_Part_5
         'username
         '
         Me.username.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
-        Me.username.Location = New System.Drawing.Point(353, 129)
+        Me.username.Location = New System.Drawing.Point(109, 129)
         Me.username.Name = "username"
-        Me.username.Size = New System.Drawing.Size(122, 35)
+        Me.username.Size = New System.Drawing.Size(366, 26)
         Me.username.Text = "[username]"
-        Me.username.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'Label6
-        '
-        Me.Label6.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
-        Me.Label6.Location = New System.Drawing.Point(257, 129)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(114, 35)
-        Me.Label6.Text = "User_ID :"
+        Me.username.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.Color.White
+        Me.Panel4.Controls.Add(Me.rmPartTopUp)
         Me.Panel4.Controls.Add(Me.Label2)
         Me.Panel4.Controls.Add(Me.rescan_pbx)
         Me.Panel4.Controls.Add(Me.back_pbx)
@@ -193,6 +186,18 @@ Partial Public Class WorkCentre_Topup_Scan_Part_5
         Me.Panel4.Location = New System.Drawing.Point(25, 208)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(430, 363)
+        '
+        'rmPartTopUp
+        '
+        Me.rmPartTopUp.BackColor = System.Drawing.Color.Crimson
+        Me.rmPartTopUp.Font = New System.Drawing.Font("Yu Gothic UI Semilight", 14.0!, System.Drawing.FontStyle.Bold)
+        Me.rmPartTopUp.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.rmPartTopUp.Location = New System.Drawing.Point(289, 12)
+        Me.rmPartTopUp.Name = "rmPartTopUp"
+        Me.rmPartTopUp.Size = New System.Drawing.Size(130, 43)
+        Me.rmPartTopUp.TabIndex = 24
+        Me.rmPartTopUp.Text = "Remove Part"
+        Me.rmPartTopUp.Visible = False
         '
         'Label2
         '
@@ -260,7 +265,7 @@ Partial Public Class WorkCentre_Topup_Scan_Part_5
         '
         Me.stg_btn.BackColor = System.Drawing.Color.Transparent
         Me.stg_btn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.stg_btn.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
+        Me.stg_btn.Font = New System.Drawing.Font("Tahoma", 14.0!, System.Drawing.FontStyle.Regular)
         Me.stg_btn.Location = New System.Drawing.Point(0, 91)
         Me.stg_btn.Name = "stg_btn"
         Me.stg_btn.Size = New System.Drawing.Size(91, 36)
@@ -300,7 +305,6 @@ Partial Public Class WorkCentre_Topup_Scan_Part_5
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.cont_btn)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.DataGrid2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -325,7 +329,6 @@ Partial Public Class WorkCentre_Topup_Scan_Part_5
     Friend WithEvents userInput As System.Windows.Forms.TextBox
     Friend WithEvents DataGrid2 As System.Windows.Forms.DataGrid
     Friend WithEvents username As System.Windows.Forms.Label
-    Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents back_pbx As System.Windows.Forms.PictureBox
@@ -338,4 +341,5 @@ Partial Public Class WorkCentre_Topup_Scan_Part_5
     Friend WithEvents home_btn As System.Windows.Forms.Button
     Friend WithEvents dropdown_pbx As System.Windows.Forms.PictureBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents rmPartTopUp As System.Windows.Forms.Button
 End Class

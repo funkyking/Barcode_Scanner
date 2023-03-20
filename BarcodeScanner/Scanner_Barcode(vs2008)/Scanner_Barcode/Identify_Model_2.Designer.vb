@@ -32,7 +32,6 @@ Partial Public Class Identify_Model_2
         Me.Panel3 = New System.Windows.Forms.Panel
         Me.Label8 = New System.Windows.Forms.Label
         Me.rescan_pbx = New System.Windows.Forms.PictureBox
-        Me.Label5 = New System.Windows.Forms.Label
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
         Me.dropdown_pnl = New System.Windows.Forms.Panel
         Me.exit_btn = New System.Windows.Forms.Button
@@ -78,11 +77,11 @@ Partial Public Class Identify_Model_2
         '
         Me.username.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
         Me.username.ForeColor = System.Drawing.Color.Black
-        Me.username.Location = New System.Drawing.Point(346, 132)
+        Me.username.Location = New System.Drawing.Point(109, 132)
         Me.username.Name = "username"
-        Me.username.Size = New System.Drawing.Size(122, 34)
+        Me.username.Size = New System.Drawing.Size(363, 31)
         Me.username.Text = "[username]"
-        Me.username.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.username.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'Panel2
         '
@@ -160,14 +159,6 @@ Partial Public Class Identify_Model_2
         Me.rescan_pbx.Size = New System.Drawing.Size(53, 33)
         Me.rescan_pbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         '
-        'Label5
-        '
-        Me.Label5.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
-        Me.Label5.Location = New System.Drawing.Point(246, 134)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(114, 34)
-        Me.Label5.Text = "User_ID :"
-        '
         'DataGrid1
         '
         Me.DataGrid1.BackColor = System.Drawing.Color.White
@@ -241,7 +232,6 @@ Partial Public Class Identify_Model_2
         Me.ControlBox = False
         Me.Controls.Add(Me.dropdown_pnl)
         Me.Controls.Add(Me.username)
-        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Cont_btn)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -268,7 +258,6 @@ Partial Public Class Identify_Model_2
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents username As System.Windows.Forms.Label
-    Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents logout_pbx As System.Windows.Forms.PictureBox
     Friend WithEvents rescan_pbx As System.Windows.Forms.PictureBox
     Friend WithEvents DataGrid1 As System.Windows.Forms.DataGrid

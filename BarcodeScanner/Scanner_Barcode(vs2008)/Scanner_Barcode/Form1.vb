@@ -3,6 +3,8 @@ Imports System.Data
 
 Public Class Form1
 
+    Private ValidUserID As Boolean
+    'Public Connection_Flag As Boolean
 
 
 #Region "Load"
@@ -14,12 +16,14 @@ Public Class Form1
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
             'Choose First connection string in settings.combobox1.items
-            setSqlConn()
+            'setSqlConn()
+            'Connection_Flag = autoSqlConn()
+            Connection_Flag = TestSqlConn()
 
             'GUI effects
             dropdown_pnl.Size = New Size(91, 55)
-            home_btn.Visible = False
             'qr_txtbx.Focus()
+
             'Check if Connected to database
             If (conn_str = "null") Then
                 Label9.Text = "Not Connected to Database"
@@ -74,25 +78,51 @@ Public Class Form1
     'Checks if userName exist in database and displays a marker "✓"
     Private Sub user_txtbx_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles user_txtbx.TextChanged
         Try
-            Dim res As Boolean = False
-            If user_txtbx.Text = "" Then
-                user_found_lbl.Text = ""
-            Else
-                res = checkUsername(user_txtbx.Text)
+            If Connection_Flag = True Then
+                If user_txtbx.Text = "" Then
+                    user_found_lbl.Text = ""
+                Else
+                    ValidUserID = checkUsername(user_txtbx.Text)
 
-                If (res = True) Then
-                    user_found_lbl.Text = "✓"
+                    If (ValidUserID = True) Then
+                        user_found_lbl.Text = "✓"
+                    Else
+                        user_found_lbl.Text = "X"
+                    End If
+                End If
+            End If
+        Catch ex As Exception
+        End Try
+    End Sub
 
+    'Trigger Open Next Form If username is valid
+    Private Sub user_txtbx_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles user_txtbx.KeyDown
+        Try
+            If e.KeyCode = Keys.Enter Then
+                If (ValidUserID = True) Then
                     'Passing value to Data.vb
                     UserID = user_txtbx.Text
+
+                    If (UserID = "@85439" Or EmployeeName = "Admin") Then
+                        User_Admin_Flag = True
+                    End If
 
                     'Continue to next form
                     Dim IDM As New Identify_Model_2
                     IDM.username.Text = UserID
                     IDM.Show()
+                    IDM.model_ID.Focus()
                     Me.Hide()
                 Else
-                    user_found_lbl.Text = "X"
+                    Dim failed As New Subline_Result_3
+                    failed.BackColor = Color.Red
+                    failed._top_lbl = "Invalid" 'top Label
+                    failed._bot_lbl = "User-ID" 'bottom label
+                    failed.Show()
+                    user_txtbx.Text = ""
+                    user_txtbx.Focus()
+                    user_found_lbl.Text = ""
+                    user_txtbx.Focus()
                 End If
             End If
         Catch ex As Exception
@@ -212,7 +242,7 @@ Public Class Form1
     Private Sub settings_pbx_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dropdown_pbx.Click
         Try
             If (dropdown_pnl.Size = New Size(91, 55)) Then
-                dropdown_pnl.Size = New Size(91, 91) '91, 200
+                dropdown_pnl.Size = New Size(91, 127) '91, 200
             Else
                 dropdown_pnl.Size = New Size(91, 55)
             End If
@@ -225,6 +255,7 @@ Public Class Form1
         Try
             settings_pbx_Click(sender, New EventArgs())
             Dim obj As New Settings
+            obj.showOnlyConnPnl = True
             obj.Show()
         Catch ex As Exception
         End Try
@@ -242,6 +273,5 @@ Public Class Form1
     End Sub
 
 #End Region
-
 
 End Class

@@ -22,12 +22,13 @@ Partial Public Class Subline_Result_3
         Me._top = New System.Windows.Forms.Label
         Me._bot = New System.Windows.Forms.Label
         Me.closeTimer = New System.Windows.Forms.Timer
+        Me.Label1 = New System.Windows.Forms.Label
         Me.SuspendLayout()
         '
         '_top
         '
         Me._top.Font = New System.Drawing.Font("Microsoft Sans Serif", 42.0!, System.Drawing.FontStyle.Regular)
-        Me._top.Location = New System.Drawing.Point(12, 126)
+        Me._top.Location = New System.Drawing.Point(8, 86)
         Me._top.Name = "_top"
         Me._top.Size = New System.Drawing.Size(465, 144)
         Me._top.Text = "Station"
@@ -36,15 +37,24 @@ Partial Public Class Subline_Result_3
         '_bot
         '
         Me._bot.Font = New System.Drawing.Font("Microsoft Sans Serif", 42.0!, System.Drawing.FontStyle.Regular)
-        Me._bot.Location = New System.Drawing.Point(7, 283)
+        Me._bot.Location = New System.Drawing.Point(7, 275)
         Me._bot.Name = "_bot"
-        Me._bot.Size = New System.Drawing.Size(465, 330)
+        Me._bot.Size = New System.Drawing.Size(465, 296)
         Me._bot.Text = "00"
         Me._bot.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'closeTimer
         '
-        Me.closeTimer.Interval = 1500
+        Me.closeTimer.Interval = 2200
+        '
+        'Label1
+        '
+        Me.Label1.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
+        Me.Label1.Location = New System.Drawing.Point(129, 15)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(343, 28)
+        Me.Label1.Text = "Label1"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'Subline_Result_3
         '
@@ -53,6 +63,7 @@ Partial Public Class Subline_Result_3
         Me.BackColor = System.Drawing.Color.LawnGreen
         Me.ClientSize = New System.Drawing.Size(480, 640)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me._bot)
         Me.Controls.Add(Me._top)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -66,4 +77,5 @@ Partial Public Class Subline_Result_3
     Friend WithEvents _top As System.Windows.Forms.Label
     Friend WithEvents _bot As System.Windows.Forms.Label
     Friend WithEvents closeTimer As System.Windows.Forms.Timer
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 End Class

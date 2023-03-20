@@ -22,12 +22,14 @@ Partial Public Class Settings
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Settings))
         Me.Label1 = New System.Windows.Forms.Label
         Me.Panel1 = New System.Windows.Forms.Panel
+        Me.dbStatus_lbl = New System.Windows.Forms.Label
+        Me.Admin_Pnl = New System.Windows.Forms.Panel
         Me.Button3 = New System.Windows.Forms.Button
+        Me.Label4 = New System.Windows.Forms.Label
         Me.Button1 = New System.Windows.Forms.Button
+        Me.loadTables_btn = New System.Windows.Forms.Button
         Me.Label5 = New System.Windows.Forms.Label
         Me.tableList_cmbx = New System.Windows.Forms.ComboBox
-        Me.Label4 = New System.Windows.Forms.Label
-        Me.loadTables_btn = New System.Windows.Forms.Button
         Me.Button2 = New System.Windows.Forms.Button
         Me.Label3 = New System.Windows.Forms.Label
         Me.Add_Btn = New System.Windows.Forms.Button
@@ -38,27 +40,30 @@ Partial Public Class Settings
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
         Me.home_pbx = New System.Windows.Forms.PictureBox
         Me.Timer1 = New System.Windows.Forms.Timer
+        Me.userID_lbl = New System.Windows.Forms.Label
+        Me.Admin_Pnl2 = New System.Windows.Forms.Panel
+        Me.Label6 = New System.Windows.Forms.Label
+        Me.rmPartFlag_btn = New System.Windows.Forms.Button
+        Me.Label7 = New System.Windows.Forms.Label
         Me.Panel1.SuspendLayout()
+        Me.Admin_Pnl.SuspendLayout()
+        Me.Admin_Pnl2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
         '
-        Me.Label1.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular)
+        Me.Label1.Font = New System.Drawing.Font("Tahoma", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
         Me.Label1.Location = New System.Drawing.Point(7, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(78, 20)
+        Me.Label1.Size = New System.Drawing.Size(85, 20)
         Me.Label1.Text = "Database"
         '
         'Panel1
         '
         Me.Panel1.AutoScroll = True
         Me.Panel1.BackColor = System.Drawing.Color.White
-        Me.Panel1.Controls.Add(Me.Button3)
-        Me.Panel1.Controls.Add(Me.Button1)
-        Me.Panel1.Controls.Add(Me.Label5)
-        Me.Panel1.Controls.Add(Me.tableList_cmbx)
-        Me.Panel1.Controls.Add(Me.Label4)
-        Me.Panel1.Controls.Add(Me.loadTables_btn)
+        Me.Panel1.Controls.Add(Me.Admin_Pnl2)
+        Me.Panel1.Controls.Add(Me.dbStatus_lbl)
         Me.Panel1.Controls.Add(Me.Button2)
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.Add_Btn)
@@ -71,32 +76,76 @@ Partial Public Class Settings
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(228, 480)
         '
+        'dbStatus_lbl
+        '
+        Me.dbStatus_lbl.BackColor = System.Drawing.Color.Crimson
+        Me.dbStatus_lbl.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.dbStatus_lbl.ForeColor = System.Drawing.Color.White
+        Me.dbStatus_lbl.Location = New System.Drawing.Point(117, 9)
+        Me.dbStatus_lbl.Name = "dbStatus_lbl"
+        Me.dbStatus_lbl.Size = New System.Drawing.Size(101, 24)
+        Me.dbStatus_lbl.Text = "Not Active"
+        Me.dbStatus_lbl.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'Admin_Pnl
+        '
+        Me.Admin_Pnl.AutoScroll = True
+        Me.Admin_Pnl.BackColor = System.Drawing.Color.White
+        Me.Admin_Pnl.Controls.Add(Me.Button3)
+        Me.Admin_Pnl.Controls.Add(Me.Label4)
+        Me.Admin_Pnl.Controls.Add(Me.Button1)
+        Me.Admin_Pnl.Controls.Add(Me.loadTables_btn)
+        Me.Admin_Pnl.Controls.Add(Me.Label5)
+        Me.Admin_Pnl.Controls.Add(Me.tableList_cmbx)
+        Me.Admin_Pnl.Location = New System.Drawing.Point(237, 83)
+        Me.Admin_Pnl.Name = "Admin_Pnl"
+        Me.Admin_Pnl.Size = New System.Drawing.Size(239, 219)
+        '
         'Button3
         '
         Me.Button3.BackColor = System.Drawing.Color.DarkBlue
         Me.Button3.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular)
         Me.Button3.ForeColor = System.Drawing.Color.White
-        Me.Button3.Location = New System.Drawing.Point(16, 419)
+        Me.Button3.Location = New System.Drawing.Point(15, 158)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(76, 40)
         Me.Button3.TabIndex = 23
-        Me.Button3.Text = "M Table"
+        Me.Button3.Text = "(M)Table"
+        '
+        'Label4
+        '
+        Me.Label4.Font = New System.Drawing.Font("Tahoma", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
+        Me.Label4.Location = New System.Drawing.Point(15, 13)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(110, 20)
+        Me.Label4.Text = "Tables"
         '
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.ForestGreen
         Me.Button1.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular)
         Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(149, 419)
+        Me.Button1.Location = New System.Drawing.Point(157, 158)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(69, 40)
         Me.Button1.TabIndex = 17
         Me.Button1.Text = "Log File"
         '
+        'loadTables_btn
+        '
+        Me.loadTables_btn.BackColor = System.Drawing.Color.SteelBlue
+        Me.loadTables_btn.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular)
+        Me.loadTables_btn.ForeColor = System.Drawing.Color.White
+        Me.loadTables_btn.Location = New System.Drawing.Point(157, 112)
+        Me.loadTables_btn.Name = "loadTables_btn"
+        Me.loadTables_btn.Size = New System.Drawing.Size(69, 40)
+        Me.loadTables_btn.TabIndex = 16
+        Me.loadTables_btn.Text = "Load"
+        '
         'Label5
         '
         Me.Label5.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular)
-        Me.Label5.Location = New System.Drawing.Point(7, 316)
+        Me.Label5.Location = New System.Drawing.Point(15, 55)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(53, 19)
         Me.Label5.Text = "Tables"
@@ -106,33 +155,14 @@ Partial Public Class Settings
         Me.tableList_cmbx.Font = New System.Drawing.Font("Tahoma", 14.0!, System.Drawing.FontStyle.Regular)
         Me.tableList_cmbx.Items.Add("Data Source=192.168.8.126,1433;Password=saadmin;User ID=sa;Initial Catalog=PCC")
         Me.tableList_cmbx.Items.Add("Data Source=DESKTOP-P9BJNAI;Password=saadmin;User ID=sa;Initial Catalog=PCC")
-        Me.tableList_cmbx.Location = New System.Drawing.Point(7, 338)
+        Me.tableList_cmbx.Location = New System.Drawing.Point(15, 77)
         Me.tableList_cmbx.Name = "tableList_cmbx"
         Me.tableList_cmbx.Size = New System.Drawing.Size(211, 29)
         Me.tableList_cmbx.TabIndex = 18
         '
-        'Label4
-        '
-        Me.Label4.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Underline)
-        Me.Label4.Location = New System.Drawing.Point(7, 284)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(104, 20)
-        Me.Label4.Text = "Data Tables"
-        '
-        'loadTables_btn
-        '
-        Me.loadTables_btn.BackColor = System.Drawing.Color.SteelBlue
-        Me.loadTables_btn.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular)
-        Me.loadTables_btn.ForeColor = System.Drawing.Color.White
-        Me.loadTables_btn.Location = New System.Drawing.Point(149, 373)
-        Me.loadTables_btn.Name = "loadTables_btn"
-        Me.loadTables_btn.Size = New System.Drawing.Size(69, 40)
-        Me.loadTables_btn.TabIndex = 16
-        Me.loadTables_btn.Text = "Load"
-        '
         'Button2
         '
-        Me.Button2.BackColor = System.Drawing.Color.Red
+        Me.Button2.BackColor = System.Drawing.SystemColors.ControlDark
         Me.Button2.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular)
         Me.Button2.ForeColor = System.Drawing.Color.White
         Me.Button2.Location = New System.Drawing.Point(10, 102)
@@ -154,7 +184,7 @@ Partial Public Class Settings
         Me.Add_Btn.BackColor = System.Drawing.Color.SteelBlue
         Me.Add_Btn.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular)
         Me.Add_Btn.ForeColor = System.Drawing.Color.White
-        Me.Add_Btn.Location = New System.Drawing.Point(149, 225)
+        Me.Add_Btn.Location = New System.Drawing.Point(144, 225)
         Me.Add_Btn.Name = "Add_Btn"
         Me.Add_Btn.Size = New System.Drawing.Size(69, 40)
         Me.Add_Btn.TabIndex = 6
@@ -163,7 +193,7 @@ Partial Public Class Settings
         'Label2
         '
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular)
-        Me.Label2.Location = New System.Drawing.Point(10, 157)
+        Me.Label2.Location = New System.Drawing.Point(10, 158)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(137, 19)
         Me.Label2.Text = "New Database"
@@ -172,10 +202,10 @@ Partial Public Class Settings
         '
         Me.ComboBox1.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular)
         Me.ComboBox1.Items.Add("Data Source=192.169.42.100,1433;Password=saadmin;User ID=sa;Initial Catalog=PCC")
-        Me.ComboBox1.Items.Add("Data Source=192.168.8.126,1433;Password=saadmin;User ID=sa;Initial Catalog=PCC")
-        Me.ComboBox1.Items.Add("Data Source=DESKTOP-P9BJNAI;Password=saadmin;User ID=sa;Initial Catalog=PCC")
         Me.ComboBox1.Items.Add("Data Source=DESKTOP-601UU1V\SQLEXPRESS2014;Password=saadmin;User ID=sa;Initial Ca" & _
                 "talog=PCC")
+        Me.ComboBox1.Items.Add("Data Source=192.168.8.126,1433;Password=saadmin;User ID=sa;Initial Catalog=PCC")
+        Me.ComboBox1.Items.Add("Data Source=DESKTOP-P9BJNAI;Password=saadmin;User ID=sa;Initial Catalog=PCC")
         Me.ComboBox1.Location = New System.Drawing.Point(7, 70)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(211, 26)
@@ -204,9 +234,9 @@ Partial Public Class Settings
         'DataGrid1
         '
         Me.DataGrid1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.DataGrid1.Location = New System.Drawing.Point(237, 83)
+        Me.DataGrid1.Location = New System.Drawing.Point(237, 308)
         Me.DataGrid1.Name = "DataGrid1"
-        Me.DataGrid1.Size = New System.Drawing.Size(240, 480)
+        Me.DataGrid1.Size = New System.Drawing.Size(240, 255)
         Me.DataGrid1.TabIndex = 5
         '
         'home_pbx
@@ -218,6 +248,52 @@ Partial Public Class Settings
         Me.home_pbx.Size = New System.Drawing.Size(60, 60)
         Me.home_pbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         '
+        'userID_lbl
+        '
+        Me.userID_lbl.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular)
+        Me.userID_lbl.Location = New System.Drawing.Point(201, 47)
+        Me.userID_lbl.Name = "userID_lbl"
+        Me.userID_lbl.Size = New System.Drawing.Size(275, 28)
+        Me.userID_lbl.Text = "[UserID]"
+        Me.userID_lbl.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'Admin_Pnl2
+        '
+        Me.Admin_Pnl2.BackColor = System.Drawing.Color.White
+        Me.Admin_Pnl2.Controls.Add(Me.Label7)
+        Me.Admin_Pnl2.Controls.Add(Me.rmPartFlag_btn)
+        Me.Admin_Pnl2.Controls.Add(Me.Label6)
+        Me.Admin_Pnl2.Location = New System.Drawing.Point(7, 271)
+        Me.Admin_Pnl2.Name = "Admin_Pnl2"
+        Me.Admin_Pnl2.Size = New System.Drawing.Size(211, 197)
+        '
+        'Label6
+        '
+        Me.Label6.Font = New System.Drawing.Font("Tahoma", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
+        Me.Label6.Location = New System.Drawing.Point(11, 11)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(110, 20)
+        Me.Label6.Text = "Misc"
+        '
+        'rmPartFlag_btn
+        '
+        Me.rmPartFlag_btn.BackColor = System.Drawing.Color.Gray
+        Me.rmPartFlag_btn.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular)
+        Me.rmPartFlag_btn.ForeColor = System.Drawing.Color.White
+        Me.rmPartFlag_btn.Location = New System.Drawing.Point(122, 39)
+        Me.rmPartFlag_btn.Name = "rmPartFlag_btn"
+        Me.rmPartFlag_btn.Size = New System.Drawing.Size(82, 40)
+        Me.rmPartFlag_btn.TabIndex = 13
+        Me.rmPartFlag_btn.Text = "Inactive"
+        '
+        'Label7
+        '
+        Me.Label7.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular)
+        Me.Label7.Location = New System.Drawing.Point(14, 49)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(100, 25)
+        Me.Label7.Text = "Remove Part"
+        '
         'Settings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
@@ -226,6 +302,8 @@ Partial Public Class Settings
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(480, 640)
         Me.ControlBox = False
+        Me.Controls.Add(Me.userID_lbl)
+        Me.Controls.Add(Me.Admin_Pnl)
         Me.Controls.Add(Me.home_pbx)
         Me.Controls.Add(Me.DataGrid1)
         Me.Controls.Add(Me.Panel1)
@@ -233,6 +311,8 @@ Partial Public Class Settings
         Me.Name = "Settings"
         Me.Text = "Settings"
         Me.Panel1.ResumeLayout(False)
+        Me.Admin_Pnl.ResumeLayout(False)
+        Me.Admin_Pnl2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -254,4 +334,11 @@ Partial Public Class Settings
     Friend WithEvents tableList_cmbx As System.Windows.Forms.ComboBox
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents userID_lbl As System.Windows.Forms.Label
+    Friend WithEvents Admin_Pnl As System.Windows.Forms.Panel
+    Friend WithEvents dbStatus_lbl As System.Windows.Forms.Label
+    Friend WithEvents Admin_Pnl2 As System.Windows.Forms.Panel
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents rmPartFlag_btn As System.Windows.Forms.Button
 End Class

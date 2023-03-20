@@ -7,6 +7,38 @@ Public Class Settings
     Shared table_list As String
     Shared conn As SqlConnection
     Public ConnectionId As String = ""
+    Public showOnlyConnPnl As Boolean
+
+#Region "Load"
+
+    'Loads Up Important Data (eg. Database)
+    Private Sub Settings_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Try
+            'If the Flag is True (Then Dont Show the Rest only Connection Settings)
+            If showOnlyConnPnl = True Then
+                Admin_Pnl.Visible = False
+                DataGrid1.Visible = False
+                userID_lbl.Visible = False
+            Else
+                userID_lbl.Text = "User : " + EmployeeName + UserID
+                logTable = createLogBook()
+            End If
+
+            'If conn_str is already established, Then this will display all the tables Automatically
+            Connection_Flag = LoadUpTheComboBoxTables()
+            ConnStatusFlagLblDis()
+
+            'Gui Area
+            ''Remove Part Flag
+            rmPartFlag_Sub()
+
+        Catch ex As Exception
+        End Try
+    End Sub
+
+#End Region
+
+#Region "Button"
 
     'Add Sql Connection
     Private Sub Add_Btn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Add_Btn.Click
@@ -36,38 +68,17 @@ Public Class Settings
     'Connect to selected sql connection
     Public Sub conn_Btn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles conn_Btn.Click
         Try
-            If (ComboBox1.Items.Count > 0 And ComboBox1.SelectedText IsNot Nothing) Then
-                'Give the the connection string throughout the application
-                'conn_str = ComboBox1.SelectedText
-                conn_str = ComboBox1.SelectedItem.ToString
-                'conn_str = ComboBox1.Items(0)
+            If (ComboBox1.SelectedItem IsNot Nothing) Then
+                If (ComboBox1.Items.Count > 0 And ComboBox1.SelectedText IsNot Nothing) Then
+                    'Give the the connection string throughout the application
+                    'conn_str = ComboBox1.SelectedText
+                    conn_str = ComboBox1.SelectedItem.ToString
+                    'conn_str = ComboBox1.Items(0)
+                End If
             End If
 
-            Using conn = New SqlConnection(conn_str)
-                conn.Open()
-
-                If (conn.State = ConnectionState.Open) Then
-                    Dim query As String = "Select name FROM sys.tables"
-                    Dim da As New SqlDataAdapter(query, conn)
-                    Using ds = New DataSet()
-                        da.Fill(ds)
-                        With tableList_cmbx
-                            .DataSource = ds.Tables(0)
-                            .DisplayMember = "name"
-                            .ValueMember = "name"
-                        End With
-                    End Using
-                Else
-                    MsgBox("Database Not found / Inactive")
-                End If
-            End Using
-            'Display Connection on Login
-            DatabaseName = conn_str
-            Dim temp As String = DatabaseName
-            Dim es As Integer = temp.IndexOf("=") + 1
-            Dim eq As Integer = temp.IndexOf(";")
-            ConnectionId = temp.Substring(es, eq - es)
-            Form1.Label9.Text = "Connected = " + ConnectionId
+            Connection_Flag = LoadUpTheComboBoxTables()
+            ConnStatusFlagLblDis()
         Catch ex As Exception
         End Try
     End Sub
@@ -93,14 +104,6 @@ Public Class Settings
         Me.Close()
     End Sub
 
-    'Loads Up Important Data (eg. Database)
-    Private Sub Settings_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Try
-            logTable = createLogBook()
-        Catch ex As Exception
-        End Try
-    End Sub
-
     'Display The finished Scanned Topup Sessions
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         Try
@@ -118,4 +121,96 @@ Public Class Settings
         Catch ex As Exception
         End Try
     End Sub
+
+    'This Enables user(Admin Only) for the Option to remove part or not
+    Private Sub rmPartFlag_btn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rmPartFlag_btn.Click
+        If (rmPartFlag_btn.Text = "Inactive") Then
+            removePart_Flag = True
+        Else
+            removePart_Flag = False
+        End If
+        rmPartFlag_Sub()
+    End Sub
+
+#End Region
+
+#Region "Ui"
+
+    'Simple sub that changes the colour of the Remove Part button
+    Private Sub rmPartFlag_Sub()
+        If (removePart_Flag = True) Then
+            rmPartFlag_btn.Text = "Active"
+            rmPartFlag_btn.BackColor = Color.Green()
+        Else
+            rmPartFlag_btn.Text = "Inactive"
+            rmPartFlag_btn.BackColor = Color.Gray()
+        End If
+    End Sub
+
+    'Just a Simple Flag Indicator if A Connection is Established or Not
+    'If False the label will display "Not Active"
+    Private Sub ConnStatusFlagLblDis()
+        Try
+            If (Connection_Flag = True) Then
+                dbStatus_lbl.Text = "Active"
+                dbStatus_lbl.BackColor = Color.Green()
+            Else
+                dbStatus_lbl.Text = "Not Active"
+                dbStatus_lbl.BackColor = Color.Crimson()
+            End If
+        Catch ex As Exception
+        End Try
+    End Sub
+
+#End Region
+
+#Region "Functions"
+
+    'Automatically Detects if User is Already Connected to A Database
+    'If The are Connected, Then it will Display all the Tables Accordingly.
+    Private Function LoadUpTheComboBoxTables() As Boolean
+        Dim Result As Boolean = False
+        Try
+            If (conn_str IsNot Nothing) Then
+                Using conn = New SqlConnection(conn_str)
+                    conn.Open()
+                    If (conn.State = ConnectionState.Open) Then
+                        Dim query As String = "Select name FROM sys.tables"
+                        Dim da As New SqlDataAdapter(query, conn)
+                        Using ds = New DataSet()
+                            da.Fill(ds)
+                            If (ds.Tables.Count > 0) Then
+                                With tableList_cmbx
+                                    .DataSource = ds.Tables(0)
+                                    .DisplayMember = "name"
+                                    .ValueMember = "name"
+                                End With
+                            Else
+                                MsgBox("Connection Succeed. But The Database is Empty")
+                            End If
+
+                            'Display Connection Information on Login
+                            DatabaseName = conn_str
+                            Dim temp As String = DatabaseName
+                            Dim es As Integer = temp.IndexOf("=") + 1
+                            Dim eq As Integer = temp.IndexOf(";")
+                            ConnectionId = temp.Substring(es, eq - es)
+                            Form1.Label9.Text = "Connected = " + ConnectionId
+                            Result = True
+                        End Using
+                    Else
+                        MsgBox("Database Not found / Inactive")
+                        Result = False
+                    End If
+                End Using
+            End If
+        Catch ex As Exception
+            Result = False
+        End Try
+        Return Result
+    End Function
+
+#End Region
+
+
 End Class

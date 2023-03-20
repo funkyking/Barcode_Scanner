@@ -27,6 +27,7 @@
 
     'When Event Load
     Private Sub Subline_Result_3_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Label1.Text = "User : " + EmployeeName + UserID
         closeTimer.Enabled = True
     End Sub
 

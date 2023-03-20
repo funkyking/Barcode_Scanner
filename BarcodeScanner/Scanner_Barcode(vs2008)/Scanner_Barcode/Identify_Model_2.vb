@@ -168,9 +168,9 @@ Public Class Identify_Model_2
     'load
     Private Sub Identify_Model_2_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
-            username.Text = UserID
+            username.Text = "User : " + EmployeeName + UserID
             'Only Admin Can see Settings
-            If (UserID = "admin" Or UserID = "Admin") Then
+            If (User_Admin_Flag = True) Then
                 stg_btn.Visible = True
             Else
                 stg_btn.Visible = False
@@ -185,8 +185,12 @@ Public Class Identify_Model_2
     'Log out
     Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles logout_pbx.Click
         Try
-            Dim logout As New Form1 'Return to Login Screen (Logout)
-            logout.Show()
+            Form1.Show()
+            Form1.user_txtbx.Focus()
+            'Dim logout As New Form1 'Return to Login Screen (Logout)
+            'logout.user_txtbx.Focus()
+            'logout.Show()
+            User_Admin_Flag = False
             Me.Close()
         Catch ex As Exception
         End Try

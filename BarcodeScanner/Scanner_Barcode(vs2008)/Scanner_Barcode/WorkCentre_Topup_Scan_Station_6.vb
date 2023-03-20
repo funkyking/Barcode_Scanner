@@ -91,14 +91,14 @@ Public Class WorkCentre_Topup_Scan_Station_6
     Private Sub WorkCentre_Topup_Scan_Station_6_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
             'Loading Labels
-            username.Text = UserID
+            username.Text = "User : " + EmployeeName + UserID
 
             'List the stations That you Can Topup In
             stn_lbl_list.Text = "Station List : " + station_List
 
 
             'Only Admin Can see Settings
-            If (UserID = "admin" Or UserID = "Admin") Then
+            If (User_Admin_Flag = True) Then
                 stg_btn.Visible = True
             Else
                 stg_btn.Visible = False
@@ -122,8 +122,12 @@ Public Class WorkCentre_Topup_Scan_Station_6
         Try
             rm_RunningId() 'Clears RunningID Cach
             checkTheDb.Dispose()
-            Dim logout As New Form1 'Return to Login Screen (Logout)
-            logout.Show()
+            Form1.Show()
+            Form1.user_txtbx.Focus()
+            'Dim logout As New Form1 'Return to Login Screen (Logout)
+            'logout.Show()
+            'logout.user_txtbx.Focus()
+            User_Admin_Flag = False
             Me.Close()
         Catch ex As Exception
         End Try

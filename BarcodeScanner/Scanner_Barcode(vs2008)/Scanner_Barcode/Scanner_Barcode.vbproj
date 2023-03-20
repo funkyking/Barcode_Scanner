@@ -24,7 +24,7 @@
     <NativePlatformName>Toradex_CE700</NativePlatformName>
     <FormFactorID>
     </FormFactorID>
-    <ApplicationIcon>icons8-barcode-scanner-64.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\icons8-barcode-scanner-64.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -79,8 +79,7 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data.vb" />
-    <Compile Include="dt_functions.vb" />
+    <Compile Include="Data\Data.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -100,13 +99,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Remove_Part.Designer.vb">
+      <DependentUpon>Remove_Part.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Remove_Part.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Settings.Designer.vb">
       <DependentUpon>Settings.vb</DependentUpon>
     </Compile>
     <Compile Include="Settings.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SQL_Command.vb" />
+    <Compile Include="Functions\SQL_Command.vb" />
     <Compile Include="Subline_Result_3.Designer.vb">
       <DependentUpon>Subline_Result_3.vb</DependentUpon>
     </Compile>
@@ -145,6 +150,9 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Remove_Part.resx">
+      <DependentUpon>Remove_Part.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.vb</DependentUpon>
     </EmbeddedResource>
@@ -162,11 +170,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="icons8-barcode-scanner-64.ico" />
+    <Content Include="Resources\icons8-barcode-scanner-64.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="My Project\DataSources\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.VisualBasic.targets" />
   <ProjectExtensions>
